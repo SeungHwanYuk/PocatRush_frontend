@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import { GameContainer } from "../Style/StyledComponents";
-import Header from "./Header";
+
 import { urlNPCLikeUpdate } from "../API/api";
 
 export function UnityGame() {
@@ -42,7 +42,7 @@ export function UnityGame() {
     return () => {
       removeEventListener("likeCount", handleNPCLikeUpdate);
     };
-  }, []);
+  }, [addEventListener, removeEventListener, handleNPCLikeUpdate]);
 
   useEffect(() => {
     npcLikeUpdate();
