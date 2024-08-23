@@ -9,10 +9,10 @@ export function UnityGame() {
   const [playingGame, setPlayingGame] = useState(false);
   const { unityProvider, sendMessage, addEventListener, removeEventListener } =
     useUnityContext({
-      loaderUrl: "build/PocatRushBuild.loader.js",
-      dataUrl: "build/PocatRushBuild.data",
-      frameworkUrl: "build/PocatRushBuild.framework.js",
-      codeUrl: "build/PocatRushBuild.wasm",
+      loaderUrl: "build/PocatRush.loader.js",
+      dataUrl: "build/PocatRush.data",
+      frameworkUrl: "build/PocatRush.framework.js",
+      codeUrl: "build/PocatRush.wasm",
     });
 
   // 유니티 -> 리액트
@@ -32,7 +32,6 @@ export function UnityGame() {
   async function npcLikeUpdate() {
     try {
       let response = await urlNPCLikeUpdate(likeData);
-      console.log("urlNPCLikeUpdate : ", response.data);
     } catch (error) {
       console.log("error : ", error);
     }
