@@ -17,6 +17,7 @@ import BoardWrapper from "./Pages/BoardWrapper";
 import PostWrite from "./Pages/PostWrite";
 
 import Post from "./Pages/Post";
+import { UnityGame } from "./Components/UnityGame";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/findaccess" element={<FindAccess />} />
           <Route path="/gameintro" element={<GameIntro />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/playgame" element={<UnityGame />} />
         </Routes>
       </BrowserRouter>
     </>

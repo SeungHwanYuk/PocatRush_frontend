@@ -36,6 +36,10 @@ export function urlPostWrite(postWrite) {
   return axios.post("http://localhost:8080/api/post/write", postWrite);
 }
 
+export function urlNPCLikeUpdate(likeData) {
+  return axios.put(`http://localhost:8080/api/like/update`, likeData);
+}
+
 // 0808 승환 현재로그인상태 테스트
 
 export async function tokenCheck() {

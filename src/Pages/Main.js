@@ -14,15 +14,19 @@ import {
   Text,
   Wrapper,
 } from "../Style/StyledComponents";
+import { useNavigate } from "react-router-dom";
 
 function Main() {
+  const navigate = useNavigate();
   return (
     <>
       <Header />
       <Wrapper ju={`center`} al={`flex-end`} dr={`column`}>
         <Image src="/images/testBanner.png" />
         <Wrapper dr={`column`} al={`flex-end`} isAbsolute top={`32%`}>
-          <GameStartButton>GAME START</GameStartButton>
+          <GameStartButton onClick={() => navigate(`/playgame`)}>
+            GAME START
+          </GameStartButton>
           <Profile />
         </Wrapper>
       </Wrapper>

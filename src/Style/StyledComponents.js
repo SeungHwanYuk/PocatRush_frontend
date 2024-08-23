@@ -451,3 +451,10 @@ export const PostWriteButton = styled.button`
     color: #fff;
   }
 `;
+
+export const GameContainer = styled.div`
+  width: 1344px;
+  height: 756px;
+  margin: auto;
+  border: 1px solid gray;
+`;
