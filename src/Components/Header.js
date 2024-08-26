@@ -65,7 +65,7 @@ function Header() {
           />
         </StyledLink>
         <Wrapper ju={`flex-end`} padding={`0px 74px 10px`}>
-          {/* 0809 승환 로그아웃 추가 (로그인이 되어있다면 hidden속성 추가 요망) */}
+          {/* 0809 승환 로그아웃 추가 (로그인이 되어있다면 hidden속성 추가 요망) -완료 */}
           {!token ? (
             <>
               <HeaderText padding={`0px 32px`} isSmall>

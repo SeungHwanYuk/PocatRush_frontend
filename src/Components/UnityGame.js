@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import { GameContainer } from "../Style/StyledComponents";
 
-import { urlNPCLikeUpdate } from "../API/api";
+import { tokenCheck, urlCreateCharacter, urlNPCLikeUpdate } from "../API/api";
 
 export function UnityGame() {
   // 리액트 -> 유니티
@@ -16,12 +16,24 @@ export function UnityGame() {
     });
 
   // 유니티 -> 리액트
+  // test
   const [npcName, setNPCName] = useState("");
   const [likeNumber, setLikeNumber] = useState(0);
-  // const [userId, setUserId] = useState("");
+
+  // 캐릭터만들기
+  const [userId, setUserId] = useState("");
+  const [charNickname, setCharNickname] = useState("");
+  const [profileImage, setProfileImage] = useState("");
+
   const likeData = {
     npcName: `${npcName}`,
     liked: `${likeNumber}`,
+  };
+
+  const characterData = {
+    charNickName: `${charNickname}`,
+    user: `${userId}`,
+    profileImage: `${profileImage}`,
   };
 
   function handleNPCLikeUpdate(npcName, likeNumber) {
@@ -29,11 +41,33 @@ export function UnityGame() {
     setLikeNumber(likeNumber);
   }
 
+  function handleCharacterData(nickName) {
+    setCharNickname(nickName);
+  }
+
   async function npcLikeUpdate() {
     try {
+      if (!likeNumber) {
+        return;
+      }
       let response = await urlNPCLikeUpdate(likeData);
     } catch (error) {
       console.log("error : ", error);
+    }
+  }
+
+  async function createCharater() {
+    try {
+      const response = await tokenCheck();
+      setUserId(response.userId);
+      try {
+        const responseCreated = await urlCreateCharacter(characterData);
+        console.log("urlCreateCharacter : ", responseCreated);
+      } catch (error) {
+        console.log("urlCreateCharacter 에러 ", error);
+      }
+    } catch (error) {
+      console.log("tokenCheck 에러 : ", error);
     }
   }
 
@@ -45,8 +79,20 @@ export function UnityGame() {
   }, [addEventListener, removeEventListener, handleNPCLikeUpdate]);
 
   useEffect(() => {
+    addEventListener("Create", handleCharacterData);
+    return () => {
+      removeEventListener("Create", handleCharacterData);
+    };
+  }, [addEventListener, removeEventListener, handleNPCLikeUpdate]);
+
+  useEffect(() => {
     npcLikeUpdate();
   }, [likeNumber]);
+
+  useEffect(() => {
+    createCharater();
+  }, [charNickname]);
+
   return (
     <>
       <h1>PocatRush Test</h1>

@@ -36,8 +36,16 @@ export function urlPostWrite(postWrite) {
   return axios.post("http://localhost:8080/api/post/write", postWrite);
 }
 
+// 유니티
 export function urlNPCLikeUpdate(likeData) {
   return axios.put(`http://localhost:8080/api/like/update`, likeData);
+}
+
+export function urlCreateCharacter(characterData) {
+  return axios.post(
+    `http://localhost:8080/api/character/create`,
+    characterData
+  );
 }
 
 // 0808 승환 현재로그인상태 테스트
