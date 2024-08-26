@@ -7,23 +7,23 @@ import {
   SubPageTitleWrapper,
   Wrapper,
 } from "../Style/StyledComponents";
-
-
+import { tokenCheck, urlGetCharacter } from "../API/api";
+import { useEffect } from "react";
 
 function MyPage() {
+  async function getCharacter() {
+    try {
+      const user = tokenCheck();
 
-    async function getCharacter() {
-      try {
-        
-      } catch (error) {
-        console.log("에러발생",error);
-        
-      }
+      let response = await urlGetCharacter(user.userId);
+      console.log("urlGetCharacter", response.data);
+    } catch (error) {
+      console.log("에러발생", error);
     }
-  
-
-
-
+  }
+  useEffect(() => {
+    getCharacter();
+  }, []);
 
   return (
     <>

@@ -37,8 +37,8 @@ export function urlPostWrite(postWrite) {
 }
 
 //마이페이지-진경
-export function urlGetCharacter() {
-  return axios.get("http://localhost:8080/api/character/get");
+export function urlGetCharacter(userId) {
+  return axios.get("http://localhost:8080/api/character/get", userId);
 }
 
 // 유니티
