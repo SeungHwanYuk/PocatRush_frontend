@@ -36,6 +36,11 @@ export function urlPostWrite(postWrite) {
   return axios.post("http://localhost:8080/api/post/write", postWrite);
 }
 
+//마이페이지-진경
+export function urlGetCharacter() {
+  return axios.get("http://localhost:8080/api/character/get");
+}
+
 // 유니티
 export function urlNPCLikeUpdate(likeData) {
   return axios.put(`http://localhost:8080/api/like/update`, likeData);

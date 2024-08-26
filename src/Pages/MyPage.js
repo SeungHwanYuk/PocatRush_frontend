@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import {
@@ -7,7 +8,23 @@ import {
   Wrapper,
 } from "../Style/StyledComponents";
 
+
+
 function MyPage() {
+
+    async function getCharacter() {
+      try {
+        
+      } catch (error) {
+        console.log("에러발생",error);
+        
+      }
+    }
+  
+
+
+
+
   return (
     <>
       <Wrapper>
