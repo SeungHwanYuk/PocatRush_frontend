@@ -1,0 +1,78 @@
+<WebGL 빌드하고 React 적용하기>
+1. 유니티 WebGL 빌드환경 적용
+2. Player Settings - Publishing Settings
+	- Compression Format = disabled
+3. Build 클릭
+4. 성공하면 아래 파일 4개가 생성됨!!
+   Build.data
+   Build.framework.js
+   Build.loader.js
+   Build.wasm
+5. 4개파일을 리액트 폴더내 아래 위치(public폴더)에 복사
+   리액트프로젝트폴더
+       public
+           Build
+               Build.data
+               Build.framework.js
+               Build.loader.js
+               Build.wasm
+
+<React에서 WebGL 세팅하기>
+1. UnityGame.js 컴포넌트 생성
+2. App 컴포넌트에 추가
+function App() {
+  return (
+      <UnityGame />
+  );
+}
+3. 터미널창에서 react-unity-webgl 인스톨
+  npm install react-unity-webgl
+4. 아래 컴포넌트 임포트
+  import { Unity, useUnityContext } from 'react-unity-    webgl';
+5. UnityProvider 세팅
+const {unityProvider} = useUnityContext({
+    loaderUrl: "Build/Build.loader.js",
+    dataUrl: "Build/Build.data",
+    frameworkUrl: "Build/Build.framework.js",
+    codeUrl: "Build/Build.wasm",
+  });
+6. 게임플레이 화면을 담을 jsx태그안에서 Unity태그 작성
+  <Unity style={{width:"100%", height:"100%"}}
+              unityProvider={unityProvider} />
+
+<React To Unity>
+[리액트]
+1. useUnityContext로부터 sendMessage 함수를 얻음
+2. Unity의 특정 게임오브젝트가 가진 함수를 직접 호출함
+  : 유니티의 게임오브젝트 이름이 'Player'이고 
+    Player오브젝트가 'Attack'이라는 함수를 가지고 있다면,
+  sendMessage("Player", "Attack");
+3. 함수호출시 매개변수가 포함되는 경우에는
+  sendMessage("Player", "Attack", 매개변수1, 매개변수2..);
+
+<Unity To React>
+1. useUnityContext로부터 이벤트핸들러를 얻음
+  : addEventListener 와 removeEventListener
+2. useCallback 후크를 이용하여 특정 이벤트가 발생할때
+호출될 함수를 선언함
+3. 위에서 얻은 이벤트핸들러를 useEffect 후크에서 특정
+이벤트 이름으로 선언함
+예)
+useEffect(() => {
+    addEventListener("GameOver", handleGameOver);
+    return () => {
+      removeEventListener("GameOver", handleGameOver);
+    };
+  }, [addEventListener, removeEventListener, handleGameOver]);
+
+[유니티]
+4. React.jslib 파일 생성
+  Assets/Plugins/WebGL 폴더아래에 생성!!
+5. 유니티에서 해당 이벤트를 발송할 cs파일 수정
+  4번에서 정의한 함수를 호출하는 코드를 작성!!
+예) #if UNITY_WEBGL == true && UNITY_EDITOR == false
+        GameOverToReact("Player1", 100);
+    #endif
+6. 4번에서 정의한 함수를 직접 호출하면 안되므로 해당 함수가 외부라이브러리에 있다는 것을 알려줘야 함!!
+예) [DllImport("__Internal")]
+    private static extern void GameOverToReact(string userName, int score);

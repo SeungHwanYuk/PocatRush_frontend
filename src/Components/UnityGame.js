@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import { GameContainer } from "../Style/StyledComponents";
 
-import { tokenCheck, urlCreateCharacter, urlNPCLikeUpdate } from "../API/api";
+import {
+  tokenCheck,
+  tokenCheckGetUserId,
+  urlCheckNickNameOverLap,
+  urlCreateCharacter,
+  urlNPCLikeUpdate,
+} from "../API/api";
 
 export function UnityGame() {
   // 리액트 -> 유니티
@@ -17,18 +23,18 @@ export function UnityGame() {
 
   // 유니티 -> 리액트
   // test
-  const [npcName, setNPCName] = useState("");
-  const [likeNumber, setLikeNumber] = useState(0);
+  // const [npcName, setNPCName] = useState("");
+  // const [likeNumber, setLikeNumber] = useState(0);
 
   // 캐릭터만들기
   const [userId, setUserId] = useState("");
   const [charNickname, setCharNickname] = useState("");
   const [profileImage, setProfileImage] = useState("");
 
-  const likeData = {
-    npcName: `${npcName}`,
-    liked: `${likeNumber}`,
-  };
+  // const likeData = {
+  //   npcName: `${npcName}`,
+  //   liked: `${likeNumber}`,
+  // };
 
   const characterData = {
     charNickName: `${charNickname}`,
@@ -36,58 +42,76 @@ export function UnityGame() {
     profileImage: `${profileImage}`,
   };
 
-  function handleNPCLikeUpdate(npcName, likeNumber) {
-    setNPCName(npcName);
-    setLikeNumber(likeNumber);
+  // function handleNPCLikeUpdate(npcName, likeNumber) {
+  //   setNPCName(npcName);
+  //   setLikeNumber(likeNumber);
+  // }
+
+  async function getUserId() {
+    try {
+      const response = await tokenCheck();
+      setUserId(response.userId);
+    } catch (error) {
+      console.log("error : ", error);
+    }
   }
 
   function handleCharacterData(nickName) {
     setCharNickname(nickName);
   }
 
-  async function npcLikeUpdate() {
-    try {
-      if (!likeNumber) {
-        return;
-      }
-      let response = await urlNPCLikeUpdate(likeData);
-    } catch (error) {
-      console.log("error : ", error);
-    }
-  }
-
   async function createCharater() {
     try {
-      const response = await tokenCheck();
-      setUserId(response.userId);
-      try {
-        const responseCreated = await urlCreateCharacter(characterData);
-        console.log("urlCreateCharacter : ", responseCreated);
-      } catch (error) {
-        console.log("urlCreateCharacter 에러 ", error);
+      const checkOverlapResponse = await urlCheckNickNameOverLap(charNickname);
+      console.log("checkOverlapResponse : ", checkOverlapResponse.data);
+      if (checkOverlapResponse.data == "FOUND") {
+        sendMessage("createButton", "nickNameFound");
+      } else if (checkOverlapResponse.data == "NOT_FOUND") {
+        try {
+          const responseCreated = await urlCreateCharacter(characterData);
+          console.log("urlCreateCharacter : ", responseCreated);
+          sendMessage("createButton", "Show");
+        } catch (error) {
+          console.log("urlCreateCharacter 에러 ", error);
+        }
       }
     } catch (error) {
-      console.log("tokenCheck 에러 : ", error);
+      console.log("닉네임 중복체크 에러 : ", error);
     }
   }
 
-  useEffect(() => {
-    addEventListener("likeCount", handleNPCLikeUpdate);
-    return () => {
-      removeEventListener("likeCount", handleNPCLikeUpdate);
-    };
-  }, [addEventListener, removeEventListener, handleNPCLikeUpdate]);
+  // async function npcLikeUpdate() {
+  //   try {
+  //     if (!likeNumber) {
+  //       return;
+  //     }
+  //     let response = await urlNPCLikeUpdate(likeData);
+  //   } catch (error) {
+  //     console.log("error : ", error);
+  //   }
+  // }
+  // useEffect(() => {
+  //   addEventListener("likeCount", handleNPCLikeUpdate);
+  //   return () => {
+  //     removeEventListener("likeCount", handleNPCLikeUpdate);
+  //   };
+  // }, [addEventListener, removeEventListener, handleNPCLikeUpdate]);
 
   useEffect(() => {
     addEventListener("Create", handleCharacterData);
+
     return () => {
       removeEventListener("Create", handleCharacterData);
     };
-  }, [addEventListener, removeEventListener, handleNPCLikeUpdate]);
+  }, [addEventListener, removeEventListener, handleCharacterData]);
 
   useEffect(() => {
-    npcLikeUpdate();
-  }, [likeNumber]);
+    getUserId();
+  }, []);
+
+  // useEffect(() => {
+  //   npcLikeUpdate();
+  // }, [likeNumber]);
 
   useEffect(() => {
     createCharater();
@@ -104,7 +128,6 @@ export function UnityGame() {
           />
         }
       </GameContainer>
-      {likeNumber && <p>{`♡ : ${likeNumber}...!`}</p>}
     </>
   );
 }

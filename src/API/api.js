@@ -48,9 +48,13 @@ export function urlNPCLikeUpdate(likeData) {
 
 export function urlCreateCharacter(characterData) {
   return axios.post(
-    `http://localhost:8080/api/character/create`,
+    "http://localhost:8080/api/character/create",
     characterData
   );
+}
+
+export function urlCheckNickNameOverLap(nickName) {
+  return axios.get(`http://localhost:8080/api/character/overlap/${nickName}`);
 }
 
 // 0808 승환 현재로그인상태 테스트
