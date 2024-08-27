@@ -458,3 +458,10 @@ export const GameContainer = styled.div`
   margin: auto;
   border: 1px solid gray;
 `;
+
+//마이페이지 -진경
+export const MypageData = styled.div`
+  width: 100px;
+  height: 100px;
+  margin: auto;
+`;
