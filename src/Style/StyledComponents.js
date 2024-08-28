@@ -499,4 +499,11 @@ export const MypageNickNameSide = styled.div`
   font-size: 1.5em;
   color: #666;
   padding: 10px;
-`;
+  `;
+
+
+//이미지
+  export const MadelImage = styled.div`
+display: flex;
+margin: auto;
+  `

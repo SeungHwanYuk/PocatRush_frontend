@@ -40,6 +40,10 @@ export function urlPostWrite(postWrite) {
 export function urlGetCharacter(userId) {
   return axios.get(`http://localhost:8080/api/character/get/${userId}`);
 }
+//메달 -진경
+export function urlGetMedalList() {
+  return axios.get("http://localhost:8080/api/level/medallist");
+}
 
 // 유니티
 export function urlNPCLikeUpdate(likeData) {
