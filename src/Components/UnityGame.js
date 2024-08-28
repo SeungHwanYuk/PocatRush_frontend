@@ -7,12 +7,11 @@ import {
   tokenCheckGetUserId,
   urlCheckNickNameOverLap,
   urlCreateCharacter,
+  urlGetCharacter,
   urlNPCLikeUpdate,
 } from "../API/api";
 
 export function UnityGame() {
-  // 리액트 -> 유니티
-  const [playingGame, setPlayingGame] = useState(false);
   const { unityProvider, sendMessage, addEventListener, removeEventListener } =
     useUnityContext({
       loaderUrl: "build/PocatRush.loader.js",
@@ -21,26 +20,24 @@ export function UnityGame() {
       codeUrl: "build/PocatRush.wasm",
     });
 
-  // 유니티 -> 리액트
-  // test
-  // const [npcName, setNPCName] = useState("");
-  // const [likeNumber, setLikeNumber] = useState(0);
+  const [playingGame, setPlayingGame] = useState(false);
+  const [worldReady, setWorldReady] = useState(false);
 
   // 캐릭터만들기
   const [userId, setUserId] = useState("");
   const [charNickname, setCharNickname] = useState("");
   const [profileImage, setProfileImage] = useState("");
 
-  // const likeData = {
-  //   npcName: `${npcName}`,
-  //   liked: `${likeNumber}`,
-  // };
-
   const characterData = {
     charNickName: `${charNickname}`,
     user: `${userId}`,
     profileImage: `${profileImage}`,
   };
+
+  // 캐릭터 정보 관리
+  const [character, setCharacter] = useState("");
+  const [characterHp, setCharacterHp] = useState("");
+  const [characterLevel, setCharacterLevel] = useState("");
 
   // function handleNPCLikeUpdate(npcName, likeNumber) {
   //   setNPCName(npcName);
@@ -51,13 +48,38 @@ export function UnityGame() {
     try {
       const response = await tokenCheck();
       setUserId(response.userId);
+
+      try {
+        const responseCharData = await urlGetCharacter(response.userId);
+        console.log("캐릭터가 있습니다", responseCharData.data);
+
+        console.log("캐릭터 정보는? : ", responseCharData.data.data);
+        setCharacterHp(responseCharData.data.data.charHp);
+        setCharacterLevel(responseCharData.data.data.level.levelId);
+        setCharNickname(responseCharData.data.data.charNickName);
+        sendMessage(
+          "SceneManager",
+          "isUser",
+          responseCharData.data.data.charNickName
+        );
+      } catch (error) {
+        console.log("캐릭터가 없습니다", error);
+      }
     } catch (error) {
-      console.log("error : ", error);
+      console.log("tokenCheck 에러 : ", error);
     }
   }
 
   function handleCharacterData(nickName) {
     setCharNickname(nickName);
+  }
+
+  function handleGameReady(gameReady) {
+    setPlayingGame(true);
+  }
+
+  function handleWorldReady() {
+    setWorldReady(true);
   }
 
   async function createCharater() {
@@ -71,6 +93,7 @@ export function UnityGame() {
           const responseCreated = await urlCreateCharacter(characterData);
           console.log("urlCreateCharacter : ", responseCreated);
           sendMessage("createButton", "Show");
+          getUserId();
         } catch (error) {
           console.log("urlCreateCharacter 에러 ", error);
         }
@@ -99,19 +122,36 @@ export function UnityGame() {
 
   useEffect(() => {
     addEventListener("Create", handleCharacterData);
-
     return () => {
       removeEventListener("Create", handleCharacterData);
     };
   }, [addEventListener, removeEventListener, handleCharacterData]);
 
   useEffect(() => {
-    getUserId();
-  }, []);
+    addEventListener("GameReady", handleGameReady);
+    return () => {
+      removeEventListener("GameReady", handleGameReady);
+    };
+  }, [addEventListener, removeEventListener, handleGameReady]);
 
-  // useEffect(() => {
-  //   npcLikeUpdate();
-  // }, [likeNumber]);
+  useEffect(() => {
+    addEventListener("WorldReady", handleWorldReady);
+    console.log("포켓월드 시작!");
+
+    return () => {
+      removeEventListener("WorldReady", handleWorldReady);
+    };
+  }, [addEventListener, removeEventListener, handleWorldReady]);
+
+  useEffect(() => {
+    getUserId();
+  }, [playingGame]);
+
+  useEffect(() => {
+    sendMessage("userPanel", "GetNickName", charNickname);
+    sendMessage("userPanel", "GetHp", characterHp);
+    sendMessage("userPanel", "GetLevel", characterLevel);
+  }, [worldReady]);
 
   useEffect(() => {
     createCharater();
