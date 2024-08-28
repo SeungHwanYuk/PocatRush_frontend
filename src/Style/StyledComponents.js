@@ -460,8 +460,43 @@ export const GameContainer = styled.div`
 `;
 
 //마이페이지 -진경
+// 닉네임 래퍼
+export const NicknameSuffix = styled.span `
+  font-size: 20px; 
+  color: #666; 
+  margin-left: 10px; 
+`;
+export const MypageNickNameTr = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 50%;
+  margin: 20px 0;
+`;
+
+// 닉네임
+export const MypageNickName = styled.div`
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+`;
+
+// 데이터 항목
 export const MypageData = styled.div`
-  width: 100px;
-  height: 100px;
-  margin: auto;
+  background: #fff;
+  /* border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  padding: 20px;
+  margin: 10px;
+  width: 50%;
+  text-align: center;
+`;
+
+// 기타
+export const MypageNickNameSide = styled.div`
+  font-size: 1.5em;
+  color: #666;
+  padding: 10px;
 `;
