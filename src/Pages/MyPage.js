@@ -3,7 +3,12 @@ import Header from "../Components/Header";
 import {
   MadelImage,
   MainPostTextTableTr,
+  Medalcustomhr,
+  MedalImage,
+  MedalListDiv,
+  MedalListImage,
   MypageData,
+  MypageDataSuffix,
   MypageNickName,
   MypageNickNameHeader,
   MypageNickNameSide,
@@ -15,6 +20,7 @@ import {
   SubPageTitleDesc,
   SubPageTitleWrapper,
   Wrapper,
+  WrapperMypageData,
 } from "../Style/StyledComponents";
 import { tokenCheck, urlGetCharacter, urlGetMedalList } from "../API/api";
 import { useEffect, useState } from "react";
@@ -52,32 +58,44 @@ function MyPage() {
     if (!characterData || !medalList.length) {
       // 데이터가 없거나 메달 리스트가 비어있는 경우
       return Array.from({ length: medalList.length }, (_, index) => (
-        <img
-          key={index}
-          src="images/no_medal.png"
-          style={{ width: "80px", height: "80px", margin: "13px" }}
-          alt={`No Medal ${index}`}
-        />
+        <MedalListDiv key={index}>
+          <MedalListImage
+            key={index}
+            src="images/no_medal.png"
+            alt={`No Medal ${index}`}
+          />
+        </MedalListDiv>
       ));
     } else {
       const userExp = characterData.data.charExp;
       console.log(userExp);
 
       return medalList.map((medal, index) => (
-
-        <img
+        <MedalListDiv
           key={index}
-          src={
-            userExp >= medal.levelUpExpLowLimit
-              ? medal.medalImage
-              : "images/no_medal.png"
-          }
-          style={{ width: "80px", height: "80px", margin: "13px" }}
-          alt={`Medal ${index}`}
-        />
-        
+          style={{
+            color: userExp >= medal.levelUpExpLowLimit ? "#333" : "#7e7e7e",
+          }}
+        >
+          <MedalListImage
+            key={index}
+            src={
+              userExp >= medal.levelUpExpLowLimit
+                ? medal.medalImage
+                : "images/no_medal.png"
+            }
+            alt={`Medal ${index}`}
+          />
+          <div>{medal.levelId}</div> {/* 메달명 표시 */}
+        </MedalListDiv>
       ));
     }
+  }
+
+
+  function getMedalForLevel(levelId) {
+    const medal = medalList.find(m => m.levelId === levelId);
+    return medal ? medal.medalImage : defalutImage;
   }
 
   useEffect(() => {
@@ -101,21 +119,37 @@ function MyPage() {
         </SubPageTitleWrapper>
         <Wrapper>
           <MypageNickNameTr>
-            <MypageNickName>
+            <MypageNickName >
               {characterData && characterData.data.charNickName}{" "}
               <NicknameSuffix> 님</NicknameSuffix>
             </MypageNickName>
           </MypageNickNameTr>
+  
         </Wrapper>
         <Wrapper>
-          <MypageData>
-            level {characterData && characterData.data.level.levelId}
-          </MypageData>
-          <MypageData>
-            userPoint {characterData && characterData.data.userPoint}
-          </MypageData>
+         <Medalcustomhr/> 
+         {/*밑줄 */}
         </Wrapper>
         <Wrapper>
+        <WrapperMypageData>
+          <MypageData>
+          <MypageDataSuffix>level </MypageDataSuffix>
+            
+            {characterData && characterData.data.level.levelId}
+          </MypageData>
+          <MypageData>
+          <MypageDataSuffix> userPoint </MypageDataSuffix>
+            {characterData && characterData.data.userPoint}
+          </MypageData>
+        
+        </WrapperMypageData>
+        <Wrapper>
+         <Medalcustomhr/> 
+         {/*밑줄 */}
+        </Wrapper>
+        </Wrapper>
+        <Wrapper>
+          {/* 메달이미지 */}
           <MadelImage>{getMedalImages()}</MadelImage>
         </Wrapper>
 

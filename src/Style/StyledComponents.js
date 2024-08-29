@@ -461,10 +461,10 @@ export const GameContainer = styled.div`
 
 //마이페이지 -진경
 // 닉네임 래퍼
-export const NicknameSuffix = styled.span `
-  font-size: 20px; 
-  color: #666; 
-  margin-left: 10px; 
+export const NicknameSuffix = styled.span`
+  font-size: 20px;
+  color: #666;
+  margin-left: 10px;
 `;
 export const MypageNickNameTr = styled.div`
   display: flex;
@@ -484,26 +484,67 @@ export const MypageNickName = styled.div`
 
 // 데이터 항목
 export const MypageData = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
   background: #fff;
-  /* border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-  padding: 20px;
-  margin: 10px;
+  /* padding: 20px;
+  margin: 10px; */
   width: 50%;
   text-align: center;
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
 `;
+export const WrapperMypageData = styled.div`
+display: flex;
+justify-content: center; /* 자식 요소를 수평으로 중앙 정렬 */
+align-items: center; /* 자식 요소를 수직으로 중앙 정렬 */
+margin: 20px; /* 위아래 여백 조정 */
+width: 100%; /* 부모 요소의 너비를 기준으로 중앙 정렬을 적용 */
+
+`
+
 
 // 기타
 export const MypageNickNameSide = styled.div`
   font-size: 1.5em;
   color: #666;
   padding: 10px;
-  `;
-
+`;
 
 //이미지
-  export const MadelImage = styled.div`
-display: flex;
-margin: auto;
-  `
+export const MadelImage = styled.div`
+  display: flex;
+  margin: auto;
+`;
+//메달 글씨
+export const MedalListDiv = styled.div`
+  text-align: center;
+  margin: 13px;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+  font-size: 15px;
+`;
+//메달 이미지
+export const MedalListImage = styled.img`
+  width: 80px;
+  height: 80px;
+  margin: 30px 15px 0 15px;
+`;
+
+export const Medalcustomhr = styled.img`
+  border: 0;
+  height: 1px;
+  background: #ccc;
+  margin: auto;
+  width: 60%;
+  min-width: 400px;
+  `;
+
+// 레벨, 포인트 래퍼
+export const MypageDataSuffix = styled.span`
+  font-size: 16px;
+  color: #666;
+  margin: 0 10px;
+`;
