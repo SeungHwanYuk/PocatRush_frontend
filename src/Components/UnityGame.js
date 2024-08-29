@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
-import { GameContainer } from "../Style/StyledComponents";
+import { BackGroundImage, GameContainer } from "../Style/StyledComponents";
 
 import {
   tokenCheck,
@@ -10,6 +10,8 @@ import {
   urlGetCharacter,
   urlNPCLikeUpdate,
 } from "../API/api";
+import Header from "./Header";
+import Footer from "./Footer";
 
 export function UnityGame() {
   const { unityProvider, sendMessage, addEventListener, removeEventListener } =
@@ -159,15 +161,19 @@ export function UnityGame() {
 
   return (
     <>
-      <h1>PocatRush Test</h1>
-      <GameContainer>
-        {
-          <Unity
-            unityProvider={unityProvider}
-            style={{ width: "100%", height: "100%" }}
-          />
-        }
-      </GameContainer>
+      <Header></Header>
+
+      <BackGroundImage bgImg={`url("images/background_game.png")`}>
+        <GameContainer>
+          {
+            <Unity
+              unityProvider={unityProvider}
+              style={{ width: "100%", height: "100%", marginTop: "70px" }}
+            />
+          }
+        </GameContainer>
+      </BackGroundImage>
+      <Footer></Footer>
     </>
   );
 }

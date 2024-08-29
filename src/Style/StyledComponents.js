@@ -456,7 +456,7 @@ export const GameContainer = styled.div`
   width: 1344px;
   height: 756px;
   margin: auto;
-  border: 1px solid gray;
+  border: none;
 `;
 
 //마이페이지 -진경
@@ -484,9 +484,9 @@ export const MypageNickName = styled.div`
 
 // 데이터 항목
 export const MypageData = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #fff;
   /* padding: 20px;
   margin: 10px; */
@@ -497,14 +497,12 @@ export const MypageData = styled.div`
   font-size: 18px;
 `;
 export const WrapperMypageData = styled.div`
-display: flex;
-justify-content: center; /* 자식 요소를 수평으로 중앙 정렬 */
-align-items: center; /* 자식 요소를 수직으로 중앙 정렬 */
-margin: 20px; /* 위아래 여백 조정 */
-width: 100%; /* 부모 요소의 너비를 기준으로 중앙 정렬을 적용 */
-
-`
-
+  display: flex;
+  justify-content: center; /* 자식 요소를 수평으로 중앙 정렬 */
+  align-items: center; /* 자식 요소를 수직으로 중앙 정렬 */
+  margin: 20px; /* 위아래 여백 조정 */
+  width: 100%; /* 부모 요소의 너비를 기준으로 중앙 정렬을 적용 */
+`;
 
 // 기타
 export const MypageNickNameSide = styled.div`
@@ -516,21 +514,22 @@ export const MypageNickNameSide = styled.div`
 //이미지
 export const MadelImage = styled.div`
   display: flex;
-  margin: auto;
+  margin: 10px auto;
+  margin-bottom: 100px;
 `;
 //메달 글씨
 export const MedalListDiv = styled.div`
   text-align: center;
   margin: 13px;
   font-weight: bold;
-  margin: 0 0 15px 0;
+  // margin: 0 0 15px 0;
   font-size: 15px;
 `;
 //메달 이미지
 export const MedalListImage = styled.img`
   width: 80px;
   height: 80px;
-  margin: 30px 15px 0 15px;
+  // margin: 30px 15px 0 15px;
 `;
 
 export const Medalcustomhr = styled.img`
@@ -540,11 +539,18 @@ export const Medalcustomhr = styled.img`
   margin: auto;
   width: 60%;
   min-width: 400px;
-  `;
+`;
 
 // 레벨, 포인트 래퍼
 export const MypageDataSuffix = styled.span`
   font-size: 16px;
   color: #666;
-  margin: 0 10px;
+  margin-right: 10px;
+`;
+
+export const BackGroundImage = styled.div`
+  background-size: cover;
+  background-image: ${(props) => props.bgImg};
+  width: auto;
+  height: 1000px;
 `;
