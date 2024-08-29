@@ -61,8 +61,13 @@ export function urlCheckNickNameOverLap(nickName) {
   return axios.get(`http://localhost:8080/api/character/overlap/${nickName}`);
 }
 
-// 0808 승환 현재로그인상태 테스트
+export function urlExpUpdate(nickName, exp) {
+  return axios.put(
+    `http://localhost:8080/api/character/expupdate/${nickName}/${exp}`
+  );
+}
 
+// 0808 승환 현재로그인상태 테스트
 export async function tokenCheck() {
   let tokenData = {};
   let token = localStorage.getItem("JWT-token");

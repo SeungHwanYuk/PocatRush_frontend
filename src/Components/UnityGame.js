@@ -7,6 +7,7 @@ import {
   tokenCheckGetUserId,
   urlCheckNickNameOverLap,
   urlCreateCharacter,
+  urlExpUpdate,
   urlGetCharacter,
   urlNPCLikeUpdate,
 } from "../API/api";
@@ -22,6 +23,7 @@ export function UnityGame() {
       codeUrl: "build/PocatRush.wasm",
     });
 
+  // 로딩완료시 첫 실행코드 할당하기
   const [playingGame, setPlayingGame] = useState(false);
   const [worldReady, setWorldReady] = useState(false);
 
@@ -40,11 +42,7 @@ export function UnityGame() {
   const [character, setCharacter] = useState("");
   const [characterHp, setCharacterHp] = useState("");
   const [characterLevel, setCharacterLevel] = useState("");
-
-  // function handleNPCLikeUpdate(npcName, likeNumber) {
-  //   setNPCName(npcName);
-  //   setLikeNumber(likeNumber);
-  // }
+  const [exp, setExp] = useState(0);
 
   async function getUserId() {
     try {
@@ -72,18 +70,6 @@ export function UnityGame() {
     }
   }
 
-  function handleCharacterData(nickName) {
-    setCharNickname(nickName);
-  }
-
-  function handleGameReady(gameReady) {
-    setPlayingGame(true);
-  }
-
-  function handleWorldReady() {
-    setWorldReady(true);
-  }
-
   async function createCharater() {
     try {
       const checkOverlapResponse = await urlCheckNickNameOverLap(charNickname);
@@ -105,22 +91,36 @@ export function UnityGame() {
     }
   }
 
-  // async function npcLikeUpdate() {
-  //   try {
-  //     if (!likeNumber) {
-  //       return;
-  //     }
-  //     let response = await urlNPCLikeUpdate(likeData);
-  //   } catch (error) {
-  //     console.log("error : ", error);
-  //   }
-  // }
-  // useEffect(() => {
-  //   addEventListener("likeCount", handleNPCLikeUpdate);
-  //   return () => {
-  //     removeEventListener("likeCount", handleNPCLikeUpdate);
-  //   };
-  // }, [addEventListener, removeEventListener, handleNPCLikeUpdate]);
+  async function charExpUpdate() {
+    try {
+      const response = await urlExpUpdate(charNickname, exp);
+      console.log("경험치 저장 완료 : ", response.data);
+    } catch (error) {
+      console.log("경험치 저장 에러 : ", error);
+    }
+  }
+
+  function handleCharacterData(nickName) {
+    setCharNickname(nickName);
+  }
+
+  function handleGameReady(gameReady) {
+    setPlayingGame(true);
+  }
+
+  function handleWorldReady() {
+    setWorldReady(true);
+  }
+  function handleExpUpdateData(exp) {
+    setExp(exp);
+  }
+
+  useEffect(() => {
+    addEventListener("ExpUpdate", handleExpUpdateData);
+    return () => {
+      removeEventListener("ExpUpdate", handleExpUpdateData);
+    };
+  }, [addEventListener, removeEventListener, handleExpUpdateData]);
 
   useEffect(() => {
     addEventListener("Create", handleCharacterData);
@@ -139,7 +139,6 @@ export function UnityGame() {
   useEffect(() => {
     addEventListener("WorldReady", handleWorldReady);
     console.log("포켓월드 시작!");
-
     return () => {
       removeEventListener("WorldReady", handleWorldReady);
     };
@@ -158,6 +157,10 @@ export function UnityGame() {
   useEffect(() => {
     createCharater();
   }, [charNickname]);
+
+  useEffect(() => {
+    charExpUpdate();
+  }, [exp]);
 
   return (
     <>
