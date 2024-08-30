@@ -24,8 +24,10 @@ import {
 } from "../Style/StyledComponents";
 import { tokenCheck, urlGetCharacter, urlGetMedalList } from "../API/api";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function MyPage() {
+  const navigate = useNavigate();
   const [characterData, setCharacterData] = useState("");
   const [characterNickName, setCharacterNickname] = useState("");
   const [characterLevel, setCharacterLevel] = useState("");
@@ -38,15 +40,21 @@ function MyPage() {
     try {
       const user = await tokenCheck();
       console.log(user.userId);
-      let response = await urlGetCharacter(user.userId);
-      console.log("urlGetCharacter", response.data);
-      setCharacterData(response.data);
-      setCharacterNickname(response.data.data.charNickName);
-      setCharacterLevel(response.data.data.level.levelId);
-      setCharacterPoint(response.data.data.userPoint);
-      setCharacterExp(response.data.data.charExp);
+      try {
+        let response = await urlGetCharacter(user.userId);
+        console.log("urlGetCharacter", response.data);
+        setCharacterData(response.data);
+        setCharacterNickname(response.data.data.charNickName);
+        setCharacterLevel(response.data.data.level.levelId);
+        setCharacterPoint(response.data.data.userPoint);
+        setCharacterExp(response.data.data.charExp);
+      } catch(error){
+        console.log("캐릭터 정보 없음 : ", error);
+      }
     } catch (error) {
-      console.log("에러발생", error);
+      console.log("토큰 없음 :", error);
+      alert("로그인이 필요합니다")
+      navigate(-1);
     }
   }
 

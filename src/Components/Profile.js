@@ -1,6 +1,7 @@
-import { Text, Wrapper } from "../Style/StyledComponents";
+import { Image, Text, Wrapper } from "../Style/StyledComponents";
 
-function Profile() {
+function Profile({nickName , level , medalImg}) {
+
   return (
     <>
       <Wrapper
@@ -12,7 +13,12 @@ function Profile() {
         margin={`0px 100px 0 0`}
         radius={`0 0 6px 6px`}
       >
-        <Text color={`#fff`}>user infonmaton</Text>
+        <Text color={`#fff`}>{nickName || ""}</Text>
+        <Text color={`#fff`}>{level || ""}</Text>
+        { medalImg ?
+<Image width={"100px"} height={"100px"} src={medalImg}></Image> : null
+        }
+        
       </Wrapper>
     </>
   );

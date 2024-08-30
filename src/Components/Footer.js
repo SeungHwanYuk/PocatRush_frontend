@@ -14,7 +14,6 @@ function Footer() {
   const selectList = [
     "About Us",
     "Yuk SeungHwan",
-    "Yoon Byeol",
     "Song JinKyung",
   ];
   const [Selected, setSelected] = useState("");
@@ -24,7 +23,6 @@ function Footer() {
   };
 
   useEffect(() => {
-    console.log("Selected : ", Selected);
 
     if (Selected != "") {
       window.open(Selected);
@@ -50,7 +48,6 @@ function Footer() {
             <Option value={"https://github.com/SeungHwanYuk"}>
               Yuk SeungHwan
             </Option>
-            <Option value={"https://github.com/star0717"}>Yoon Byeol</Option>
             <Option value={"https://github.com/bobo459"}>Song JinKyung</Option>
           </Select>
         </Form>

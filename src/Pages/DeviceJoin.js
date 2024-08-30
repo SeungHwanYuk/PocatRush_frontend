@@ -81,7 +81,7 @@ export function DeviceJoin() {
                 <PocatRushButton
                   hei="140px"
                   margin={`40px 10px 0`}
-                  onClick={() => navigate(`/Login`)}
+                  onClick={() => navigate(`/`)}
                 >
                   다음에 하기
                 </PocatRushButton>
