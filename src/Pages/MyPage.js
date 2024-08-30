@@ -27,6 +27,10 @@ import { useEffect, useState } from "react";
 
 function MyPage() {
   const [characterData, setCharacterData] = useState("");
+  const [characterNickName, setCharacterNickname] = useState("");
+  const [characterLevel, setCharacterLevel] = useState("");
+  const [characterPoint, setCharacterPoint] = useState("");
+  const [characterExp, setCharacterExp] = useState("");
   const [medalList, setMedalList] = useState([]); // 메달 리스트
   const [defalutImage, setDefalutImage] = useState("images/no_medal.png");
 
@@ -37,6 +41,10 @@ function MyPage() {
       let response = await urlGetCharacter(user.userId);
       console.log("urlGetCharacter", response.data);
       setCharacterData(response.data);
+      setCharacterNickname(response.data.data.charNickName);
+      setCharacterLevel(response.data.data.level.levelId);
+      setCharacterPoint(response.data.data.userPoint);
+      setCharacterExp(response.data.data.charExp);
     } catch (error) {
       console.log("에러발생", error);
     }
@@ -67,7 +75,7 @@ function MyPage() {
         </MedalListDiv>
       ));
     } else {
-      const userExp = characterData.data.charExp;
+      const userExp = characterExp || -1;
       console.log(userExp);
 
       return medalList.map((medal, index) => (
@@ -92,9 +100,8 @@ function MyPage() {
     }
   }
 
-
   function getMedalForLevel(levelId) {
-    const medal = medalList.find(m => m.levelId === levelId);
+    const medal = medalList.find((m) => m.levelId === levelId);
     return medal ? medal.medalImage : defalutImage;
   }
 
@@ -117,36 +124,41 @@ function MyPage() {
             나의 정보를 조회하고 변경할 수 있습니다.
           </SubPageTitleDesc>
         </SubPageTitleWrapper>
+
         <Wrapper>
           <MypageNickNameTr>
-            <MypageNickName >
-              {characterData && characterData.data.charNickName}{" "}
-              <NicknameSuffix> 님</NicknameSuffix>
+            <MypageNickName>
+              {characterNickName && characterNickName ? (
+                <>
+                  <>{characterNickName}</>
+                  <NicknameSuffix> 님</NicknameSuffix>
+                </>
+              ) : (
+                <NicknameSuffix>캐릭터를 만들어주세요</NicknameSuffix>
+              )}
             </MypageNickName>
           </MypageNickNameTr>
-  
         </Wrapper>
         <Wrapper>
-         <Medalcustomhr/> 
-         {/*밑줄 */}
+          <Medalcustomhr />
+          {/*밑줄 */}
         </Wrapper>
         <Wrapper>
-        <WrapperMypageData>
-          <MypageData>
-          <MypageDataSuffix>level </MypageDataSuffix>
-            
-            {characterData && characterData.data.level.levelId}
-          </MypageData>
-          <MypageData>
-          <MypageDataSuffix> userPoint </MypageDataSuffix>
-            {characterData && characterData.data.userPoint}
-          </MypageData>
-        
-        </WrapperMypageData>
-        <Wrapper>
-         <Medalcustomhr/> 
-         {/*밑줄 */}
-        </Wrapper>
+          <WrapperMypageData>
+            <MypageData>
+              <MypageDataSuffix>level </MypageDataSuffix>
+
+              {characterLevel && characterLevel ? characterLevel : "없음"}
+            </MypageData>
+            <MypageData>
+              <MypageDataSuffix> userPoint </MypageDataSuffix>
+              {characterPoint && characterPoint ? characterPoint : "없음"}
+            </MypageData>
+          </WrapperMypageData>
+          <Wrapper>
+            <Medalcustomhr />
+            {/*밑줄 */}
+          </Wrapper>
         </Wrapper>
         <Wrapper>
           {/* 메달이미지 */}

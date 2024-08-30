@@ -19,6 +19,8 @@ import PostWrite from "./Pages/PostWrite";
 
 import Post from "./Pages/Post";
 import { UnityGame } from "./Components/UnityGame";
+import { DeviceJoin } from "./Pages/DeviceJoin";
+import DeviceWrapper from "./Pages/DeviceWrapper";
 
 function App() {
   return (
@@ -39,6 +41,9 @@ function App() {
 
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/join" element={<Join />} />
+          <Route path="/devicejoin" element={<DeviceWrapper />}>
+            <Route path=":userId" element={<DeviceJoin />} />
+          </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/findaccess" element={<FindAccess />} />
           <Route path="/gameintro" element={<GameIntro />} />

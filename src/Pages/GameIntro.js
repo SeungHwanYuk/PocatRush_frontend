@@ -12,7 +12,7 @@ function GameIntro() {
   return (
     <>
       <Header />
-      <SubPageTitleWrapper bgImg={`url("images/subBanner02.png")`}>
+      <SubPageTitleWrapper bgImg={`url("../images/subBanner02.png")`}>
         <SubPageTitle>게임소개</SubPageTitle>
         <SubPageTitleDesc>포캣러쉬를 소개합니다!</SubPageTitleDesc>
       </SubPageTitleWrapper>

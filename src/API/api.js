@@ -36,6 +36,13 @@ export function urlPostWrite(postWrite) {
   return axios.post("http://localhost:8080/api/post/write", postWrite);
 }
 
+export function urlJoinDevice(userId) {
+  return axios.post(`http://localhost:8080/api/device/join/${userId}`);
+}
+export function urlCheckDevice(userId) {
+  return axios.get(`http://localhost:8080/api/device/check/${userId}`);
+}
+
 //마이페이지-진경
 export function urlGetCharacter(userId) {
   return axios.get(`http://localhost:8080/api/character/get/${userId}`);

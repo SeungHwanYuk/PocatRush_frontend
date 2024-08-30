@@ -72,9 +72,10 @@ export const Text = styled.p`
 `;
 
 export const PocatRushButton = styled.button`
-  width: 140px;
-  height: 40px;
-  background-color: ${(props) => (props.isPink ? `pink` : `#242424`)};
+  width: ${(props) => props.wid || `140px`};
+  height: ${(props) => props.hei || `40px`};
+  background-color: ${(props) =>
+    props.isPink ? `pink` : props.bc ? props.bc : `#242424`};
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -84,7 +85,7 @@ export const PocatRushButton = styled.button`
   transition: 0.2s;
 
   &:hover {
-    background-color: #4a4a4a;
+    background-color: ${(props) => props.hoverBc || `#4a4a4a`};
   }
 `;
 
@@ -553,4 +554,12 @@ export const BackGroundImage = styled.div`
   background-image: ${(props) => props.bgImg};
   width: auto;
   height: 1000px;
+`;
+
+// 디바이스 타이틀
+export const DeviceJoinTitle = styled.h1`
+  color: ${(props) => props.fontColor || "#333"};
+  font-size: ${(props) => props.fontSize || "32px"};
+  font-weight: ${(props) => props.fontWeight || "800"};
+  margin: ${(props) => props.margin || "0px 0px 70px 0px"};
 `;

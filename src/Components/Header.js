@@ -8,9 +8,18 @@ import {
   Image,
 } from "../Style/StyledComponents";
 
-import { IoIosLogOut } from "react-icons/io";
+import {
+  IoIosAirplane,
+  IoIosLogOut,
+  IoIosMedal,
+  IoIosWatch,
+} from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
+
+  const [userId, setUserId] = useState("");
   const [adminData, setAdminData] = useState(null);
   let token = localStorage.getItem("JWT-token");
   let header = {
@@ -24,11 +33,14 @@ function Header() {
     if (token) {
       try {
         let response = await urlSessionCurrent(header);
+        setUserId(response.data.data.userId);
+
         if (response.data.data.authority[0].authority == "ROLE_ADMIN") {
           console.log(
             "현재 로그인 계정 : ",
             response.data.data.authority[0].authority
           );
+
           setAdminData(
             <HeaderText padding={`14px 74px`}>
               <StyledLink isWhite to={"/Admin"} isHeader>
@@ -77,14 +89,20 @@ function Header() {
               </HeaderText>
             </>
           ) : (
-            <StyledLink
-              onClick={() => {
-                userLogout();
-              }}
-            >
-              로그아웃
-              <IoIosLogOut />
-            </StyledLink>
+            <>
+              <StyledLink to={"/devicejoin" + `/${userId}`}>
+                기기연결
+                <IoIosWatch />
+              </StyledLink>
+              <StyledLink
+                onClick={() => {
+                  userLogout();
+                }}
+              >
+                로그아웃
+                <IoIosLogOut />
+              </StyledLink>
+            </>
           )}
         </Wrapper>
         <Wrapper ju={`center`} bgColor={`#242424`}>

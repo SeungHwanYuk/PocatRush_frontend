@@ -14,6 +14,8 @@ import {
   Wrapper,
 } from "../Style/StyledComponents";
 import { urlUserSignUp } from "../API/api";
+import { DeviceJoin } from "./DeviceJoin";
+import { useNavigate } from "react-router-dom";
 
 function Join() {
   // 0808 승환 회원가입기능 추가
@@ -23,6 +25,8 @@ function Join() {
   const [inputSignUpEmail, setInputSignUpEmail] = useState("");
   const [inputSignUpSelectEmail, setInputSignUpSelectEmail] = useState("");
   const [inputSignUpGender, setInputSignUpGender] = useState("");
+
+  const navigate = useNavigate();
 
   const signUpData = {
     userId: `${inputSignUpId}`,
@@ -38,7 +42,9 @@ function Join() {
         let response = await urlUserSignUp(signUpData);
         console.log("데이터 : ", response.data);
         // 이동 코드
-        window.location.href = "http://localhost:3000/";
+        navigate(`/devicejoin/${inputSignUpId}`);
+        // window.location.href =
+        //   "http://localhost:3000/devicejoin" + `/${inputSignUpId}`;
       } catch (error) {
         console.log("에러 : ", error.response.data.data);
       }
@@ -50,7 +56,7 @@ function Join() {
     <>
       <Wrapper>
         <Header />
-        <SubPageTitleWrapper bgImg={`url("images/subBanner02.png")`}>
+        <SubPageTitleWrapper bgImg={`url("../images/subBanner02.png")`}>
           <SubPageTitle>회원가입</SubPageTitle>
           <SubPageTitleDesc>
             지금 바로 회원가입하고 즐거운 포켓러쉬의 세계에 빠져보세요.
