@@ -5,10 +5,14 @@ import { BackGroundImage, GameContainer } from "../Style/StyledComponents";
 import {
   tokenCheck,
   tokenCheckGetUserId,
+  urlCheckDevice,
   urlCheckNickNameOverLap,
   urlCreateCharacter,
   urlExpUpdate,
   urlGetCharacter,
+  urlKgUpdate,
+  urlKmUpdate,
+  urlMinUpdate,
   urlNPCLikeUpdate,
 } from "../API/api";
 import Header from "./Header";
@@ -31,12 +35,19 @@ export function UnityGame() {
   const [userId, setUserId] = useState("");
   const [charNickname, setCharNickname] = useState("");
   const [profileImage, setProfileImage] = useState("");
-
   const characterData = {
     charNickName: `${charNickname}`,
     user: `${userId}`,
     profileImage: `${profileImage}`,
   };
+
+  // 디바이스 관리 (운동정보)
+  const [deviceKm, setDeviceKm] = useState("");
+  const [deviceKg, setDeviceKg] = useState("");
+  const [deviceMin, setDeviceMin] = useState("");
+  const [resetKm, setResetKm] = useState(0);
+  const [resetKg, setResetKg] = useState(0);
+  const [resetMin, setResetMin] = useState(0);
 
   // 캐릭터 정보 관리
   const [character, setCharacter] = useState("");
@@ -48,11 +59,9 @@ export function UnityGame() {
     try {
       const response = await tokenCheck();
       setUserId(response.userId);
-
       try {
         const responseCharData = await urlGetCharacter(response.userId);
         console.log("캐릭터가 있습니다", responseCharData.data);
-
         console.log("캐릭터 정보는? : ", responseCharData.data.data);
         setCharacterHp(responseCharData.data.data.charHp);
         setCharacterLevel(responseCharData.data.data.level.levelId);
@@ -100,6 +109,49 @@ export function UnityGame() {
     }
   }
 
+  async function kmReset() {
+    if (!userId) {
+      return;
+    }
+    try {
+      const response = await urlKmUpdate(userId, resetKm);
+    } catch (error) {
+      console.log("kmUpdate 에러 : ", error);
+    }
+  }
+  async function kgReset() {
+    if (!userId) {
+      return;
+    }
+    const response = await urlKgUpdate(userId, resetKg);
+    try {
+    } catch (error) {
+      console.log("kgUpdate 에러 : ", error);
+    }
+  }
+  async function minReset() {
+    if (!userId) {
+      return;
+    }
+    const response = await urlMinUpdate(userId, resetMin);
+    try {
+    } catch (error) {
+      console.log("minUpdate 에러 : ", error);
+    }
+  }
+
+  async function checkDevice() {
+    try {
+      const response = await urlCheckDevice(userId);
+      console.log("월드 진입 운동정보 갱신 : ", response.data);
+      setDeviceKm(response.data.km);
+      setDeviceKg(response.data.kg);
+      setDeviceMin(response.data.min);
+    } catch (error) {
+      console.log("운동정보 갱신 실패 : ", error);
+    }
+  }
+
   function handleCharacterData(nickName) {
     setCharNickname(nickName);
   }
@@ -113,6 +165,16 @@ export function UnityGame() {
   }
   function handleExpUpdateData(exp) {
     setExp(exp);
+  }
+
+  function handleKmResetData(km) {
+    setResetKm(km);
+  }
+  function handleKgResetData(kg) {
+    setResetKg(kg);
+  }
+  function handleMinResetData(min) {
+    setResetMin(min);
   }
 
   useEffect(() => {
@@ -145,13 +207,41 @@ export function UnityGame() {
   }, [addEventListener, removeEventListener, handleWorldReady]);
 
   useEffect(() => {
+    addEventListener("kmReset", handleKmResetData);
+    console.log("kmReset");
+    return () => {
+      removeEventListener("kmReset", handleKmResetData);
+    };
+  }, [addEventListener, removeEventListener, handleKmResetData]);
+
+  useEffect(() => {
+    addEventListener("kgReset", handleKgResetData);
+    console.log("kgReset");
+    return () => {
+      removeEventListener("kgReset", handleKgResetData);
+    };
+  }, [addEventListener, removeEventListener, handleKgResetData]);
+
+  useEffect(() => {
+    addEventListener("minReset", handleMinResetData);
+    console.log("minReset");
+    return () => {
+      removeEventListener("minReset", handleMinResetData);
+    };
+  }, [addEventListener, removeEventListener, handleMinResetData]);
+
+  useEffect(() => {
     getUserId();
+    checkDevice();
   }, [playingGame]);
 
   useEffect(() => {
     sendMessage("userPanel", "GetNickName", charNickname);
     sendMessage("userPanel", "GetHp", characterHp);
     sendMessage("userPanel", "GetLevel", characterLevel);
+    sendMessage("GameManager", "kmUpdate", deviceKm);
+    sendMessage("GameManager", "kgUpdate", deviceKg);
+    sendMessage("GameManager", "minUpdate", deviceMin);
   }, [worldReady]);
 
   useEffect(() => {
@@ -161,6 +251,27 @@ export function UnityGame() {
   useEffect(() => {
     charExpUpdate();
   }, [exp]);
+
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    kmReset();
+  }, [resetKm]);
+
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    kgReset();
+  }, [resetKg]);
+
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    minReset();
+  }, [resetMin]);
 
   return (
     <>

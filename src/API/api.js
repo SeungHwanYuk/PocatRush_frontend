@@ -74,6 +74,22 @@ export function urlExpUpdate(nickName, exp) {
   );
 }
 
+export function urlKmUpdate(userId, km) {
+  return axios.post(
+    `http://localhost:8080/api/device/updatekm/${userId}/${km}`
+  );
+}
+export function urlKgUpdate(userId, kg) {
+  return axios.post(
+    `http://localhost:8080/api/device/updatekg/${userId}/${kg}`
+  );
+}
+export function urlMinUpdate(userId, min) {
+  return axios.post(
+    `http://localhost:8080/api/device/updatemin/${userId}/${min}`
+  );
+}
+
 // 0808 승환 현재로그인상태 테스트
 export async function tokenCheck() {
   let tokenData = {};

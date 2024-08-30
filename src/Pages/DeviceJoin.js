@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import {
@@ -14,6 +14,7 @@ import { urlCheckDevice, urlJoinDevice } from "../API/api";
 
 export function DeviceJoin() {
   const { userId } = useParams();
+  const navigate = useNavigate();
   const [deviceFound, setDeviceFound] = useState("");
   const [deviceId, setDeviceId] = useState("");
 
@@ -80,7 +81,7 @@ export function DeviceJoin() {
                 <PocatRushButton
                   hei="140px"
                   margin={`40px 10px 0`}
-                  onClick={() => joinDevice()}
+                  onClick={() => navigate(`/Login`)}
                 >
                   다음에 하기
                 </PocatRushButton>
