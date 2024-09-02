@@ -31,7 +31,7 @@ const Popup = ({ isOpen, onClose, content }) => {
   return (
     <PopupWrapper>
       <PopupContent>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+        <div dangerouslySetInnerHTML={{ __html: content }} />
         <CloseButton onClick={onClose}>Close</CloseButton>
       </PopupContent>
     </PopupWrapper>
