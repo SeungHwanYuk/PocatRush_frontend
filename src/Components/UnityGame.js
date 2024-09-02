@@ -82,7 +82,7 @@ export function UnityGame() {
     }
   }
 
-  async function createCharater() {
+  async function checkNickNameOverLap() {
     try {
       const checkOverlapResponse = await urlCheckNickNameOverLap(
         inputCharNickname
@@ -90,20 +90,23 @@ export function UnityGame() {
       console.log("checkOverlapResponse : ", checkOverlapResponse.data);
       if (checkOverlapResponse.data == "FOUND") {
         sendMessage("createButton", "nickNameFound");
-        setInputCharNickname("");
+        return;
       } else if (checkOverlapResponse.data == "NOT_FOUND") {
-        try {
-          setCharNickname(inputCharNickname);
-          const responseCreated = await urlCreateCharacter(characterData);
-          console.log("urlCreateCharacter : ", responseCreated);
-          sendMessage("createButton", "Show");
-          getUserId();
-        } catch (error) {
-          console.log("urlCreateCharacter 에러 ", error);
-        }
+        setCharNickname(inputCharNickname);
       }
     } catch (error) {
       console.log("닉네임 중복체크 에러 : ", error);
+    }
+  }
+
+  async function createCharater() {
+    try {
+      const responseCreated = await urlCreateCharacter(characterData);
+      console.log("urlCreateCharacter : ", responseCreated);
+      sendMessage("createButton", "Show");
+      getUserId();
+    } catch (error) {
+      console.log("urlCreateCharacter 에러 ", error);
     }
   }
 
@@ -122,7 +125,7 @@ export function UnityGame() {
 
   async function hpUpdate() {
     try {
-      const responseHpUpdate = await urlHpUpdateByNickname(charNickname, newHp);
+      const responseHpUpdate = await urlHpUpdateByNickname(charNickname);
       console.log("HP 업데이트 완료 : ", responseHpUpdate.data);
     } catch (error) {
       console.log("HP 업데이트 에러 : ", error);
@@ -174,7 +177,7 @@ export function UnityGame() {
   }
 
   function handleCharacterData(nickName) {
-    setCharNickname(nickName);
+    setInputCharNickname(nickName);
   }
 
   function handleGameReady(gameReady) {
@@ -207,21 +210,21 @@ export function UnityGame() {
     return () => {
       removeEventListener("ExpUpdate", handleExpUpdateData);
     };
-  }, [addEventListener, removeEventListener, handleExpUpdateData]);
+  }, [handleExpUpdateData]);
 
   useEffect(() => {
     addEventListener("Create", handleCharacterData);
     return () => {
       removeEventListener("Create", handleCharacterData);
     };
-  }, [addEventListener, removeEventListener, handleCharacterData]);
+  }, [handleCharacterData]);
 
   useEffect(() => {
     addEventListener("GameReady", handleGameReady);
     return () => {
       removeEventListener("GameReady", handleGameReady);
     };
-  }, [addEventListener, removeEventListener, handleGameReady]);
+  }, [handleGameReady]);
 
   useEffect(() => {
     addEventListener("WorldReady", handleWorldReady);
@@ -229,7 +232,7 @@ export function UnityGame() {
     return () => {
       removeEventListener("WorldReady", handleWorldReady);
     };
-  }, [addEventListener, removeEventListener, handleWorldReady]);
+  }, [handleWorldReady]);
 
   useEffect(() => {
     addEventListener("kmReset", handleKmResetData);
@@ -237,7 +240,7 @@ export function UnityGame() {
       console.log("kmReset removed");
       removeEventListener("kmReset", handleKmResetData);
     };
-  }, [addEventListener, removeEventListener, handleKmResetData]);
+  }, [handleKmResetData]);
 
   useEffect(() => {
     addEventListener("kgReset", handleKgResetData);
@@ -245,7 +248,7 @@ export function UnityGame() {
       console.log("kgReset removed");
       removeEventListener("kgReset", handleKgResetData);
     };
-  }, [addEventListener, removeEventListener, handleKgResetData]);
+  }, [handleKgResetData]);
 
   useEffect(() => {
     addEventListener("minReset", handleMinResetData);
@@ -253,7 +256,7 @@ export function UnityGame() {
       console.log("minReset removed");
       removeEventListener("minReset", handleMinResetData);
     };
-  }, [addEventListener, removeEventListener, handleMinResetData]);
+  }, [handleMinResetData]);
 
   useEffect(() => {
     addEventListener("HpUpdate", handleHpUpdateData);
@@ -261,30 +264,40 @@ export function UnityGame() {
       console.log("HpUpdate removed");
       removeEventListener("HpUpdate", handleHpUpdateData);
     };
-  }, [addEventListener, removeEventListener, handleHpUpdateData]);
+  }, [handleHpUpdateData]);
 
   useEffect(() => {
     getUserId();
-    checkDevice();
   }, [playingGame]);
 
   useEffect(() => {
-    if (!worldReady) {
-      return;
-    }
+    checkDevice();
     sendMessage("userPanel", "GetNickName", charNickname);
     sendMessage("userPanel", "GetHp", characterHp);
     sendMessage("userPanel", "GetLevel", characterLevel);
+  }, [worldReady]);
+
+  useEffect(() => {
+    if (deviceKm == -1 && deviceKg == -1 && deviceMin == -1) {
+      return;
+    }
     sendMessage("GameManager", "kmUpdate", deviceKm);
     sendMessage("GameManager", "kgUpdate", deviceKg);
     sendMessage("GameManager", "minUpdate", deviceMin);
-  }, [worldReady]);
+  }, [deviceKm, deviceKg, deviceMin]);
 
   useEffect(() => {
     createCharater();
   }, [charNickname]);
 
   useEffect(() => {
+    checkNickNameOverLap();
+  }, [inputCharNickname]);
+
+  useEffect(() => {
+    if (!exp) {
+      return;
+    }
     charExpUpdate();
   }, [exp]);
 
