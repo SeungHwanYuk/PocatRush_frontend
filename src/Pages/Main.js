@@ -46,6 +46,7 @@ function Main() {
         setLevelImage(response.data.data.level.medalImage);
       } catch (error) {
         console.log("캐릭터 정보 없음 : ", error);
+        setNickName("noCharacter");
       }
     } catch (error) {
       console.log("토큰 없음 : ", error);

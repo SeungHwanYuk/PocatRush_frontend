@@ -35,6 +35,7 @@ export function UnityGame() {
   // 캐릭터만들기
   const [userId, setUserId] = useState("");
   const [charNickname, setCharNickname] = useState("");
+  const [inputCharNickname, setInputCharNickname] = useState("");
   const [profileImage, setProfileImage] = useState("");
   const characterData = {
     charNickName: `${charNickname}`,
@@ -83,13 +84,16 @@ export function UnityGame() {
 
   async function createCharater() {
     try {
-      const checkOverlapResponse = await urlCheckNickNameOverLap(charNickname);
+      const checkOverlapResponse = await urlCheckNickNameOverLap(
+        inputCharNickname
+      );
       console.log("checkOverlapResponse : ", checkOverlapResponse.data);
       if (checkOverlapResponse.data == "FOUND") {
         sendMessage("createButton", "nickNameFound");
-        setCharNickname("");
+        setInputCharNickname("");
       } else if (checkOverlapResponse.data == "NOT_FOUND") {
         try {
+          setCharNickname(inputCharNickname);
           const responseCreated = await urlCreateCharacter(characterData);
           console.log("urlCreateCharacter : ", responseCreated);
           sendMessage("createButton", "Show");
@@ -104,11 +108,12 @@ export function UnityGame() {
   }
 
   async function charExpUpdate() {
+    if (!exp) {
+      return;
+    }
     try {
       const response = await urlExpUpdate(charNickname, exp);
-      const responseHpUpdate = await urlHpUpdateByNickname(charNickname, newHp);
       console.log("경험치 저장 완료 : ", response.data);
-      console.log("HP 업데이트 완료 : ", responseHpUpdate.data);
       sendMessage("userPanel", "GetLevel", response.data);
     } catch (error) {
       console.log("경험치 저장 에러 : ", error);
@@ -260,10 +265,13 @@ export function UnityGame() {
 
   useEffect(() => {
     getUserId();
+    checkDevice();
   }, [playingGame]);
 
   useEffect(() => {
-    checkDevice();
+    if (!worldReady) {
+      return;
+    }
     sendMessage("userPanel", "GetNickName", charNickname);
     sendMessage("userPanel", "GetHp", characterHp);
     sendMessage("userPanel", "GetLevel", characterLevel);
