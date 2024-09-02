@@ -90,6 +90,12 @@ export function urlMinUpdate(userId, min) {
   );
 }
 
+export function urlHpUpdateByNickname(nickName, newHp) {
+  return axios.put(
+    `http://localhost:8080/api/character/hpupdate/${nickName}/${newHp}`
+  );
+}
+
 // 0808 승환 현재로그인상태 테스트
 export async function tokenCheck() {
   let tokenData = {};

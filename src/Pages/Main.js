@@ -18,47 +18,45 @@ import { useNavigate } from "react-router-dom";
 import { tokenCheck, urlGetCharacter } from "../API/api";
 
 function Main() {
-
   const navigate = useNavigate();
-  const [nickName,setNickName] = useState("");
-  const [level,setLevel] = useState("");
-  const [levelImage,setLevelImage] = useState("");
+  const [nickName, setNickName] = useState("");
+  const [level, setLevel] = useState("");
+  const [levelImage, setLevelImage] = useState("");
 
   function loginCheck() {
     let token = localStorage.getItem("JWT-token");
-    if(token)
-    {
-      navigate(`/playgame`)
+    if (token) {
+      navigate(`/playgame`);
     } else {
-      alert("로그인이 필요합니다.")
+      alert("로그인이 필요합니다.");
     }
   }
 
   async function checkForUserInfo() {
     try {
       const token = await tokenCheck();
-      if(!token){
-        setNickName("로그인이 필요합니다.")
+      if (!token) {
+        setNickName("로그인이 필요합니다.");
         return;
       }
       try {
         const response = await urlGetCharacter(token.userId);
-        console.log("캐릭터 정보 : ",response.data);
+        console.log("캐릭터 정보 : ", response.data);
         setNickName(response.data.data.charNickName);
         setLevel(response.data.data.level.levelId);
         setLevelImage(response.data.data.level.medalImage);
       } catch (error) {
         setNickName("캐릭터를 생성해주세요");
-        
+
         console.log("캐릭터 정보 없음 : ", error);
       }
     } catch (error) {
-      console.log("토큰 없음 : ",error);
+      console.log("토큰 없음 : ", error);
     }
   }
-  useEffect(()=>{
+  useEffect(() => {
     checkForUserInfo();
-  },[])
+  }, []);
 
   return (
     <>
@@ -69,7 +67,7 @@ function Main() {
           <GameStartButton onClick={() => loginCheck()}>
             GAME START
           </GameStartButton>
-          <Profile nickName={nickName} level={level} medalImg={levelImage}/>
+          <Profile nickName={nickName} level={level} medalImg={levelImage} />
         </Wrapper>
       </Wrapper>
       <SmallTable />

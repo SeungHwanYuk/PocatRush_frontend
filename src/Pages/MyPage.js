@@ -48,12 +48,12 @@ function MyPage() {
         setCharacterLevel(response.data.data.level.levelId);
         setCharacterPoint(response.data.data.userPoint);
         setCharacterExp(response.data.data.charExp);
-      } catch(error){
+      } catch (error) {
         console.log("캐릭터 정보 없음 : ", error);
       }
     } catch (error) {
       console.log("토큰 없음 :", error);
-      alert("로그인이 필요합니다")
+      alert("로그인이 필요합니다");
       navigate(-1);
     }
   }

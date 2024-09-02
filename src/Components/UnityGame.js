@@ -10,6 +10,7 @@ import {
   urlCreateCharacter,
   urlExpUpdate,
   urlGetCharacter,
+  urlHpUpdateByNickname,
   urlKgUpdate,
   urlKmUpdate,
   urlMinUpdate,
@@ -54,6 +55,7 @@ export function UnityGame() {
   const [characterHp, setCharacterHp] = useState("");
   const [characterLevel, setCharacterLevel] = useState("");
   const [exp, setExp] = useState(0);
+  const [newHp, setNewHp] = useState("");
 
   async function getUserId() {
     try {
@@ -85,6 +87,7 @@ export function UnityGame() {
       console.log("checkOverlapResponse : ", checkOverlapResponse.data);
       if (checkOverlapResponse.data == "FOUND") {
         sendMessage("createButton", "nickNameFound");
+        setCharNickname("");
       } else if (checkOverlapResponse.data == "NOT_FOUND") {
         try {
           const responseCreated = await urlCreateCharacter(characterData);
@@ -103,9 +106,21 @@ export function UnityGame() {
   async function charExpUpdate() {
     try {
       const response = await urlExpUpdate(charNickname, exp);
+      const responseHpUpdate = await urlHpUpdateByNickname(charNickname, newHp);
       console.log("경험치 저장 완료 : ", response.data);
+      console.log("HP 업데이트 완료 : ", responseHpUpdate.data);
+      sendMessage("userPanel", "GetLevel", response.data);
     } catch (error) {
       console.log("경험치 저장 에러 : ", error);
+    }
+  }
+
+  async function hpUpdate() {
+    try {
+      const responseHpUpdate = await urlHpUpdateByNickname(charNickname, newHp);
+      console.log("HP 업데이트 완료 : ", responseHpUpdate.data);
+    } catch (error) {
+      console.log("HP 업데이트 에러 : ", error);
     }
   }
 
@@ -149,6 +164,7 @@ export function UnityGame() {
       setDeviceMin(response.data.min);
     } catch (error) {
       console.log("운동정보 갱신 실패 : ", error);
+      sendMessage("GameManager", "deviceNotCreated");
     }
   }
 
@@ -175,6 +191,10 @@ export function UnityGame() {
   }
   function handleMinResetData(min) {
     setResetMin(min);
+  }
+
+  function handleHpUpdateData(newHp) {
+    setNewHp(newHp);
   }
 
   useEffect(() => {
@@ -208,34 +228,42 @@ export function UnityGame() {
 
   useEffect(() => {
     addEventListener("kmReset", handleKmResetData);
-    console.log("kmReset");
     return () => {
+      console.log("kmReset removed");
       removeEventListener("kmReset", handleKmResetData);
     };
   }, [addEventListener, removeEventListener, handleKmResetData]);
 
   useEffect(() => {
     addEventListener("kgReset", handleKgResetData);
-    console.log("kgReset");
     return () => {
+      console.log("kgReset removed");
       removeEventListener("kgReset", handleKgResetData);
     };
   }, [addEventListener, removeEventListener, handleKgResetData]);
 
   useEffect(() => {
     addEventListener("minReset", handleMinResetData);
-    console.log("minReset");
     return () => {
+      console.log("minReset removed");
       removeEventListener("minReset", handleMinResetData);
     };
   }, [addEventListener, removeEventListener, handleMinResetData]);
 
   useEffect(() => {
+    addEventListener("HpUpdate", handleHpUpdateData);
+    return () => {
+      console.log("HpUpdate removed");
+      removeEventListener("HpUpdate", handleHpUpdateData);
+    };
+  }, [addEventListener, removeEventListener, handleHpUpdateData]);
+
+  useEffect(() => {
     getUserId();
-    checkDevice();
   }, [playingGame]);
 
   useEffect(() => {
+    checkDevice();
     sendMessage("userPanel", "GetNickName", charNickname);
     sendMessage("userPanel", "GetHp", characterHp);
     sendMessage("userPanel", "GetLevel", characterLevel);
@@ -254,6 +282,7 @@ export function UnityGame() {
 
   useEffect(() => {
     if (!userId) {
+      console.log("userId 없음");
       return;
     }
     kmReset();
@@ -261,6 +290,7 @@ export function UnityGame() {
 
   useEffect(() => {
     if (!userId) {
+      console.log("userId 없음");
       return;
     }
     kgReset();
@@ -268,10 +298,19 @@ export function UnityGame() {
 
   useEffect(() => {
     if (!userId) {
+      console.log("userId 없음");
       return;
     }
     minReset();
   }, [resetMin]);
+
+  useEffect(() => {
+    if (!charNickname) {
+      console.log("charNickname 없음");
+      return;
+    }
+    hpUpdate();
+  }, [newHp]);
 
   return (
     <>
