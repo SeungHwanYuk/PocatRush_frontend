@@ -342,7 +342,12 @@ export function UnityGame() {
           {
             <Unity
               unityProvider={unityProvider}
-              style={{ width: "100%", height: "100%", marginTop: "70px" }}
+              style={{
+                width: "100%",
+                height: "100%",
+                marginTop: "70px",
+                boxShadow: "0px 0px 20px #888",
+              }}
             />
           }
         </GameContainer>
