@@ -36,10 +36,6 @@ function Main() {
     try {
       const token = await tokenCheck();
       if (!token) {
-<<<<<<< Updated upstream
-        setNickName("로그인이 필요합니다.");
-=======
->>>>>>> Stashed changes
         return;
       }
       try {
@@ -49,12 +45,6 @@ function Main() {
         setLevel(response.data.data.level.levelId);
         setLevelImage(response.data.data.level.medalImage);
       } catch (error) {
-<<<<<<< Updated upstream
-        setNickName("캐릭터를 생성해주세요");
-=======
-        setNickName("noCharacter");
->>>>>>> Stashed changes
-
         console.log("캐릭터 정보 없음 : ", error);
       }
     } catch (error) {
