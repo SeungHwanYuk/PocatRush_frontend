@@ -103,6 +103,15 @@ export const HeaderText = styled.p`
   }
 `;
 
+export const HeaderTextBin = styled.p`
+  margin: ${(props) => props.margin || `0`};
+  font-size: ${(props) => (props.isSmall ? `14px` : `16px`)};
+  font-weight: ${(props) => props.fontWeight};
+  color: ${(props) => props.color || `#fff`};
+  margin: ${(props) => props.margin};
+  padding: ${(props) => props.padding || `10px 32px`};
+`;
+
 // -----------------------------------------------------
 
 // SmallTable.js

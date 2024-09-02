@@ -6,6 +6,7 @@ import {
   HeaderText,
   StyledLink,
   Image,
+  HeaderTextBin,
 } from "../Style/StyledComponents";
 
 import {
@@ -83,17 +84,21 @@ function Header() {
               <HeaderText padding={`0px 32px`} isSmall>
                 <StyledLink to={"/Login"}>로그인</StyledLink>
               </HeaderText>
-              <HeaderText padding={`0px 32px`} isSmall></HeaderText>
+              <HeaderTextBin padding={`0px 32px`} isSmall></HeaderTextBin>
               <HeaderText padding={`0px 32px`} isSmall>
                 <StyledLink to={"/Join"}>회원가입</StyledLink>
               </HeaderText>
             </>
           ) : (
             <>
-              <StyledLink to={"/devicejoin" + `/${userId}`}>
+            <HeaderText padding={`0px 32px`} isSmall>
+              <StyledLink  to={"/devicejoin" + `/${userId}`} >
                 기기연결
                 <IoIosWatch />
               </StyledLink>
+              </HeaderText>
+              <HeaderTextBin padding={`0px 32px`} isSmall></HeaderTextBin>
+              <HeaderText padding={`0px 32px`} isSmall>
               <StyledLink
                 onClick={() => {
                   userLogout();
@@ -102,6 +107,7 @@ function Header() {
                 로그아웃
                 <IoIosLogOut />
               </StyledLink>
+              </HeaderText>
             </>
           )}
         </Wrapper>

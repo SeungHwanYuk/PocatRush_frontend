@@ -144,6 +144,7 @@ function MyPage() {
               ) : (
                 <NicknameSuffix>캐릭터를 만들어주세요</NicknameSuffix>
               )}
+              
             </MypageNickName>
           </MypageNickNameTr>
         </Wrapper>
