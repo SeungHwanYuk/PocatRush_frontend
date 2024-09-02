@@ -105,20 +105,23 @@ function MyPage() {
                 : "images/no_medal.png"
             }
             alt={`Medal ${index}`}
-            onClick={() => handleMedalClick(medal.levelId)}
+            onClick={() =>
+              handleMedalClick(medal.levelId, userExp, medal.levelUpExpLowLimit)
+            }
           />
           <div>{medal.levelId}</div> {/* 메달명 표시 */}
         </MedalListDiv>
       ));
     }
   }
-  function handleMedalClick(levelId) {
+  function handleMedalClick(levelId, userExp, levelUpExpLowLimit) {
     const medal = medalList.find((m) => m.levelId === levelId);
     setPopupContent(
       medal
         ? `${medal.levelId}` == "인간"
           ? ` ${medal.levelId} <br/> 인간이 아니신가?`
-          : ` ${medal.levelId} <br/> 경험치 ${medal.levelUpExpLowLimit} 이상이면 메달 획득이 가능합니다.`
+          : ` ${medal.levelId} <br/> 경험치 ${medal.levelUpExpLowLimit} 이상이면 메달 획득이 가능합니다.` +
+            `<br/>${userExp >= levelUpExpLowLimit ? "축하합니다!" : ""}`
         : "No Medal Info"
     );
     setPopupOpen(true);
@@ -175,17 +178,18 @@ function MyPage() {
           <WrapperMypageData>
             <MypagelevelTr>
               <MypageData>
-                <MypageDataSuffix>level </MypageDataSuffix>
+                <MypageDataSuffix>Level .</MypageDataSuffix>
                 {characterLevel && characterLevel ? characterLevel : "없음"}
               </MypageData>
               <MypageData>
                 <MypageDataSuffix>누적 경험치 </MypageDataSuffix>
                 {characterExp}
+                <MypageDataSuffix> exp</MypageDataSuffix>
               </MypageData>
             </MypagelevelTr>
 
             <MypageData>
-              <MypageDataSuffix> userPoint </MypageDataSuffix>
+              <MypageDataSuffix> userPoint :</MypageDataSuffix>
               {characterPoint && characterPoint ? characterPoint : "없음"}
             </MypageData>
           </WrapperMypageData>
