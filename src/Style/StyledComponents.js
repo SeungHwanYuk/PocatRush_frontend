@@ -483,6 +483,18 @@ export const MypageNickNameTr = styled.div`
   padding: 10px;
   width: 50%;
   margin: 20px 0;
+
+  
+`;
+export const MypagelevelTr = styled.div`
+display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  width: 47%;
+  /* margin: 20px 0; */
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
 `;
 
 // 닉네임
@@ -494,23 +506,24 @@ export const MypageNickName = styled.div`
 
 // 데이터 항목
 export const MypageData = styled.div`
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   background: #fff;
   /* padding: 20px;
   margin: 10px; */
-  width: 50%;
-  text-align: center;
+  /* width: 30%; */
+  /* text-align: center; */
   font-weight: bold;
   color: #333;
   font-size: 18px;
+  padding: 3px;
 `;
 export const WrapperMypageData = styled.div`
   display: flex;
   justify-content: center; /* 자식 요소를 수평으로 중앙 정렬 */
   align-items: center; /* 자식 요소를 수직으로 중앙 정렬 */
-  margin: 20px; /* 위아래 여백 조정 */
+  /* margin: 10px; 위아래 여백 조정 */
   width: 100%; /* 부모 요소의 너비를 기준으로 중앙 정렬을 적용 */
 `;
 
@@ -556,6 +569,7 @@ export const MypageDataSuffix = styled.span`
   font-size: 16px;
   color: #666;
   margin-right: 10px;
+
 `;
 
 export const BackGroundImage = styled.div`
@@ -572,3 +586,6 @@ export const DeviceJoinTitle = styled.h1`
   font-weight: ${(props) => props.fontWeight || "800"};
   margin: ${(props) => props.margin || "0px 0px 70px 0px"};
 `;
+
+
+

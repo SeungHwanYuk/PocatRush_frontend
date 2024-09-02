@@ -9,6 +9,7 @@ import {
   MedalListImage,
   MypageData,
   MypageDataSuffix,
+  MypagelevelTr,
   MypageNickName,
   MypageNickNameHeader,
   MypageNickNameSide,
@@ -25,6 +26,7 @@ import {
 import { tokenCheck, urlGetCharacter, urlGetMedalList } from "../API/api";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Popup from "../Components/Popup";
 
 function MyPage() {
   const navigate = useNavigate();
@@ -35,6 +37,8 @@ function MyPage() {
   const [characterExp, setCharacterExp] = useState("");
   const [medalList, setMedalList] = useState([]); // 메달 리스트
   const [defalutImage, setDefalutImage] = useState("images/no_medal.png");
+  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [popupContent, setPopupContent] = useState("");
 
   async function getCharacter() {
     try {
@@ -79,13 +83,13 @@ function MyPage() {
             key={index}
             src="images/no_medal.png"
             alt={`No Medal ${index}`}
+            onClick={() => handleMedalClick("No Medal Info")}
           />
         </MedalListDiv>
       ));
     } else {
       const userExp = characterExp || -1;
       console.log(userExp);
-
       return medalList.map((medal, index) => (
         <MedalListDiv
           key={index}
@@ -101,11 +105,27 @@ function MyPage() {
                 : "images/no_medal.png"
             }
             alt={`Medal ${index}`}
+            onClick={() => handleMedalClick(medal.levelId)}
           />
           <div>{medal.levelId}</div> {/* 메달명 표시 */}
         </MedalListDiv>
       ));
     }
+  }
+  function handleMedalClick(levelId) {
+    const medal = medalList.find((m) => m.levelId === levelId);
+    setPopupContent(
+      medal
+        ? `${medal.levelId}` == "인간"
+          ? ` ${medal.levelId} <br/> 인간이 아니신가?`
+          : ` ${medal.levelId} <br/> 경험치 ${medal.levelUpExpLowLimit} 이상이면 메달 획득이 가능합니다.`
+        : "No Medal Info"
+    );
+    setPopupOpen(true);
+  }
+
+  function handlePopupClose() {
+    setPopupOpen(false);
   }
 
   function getMedalForLevel(levelId) {
@@ -144,7 +164,6 @@ function MyPage() {
               ) : (
                 <NicknameSuffix>캐릭터를 만들어주세요</NicknameSuffix>
               )}
-              
             </MypageNickName>
           </MypageNickNameTr>
         </Wrapper>
@@ -154,11 +173,17 @@ function MyPage() {
         </Wrapper>
         <Wrapper>
           <WrapperMypageData>
-            <MypageData>
-              <MypageDataSuffix>level </MypageDataSuffix>
+            <MypagelevelTr>
+              <MypageData>
+                <MypageDataSuffix>level </MypageDataSuffix>
+                {characterLevel && characterLevel ? characterLevel : "없음"}
+              </MypageData>
+              <MypageData>
+                <MypageDataSuffix>누적 경험치 </MypageDataSuffix>
+                {characterExp}
+              </MypageData>
+            </MypagelevelTr>
 
-              {characterLevel && characterLevel ? characterLevel : "없음"}
-            </MypageData>
             <MypageData>
               <MypageDataSuffix> userPoint </MypageDataSuffix>
               {characterPoint && characterPoint ? characterPoint : "없음"}
@@ -176,6 +201,13 @@ function MyPage() {
 
         <Footer />
       </Wrapper>
+
+      {/* 팝업창 */}
+      <Popup
+        isOpen={isPopupOpen}
+        onClose={handlePopupClose}
+        content={popupContent}
+      />
     </>
   );
 }
