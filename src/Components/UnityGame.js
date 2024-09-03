@@ -18,6 +18,7 @@ import {
 } from "../API/api";
 import Header from "./Header";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 export function UnityGame() {
   const { unityProvider, sendMessage, addEventListener, removeEventListener } =
@@ -351,6 +352,11 @@ export function UnityGame() {
             />
           }
         </GameContainer>
+        <button>
+          <Link to="/linerider" target="_blank">
+            라인라이더
+          </Link>
+        </button>
       </BackGroundImage>
       <Footer></Footer>
     </>
