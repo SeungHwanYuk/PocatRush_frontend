@@ -483,11 +483,9 @@ export const MypageNickNameTr = styled.div`
   padding: 10px;
   width: 50%;
   margin: 20px 0;
-
-  
 `;
 export const MypagelevelTr = styled.div`
-display: flex;
+  display: flex;
   justify-content: flex-end;
   padding: 10px;
   width: 47%;
@@ -569,7 +567,6 @@ export const MypageDataSuffix = styled.span`
   font-size: 16px;
   color: #666;
   margin-right: 10px;
-
 `;
 
 export const BackGroundImage = styled.div`
@@ -587,5 +584,41 @@ export const DeviceJoinTitle = styled.h1`
   margin: ${(props) => props.margin || "0px 0px 70px 0px"};
 `;
 
+//가이드 게시판
+export const GuideBoardWrapper = styled.div`
+  display: flex;
+  // flex-direction: column;
+  gap: 20px;
+`;
+export const GuideWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+  width: ${(props) => props.width || `100%`};
+  max-width: ${(props) => props.maxWidth || ``};
+  padding: ${(props) => props.padding};
+  margin: ${(props) => props.margin || `0 auto`};
+`;
 
+export const GuidePost = styled.div`
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+`;
 
+export const GuidePostTitle = styled.h2`
+  margin: 10px 0 10px;
+  font-size: 20px;
+  font-family: ;
+
+`;
+
+export const GuidePostContent = styled.img`
+  width: 200px;
+  height: auto;
+  margin: 0;
+`;

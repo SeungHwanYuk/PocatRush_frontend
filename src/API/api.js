@@ -28,6 +28,10 @@ export function urlGetPost(postId) {
   return axios.get(`http://localhost:8080/api/post/${postId}`);
 }
 
+export function urlGetGuidePost(id) {
+  return axios.get(`http://localhost:8080/api/Guide/${id}`);
+}
+
 export function urlGetPostByText(text) {
   return axios.get(`http://localhost:8080/api/post/search/${text}`);
 }

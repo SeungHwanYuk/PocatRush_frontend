@@ -21,6 +21,9 @@ import Post from "./Pages/Post";
 import { UnityGame } from "./Components/UnityGame";
 import { DeviceJoin } from "./Pages/DeviceJoin";
 import DeviceWrapper from "./Pages/DeviceWrapper";
+import Guide from "./Pages/Guide";
+import GuideWrapper from "./Pages/GuideWrapper";
+import GuidePost from "./Pages/GuidePost";
 
 function App() {
   return (
@@ -31,6 +34,12 @@ function App() {
           <Route path="/" element={<Main />} index />
           <Route path="/test" element={<FirstTest />} />
           <Route path="/whatsnew" element={<WhatsNew />} />
+
+          <Route path="/Guide" element={<GuideWrapper />}>
+            <Route index element={<Guide />} />
+            <Route path=":id" element={<GuidePost />} />
+          </Route>
+
           <Route path="/ranking" element={<Ranking />} />
 
           <Route path="/community" element={<BoardWrapper />}>

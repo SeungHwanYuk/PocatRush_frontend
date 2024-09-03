@@ -91,22 +91,22 @@ function Header() {
             </>
           ) : (
             <>
-            <HeaderText padding={`0px 32px`} isSmall>
-              <StyledLink  to={"/devicejoin" + `/${userId}`} >
-                기기연결
-                <IoIosWatch />
-              </StyledLink>
+              <HeaderText padding={`0px 32px`} isSmall>
+                <StyledLink to={"/devicejoin" + `/${userId}`}>
+                  기기연결
+                  <IoIosWatch />
+                </StyledLink>
               </HeaderText>
               <HeaderTextBin padding={`0px 32px`} isSmall></HeaderTextBin>
               <HeaderText padding={`0px 32px`} isSmall>
-              <StyledLink
-                onClick={() => {
-                  userLogout();
-                }}
-              >
-                로그아웃
-                <IoIosLogOut />
-              </StyledLink>
+                <StyledLink
+                  onClick={() => {
+                    userLogout();
+                  }}
+                >
+                  로그아웃
+                  <IoIosLogOut />
+                </StyledLink>
               </HeaderText>
             </>
           )}
@@ -115,6 +115,11 @@ function Header() {
           <HeaderText padding={`14px 74px`}>
             <StyledLink isWhite to={"/WhatsNew"} isHeader>
               What's New
+            </StyledLink>
+          </HeaderText>
+          <HeaderText padding={`14px 74px`}>
+            <StyledLink isWhite to={"/Guide"} isHeader>
+              가이드
             </StyledLink>
           </HeaderText>
           <HeaderText padding={`14px 74px`}>
