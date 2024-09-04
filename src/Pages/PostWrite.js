@@ -13,41 +13,55 @@ import {
 import Footer from "../Components/Footer";
 import { useEffect, useState } from "react";
 import { tokenCheck, urlPostWrite } from "../API/api";
+import { useNavigate } from "react-router-dom";
 
 function PostWrite() {
+  const navigate = useNavigate();
   const [inputTitle, setInputTitle] = useState("");
   const [inputText, setInputText] = useState("");
   const [userId, setUserId] = useState("");
 
-  async function post() {
-    let postData = {
-      userId: userId,
-      postTitle: inputTitle,
-      postText: inputText,
-      boardNumber: "1",
-    };
+  const postData = {
+    userId: `${userId}`,
+    postTitle: `${inputTitle}`,
+    postText: `${inputText}`,
+    postImage: "",
+    boardNumber: "1",
+  };
+  async function postCheckUserId() {
     try {
-      let responseToken = await tokenCheck();
-
+      const responseToken = await tokenCheck();
+      console.log(responseToken.userId);
       if (responseToken) {
         setUserId(responseToken.userId);
-        if (inputText && inputTitle) {
-          if (window.confirm("등록 하시겠습니까?")) {
-            let responsePost = await urlPostWrite(postData);
-            window.location.href = "/community";
-          }
-        } else {
-          alert("제목 혹은 내용을 입력해주세요.");
-        }
-      } else {
-        alert("로그인이 필요합니다.");
       }
     } catch (error) {
-      console.log("에러발생 : ", error);
+      console.log("토큰 에러 : ", error);
     }
   }
 
-  useEffect(() => {}, []);
+  async function postWrite() {
+    if (!userId) {
+      alert("로그인이 필요합니다.");
+      return;
+    }
+    if (inputText && inputTitle) {
+      if (window.confirm("등록 하시겠습니까?")) {
+        try {
+          let responsePost = await urlPostWrite(postData);
+          navigate("/community");
+        } catch (error) {
+          console.log("글쓰기 에러 : ", error);
+        }
+      }
+    } else {
+      alert("제목 혹은 내용을 입력해주세요.");
+    }
+  }
+
+  useEffect(() => {
+    postCheckUserId();
+  }, []);
   return (
     <>
       <Wrapper>
@@ -76,7 +90,7 @@ function PostWrite() {
               onChange={(e) => setInputText(e.target.value)}
             />
           </PostWriteWrapper>
-          <button onClick={post}>작성</button>
+          <button onClick={() => postWrite()}>작성</button>
         </Wrapper>
       </Wrapper>
       <Wrapper alContent={`center`} dr={`column`}>
