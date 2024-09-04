@@ -68,6 +68,10 @@ export const Text = styled.p`
     color: ${(props) => props.color};
   }
 
+  &:hover {
+    color: ${(props) => props.hoverColor || ""};
+  }
+
   @media (max-width: 1440) {
   }
 `;
@@ -200,6 +204,10 @@ export const GameStartButton = styled.button`
 export const StyledLink = styled(Link)`
   /* color: ${(props) => props.color || `#000`}; */
   color: ${(props) => (props.isWhite ? `#fff` : `#000`)};
+  display: flex;
+  flex-direction: ${(props) => props.flexDirection || `column`};
+  align-items: ${(props) => props.alignItems || `center`};
+  justify-content: ${(props) => props.justifyContent || `center`};
 
   transition: 0.2s;
 
@@ -555,12 +563,12 @@ export const MedalListImage = styled.img`
 `;
 
 export const Medalcustomhr = styled.img`
-  border: 0;
-  height: 1px;
-  background: #ccc;
-  margin: auto;
-  width: 60%;
-  min-width: 400px;
+  border: ${(props) => props.border || `0`};
+  height: ${(props) => props.height || `1px`};
+  background: ${(props) => props.background || `#ccc`};
+  margin: ${(props) => props.margin || `auto`};
+  width: ${(props) => props.width || `60%`};
+  min-width: ${(props) => props.minWidth || `400px`};
 `;
 
 // 레벨, 포인트 래퍼
@@ -588,16 +596,14 @@ export const DeviceJoinTitle = styled.h1`
 //가이드 게시판
 export const GuideBoardWrapper = styled.div`
   display: flex;
-  // flex-direction: column;
-  gap: 20px;
-  @media (max-width: 1440) {
-  }
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 export const GuideWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding: 100px 0;
-
 `;
 
 export const GuidePost = styled.div`
@@ -612,8 +618,7 @@ export const GuidePost = styled.div`
 
 export const GuidePostTitle = styled.h2`
   margin: 10px 0 10px;
-  font-size: 20px;
-  font-family: ;
+  font-size: 18px;
 `;
 
 export const GuidePostContent = styled.img`

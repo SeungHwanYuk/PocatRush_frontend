@@ -43,20 +43,21 @@ function Post() {
   return (
     <>
       <Wrapper>
-        <StyledLink
-          to={data && data.board.boardId == 1 ? "/community" : "/whatsnew"}
-        >
         <Header />
-
         <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
-          <SubPageTitle>
-            {data && data.board.boardId == 1 ? "커뮤니티" : "What's New"}
-          </SubPageTitle>
-          <SubPageTitleDesc>
-            포켓러쉬 유저들과 자유롭게 소통할 수 있습니다.
-          </SubPageTitleDesc>
+          <StyledLink
+            to={data && data.board.boardId == 1 ? "/community" : "/whatsnew"}
+          >
+            <SubPageTitle>
+              {data && data.board.boardId == 1 ? "커뮤니티" : "What's New"}
+            </SubPageTitle>
+            <SubPageTitleDesc>
+              {data && data.board.boardId == 1
+                ? "포켓러쉬 유저들과 자유롭게 소통할 수 있습니다."
+                : "포켓러쉬의 새로운 소식을 확인할 수 있습니다."}
+            </SubPageTitleDesc>
+          </StyledLink>
         </SubPageTitleWrapper>
-        </StyledLink>
       </Wrapper>
       <Wrapper alContent={`center`} dr={`column`}>
         <Wrapper ju={`flex-end`} maxWidth={`1440px`}></Wrapper>

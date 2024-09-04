@@ -41,8 +41,9 @@ function Guide() {
 
   return (
     <>
-      <Header />
+      
       <StyledLink to={"/Guide"}>
+      <Header />
         <SubPageTitleWrapper bgImg={`url("../images/subBanner02.png")`}>
           <SubPageTitle>가이드</SubPageTitle>
 
@@ -62,7 +63,7 @@ function Guide() {
               <GuidePostContent
                 src={guidePosts.imageUrlPage}
               ></GuidePostContent>
-              <GuidePostTitle>{guidePosts.title}</GuidePostTitle>
+              <GuidePostTitle >{guidePosts.title}</GuidePostTitle>
             </GuidePost>
           ))}
         </GuideBoardWrapper>

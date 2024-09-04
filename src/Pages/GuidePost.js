@@ -19,7 +19,7 @@ function GuidePost() {
 
   useEffect(() => {
     // id가 변경될 때마다 해당 게시글을 찾고 이미지 URL을 설정
-    const post = guidePosts.find(post => post.id == id); 
+    const post = guidePosts.find((post) => post.id == id);
     if (post) {
       setImageUrl(post.imageUrl || ""); // 해당 게시글의 imageUrl 상태로 설정
     }
@@ -29,16 +29,24 @@ function GuidePost() {
     <>
       <Header />
       <StyledLink to={"/Guide"}>
-      <SubPageTitleWrapper bgImg={`url("../images/subBanner02.png")`}>
-        <SubPageTitle>가이드</SubPageTitle>
-        <SubPageTitleDesc>
-          포켓러쉬 월드에 대해 알아갈 수 있어요.
-        </SubPageTitleDesc>
-        
-      </SubPageTitleWrapper>
+        <SubPageTitleWrapper bgImg={`url("../images/subBanner02.png")`}>
+          <SubPageTitle>가이드</SubPageTitle>
+          <SubPageTitleDesc>
+            포켓러쉬 월드에 대해 알아갈 수 있어요.
+          </SubPageTitleDesc>
+        </SubPageTitleWrapper>
       </StyledLink>
-      {imageUrl && <Image src={imageUrl} alt="Guide Image" />} {/* imageUrl이 설정된 경우에만 렌더링 */}
-
+      {imageUrl && (
+        <Wrapper display={`flex`}>
+          <Image
+            src={imageUrl}
+            padding={`120px 0`}
+            maxWidth={`900px`}
+            alt="Guide Image"
+          />
+        </Wrapper>
+      )}{" "}
+      {/* imageUrl이 설정된 경우에만 렌더링 */}
       <Footer />
     </>
   );
