@@ -189,8 +189,9 @@ function MyPage() {
             </MypagelevelTr>
 
             <MypageData>
-              <MypageDataSuffix> userPoint :</MypageDataSuffix>
+              <MypageDataSuffix> 보유 캣닢 :</MypageDataSuffix>
               {characterPoint && characterPoint ? characterPoint : "없음"}
+              <MypageDataSuffix> Point</MypageDataSuffix>
             </MypageData>
           </WrapperMypageData>
           <Wrapper>
