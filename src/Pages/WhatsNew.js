@@ -8,6 +8,7 @@ import {
   MainTableWrapper,
   SearchInput,
   SearchInputWrapper,
+  StyledLink,
   SubPageTitle,
   SubPageTitleDesc,
   SubPageTitleWrapper,
@@ -53,13 +54,16 @@ function WhatsNew() {
   return (
     <>
       <Wrapper>
+      <StyledLink to={"/WhatsNew"}>
         <Header />
-        <SubPageTitleWrapper bgImg={`url("images/subBanner01.png")`}>
-          <SubPageTitle>What's New</SubPageTitle>
-          <SubPageTitleDesc>
-            포켓러쉬의 새로운 소식을 확인할 수 있습니다.
-          </SubPageTitleDesc>
-        </SubPageTitleWrapper>
+        
+          <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
+            <SubPageTitle>What's New</SubPageTitle>
+            <SubPageTitleDesc>
+              포켓러쉬의 새로운 소식을 확인할 수 있습니다.
+            </SubPageTitleDesc>
+          </SubPageTitleWrapper>
+        </StyledLink>
       </Wrapper>
       <Wrapper alContent={`center`} dr={`column`}>
         <Wrapper ju={`flex-end`} maxWidth={`1440px`}>

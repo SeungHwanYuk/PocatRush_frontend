@@ -11,6 +11,7 @@ import {
   PostTableTitleTd,
   SearchInput,
   SearchInputWrapper,
+  StyledLink,
   SubPageTitle,
   SubPageTitleDesc,
   SubPageTitleWrapper,
@@ -42,13 +43,20 @@ function Post() {
   return (
     <>
       <Wrapper>
+        <StyledLink
+          to={data && data.board.boardId == 1 ? "/community" : "/whatsnew"}
+        >
         <Header />
+
         <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
-          <SubPageTitle>커뮤니티</SubPageTitle>
+          <SubPageTitle>
+            {data && data.board.boardId == 1 ? "커뮤니티" : "What's New"}
+          </SubPageTitle>
           <SubPageTitleDesc>
             포켓러쉬 유저들과 자유롭게 소통할 수 있습니다.
           </SubPageTitleDesc>
         </SubPageTitleWrapper>
+        </StyledLink>
       </Wrapper>
       <Wrapper alContent={`center`} dr={`column`}>
         <Wrapper ju={`flex-end`} maxWidth={`1440px`}></Wrapper>
