@@ -45,6 +45,7 @@ export const Image = styled.img`
   max-width: ${(props) => props.maxWidth || ``};
   padding: ${(props) => props.padding};
   margin: ${(props) => props.margin || `0 auto`};
+  border: ${(props) => props.border || ``};
 `;
 
 export const Text = styled.p`
@@ -589,15 +590,14 @@ export const GuideBoardWrapper = styled.div`
   display: flex;
   // flex-direction: column;
   gap: 20px;
+  @media (max-width: 1440) {
+  }
 `;
 export const GuideWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding: 100px 0;
-  width: ${(props) => props.width || `100%`};
-  max-width: ${(props) => props.maxWidth || ``};
-  padding: ${(props) => props.padding};
-  margin: ${(props) => props.margin || `0 auto`};
+
 `;
 
 export const GuidePost = styled.div`
@@ -614,7 +614,6 @@ export const GuidePostTitle = styled.h2`
   margin: 10px 0 10px;
   font-size: 20px;
   font-family: ;
-
 `;
 
 export const GuidePostContent = styled.img`

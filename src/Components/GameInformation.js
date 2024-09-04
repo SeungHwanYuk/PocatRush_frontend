@@ -1,12 +1,15 @@
 import { Link, Navigate } from "react-router-dom";
 import {
+  Image,
   PocatRushButton,
   StyledLink,
   Text,
   Wrapper,
 } from "../Style/StyledComponents";
+import guidePosts from "./GuidePostData";
 
 function GameInformation() {
+  const guidePost = guidePosts;
   return (
     <>
       <Wrapper dr={`row`} ju={`space-around`} margin={`40px 0`}>
@@ -31,34 +34,33 @@ function GameInformation() {
             </StyledLink>
           </PocatRushButton>
         </Wrapper>
-        <Wrapper width={`auto`}>
-          <Wrapper dr={`column`} width={`auto`} margin={`0 20px`} al={`center`}>
+        <Wrapper width={`auto`} >
+          {guidePost.map((g) => (
             <Wrapper
-              width={`200px`}
-              height={`250px`}
-              bgColor={`#ccc`}
-              radius={`4px`}
-            ></Wrapper>
-            <Text margin={`10px 0 0`}>랭킹 공략</Text>
-          </Wrapper>
-          <Wrapper dr={`column`} width={`auto`} margin={`0 20px`} al={`center`}>
-            <Wrapper
-              width={`200px`}
-              height={`250px`}
-              bgColor={`#ccc`}
-              radius={`4px`}
-            ></Wrapper>
-            <Text margin={`10px 0 0`}>랭킹 공략</Text>
-          </Wrapper>
-          <Wrapper dr={`column`} width={`auto`} margin={`0 20px`} al={`center`}>
-            <Wrapper
-              width={`200px`}
-              height={`250px`}
-              bgColor={`#ccc`}
-              radius={`4px`}
-            ></Wrapper>
-            <Text margin={`10px 0 0`}>랭킹 공략</Text>
-          </Wrapper>
+              dr={`column`}
+              width={`auto`}
+              margin={`0 20px`}
+              al={`center`}
+              ju={`center`}
+              
+            >
+
+              <StyledLink to={`/Guide/${g.id}`}>
+                <Image
+                  width={`200px`}
+                  height={`auto`}
+                  bgColor={`#ccc`}
+                  radius={`4px`}
+                  src={g.imageUrlPage}
+                  alt="Guide Image"
+                  
+                />
+                <Text margin={`10px 0 0`} textAlign={`center`}>
+                  {g.title}
+                </Text>
+              </StyledLink>
+            </Wrapper>
+          ))}
         </Wrapper>
       </Wrapper>
     </>
