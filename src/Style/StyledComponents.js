@@ -240,15 +240,17 @@ export const SubPageTitleWrapper = styled.div`
 `;
 
 export const SubPageTitle = styled.h1`
-  font-size: 32px;
-  font-weight: 800;
-  margin: 0;
+  font-size: ${(props) => props.fontSize||`32px`};
+  font-weight:  ${(props) => props.fontWeight||`800`};
+  margin: ${(props) => props.margin||`0`};
+  color:${(props) => props.color||``};
 `;
 
 export const SubPageTitleDesc = styled.h3`
   font-size: 18px;
   font-weight: 400;
   margin: 0;
+  
 `;
 
 export const SearchInputWrapper = styled.div`
@@ -625,4 +627,57 @@ export const GuidePostContent = styled.img`
   width: 200px;
   height: auto;
   margin: 0;
+`;
+
+//디바이스 운동기록 등록
+
+export const DiviceText = styled.div`
+display: ${(props) => props.display || `flex`};
+justify-content: ${(props) => props.ju|| `center`};
+align-items: ${(props) => props.al|| `center`};
+  width: ${(props) => props.width || `300px`};
+`;
+export const DiviceTextWrapper = styled.div`
+  display: ${(props) => props.display || `flex`};
+  flex-direction: ${(props) => props.dr || `column`};
+  justify-content: ${(props) => props.ju};
+  align-items: ${(props) => props.al};
+  align-content: ${(props) => props.alContent};
+`;
+
+export const DiviceWriteInputTitle = styled.input`
+  width: ${(props) => props.width || `100px`};
+  height: ${(props) => props.height || `30px`};
+  border: ${(props) => props.border || `none`};
+  border-bottom: ${(props) => props.borderBottom || `1px solid #000`};
+  padding: ${(props) => props.padding || `0 8px`};
+  margin: ${(props) => props.margin || `0 10px`};
+  text-align: ${(props) => props.margin || `center`};
+`;
+
+export const TableWrapper = styled.table`
+  width: 100%;
+  border-collapse: collapse; /* 테두리 겹침 방지 */
+  display: ${(props) => props.display || `flex`};
+  flex-direction: ${(props) => props.dr || `column`};
+  justify-content: ${(props) => props.ju};
+`;
+
+export const TableRow = styled.tr`
+//display: flex;
+`;
+
+export const TableData = styled.td`
+  padding: 5px;
+  vertical-align: middle; /* 세로 정렬 */
+`;
+
+export const InputField = styled.input`
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid #dddddd;
+  padding: 0 8px;
+  margin:0 10px ;
+  text-align: center;
 `;

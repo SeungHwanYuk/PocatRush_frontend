@@ -3,10 +3,19 @@ import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import {
   DeviceJoinTitle,
+  DiviceText,
+  DiviceTextWrapper,
+  DiviceWriteInputTitle,
+  Image,
+  InputField,
   PocatRushButton,
+  PostWriteInputTitle,
   SubPageTitle,
   SubPageTitleDesc,
   SubPageTitleWrapper,
+  TableData,
+  TableRow,
+  TableWrapper,
   Wrapper,
 } from "../Style/StyledComponents";
 import { useEffect, useState } from "react";
@@ -28,6 +37,84 @@ export function DeviceJoin() {
       console.log("디바이스 체크 : ", response.data);
       setDeviceFound(
         <>
+          <Wrapper ju={`center`}>
+            <DiviceText>
+            <TableRow display={`flex`}     flexDirection= {`column`}>
+              <TableWrapper>
+                <tbody>
+                  <TableRow>
+                    <TableData>달리기</TableData>
+                    <TableData>
+                      :<InputField placeholder="입력해주세요" />
+                      km
+                    </TableData>
+                  </TableRow>
+                  <TableRow>
+                    <TableData>무게</TableData>
+                    <TableData>
+                      :<InputField placeholder="입력해주세요" />
+                      kg
+                    </TableData>
+                  </TableRow>
+                  <TableRow>
+                    <TableData>시간</TableData>
+                    <TableData>
+                      :
+                      <InputField placeholder="입력해주세요" />
+                      min
+                    </TableData>
+                  </TableRow>
+                  
+                </tbody>
+              </TableWrapper>
+              <TableRow ><button>dd</button></TableRow>
+              </TableRow>
+            </DiviceText>
+            
+            <DiviceText>
+              <SubPageTitleWrapper
+                bgImg={`url("../images/watch.png")`}
+                width={`2500px`}
+              >
+                <DiviceText>
+                  <DiviceText width={`35px`} margin={`10px`}></DiviceText>
+                  <SubPageTitle
+                    color={`#fff`}
+                    fontSize={`10px`}
+                    fontWeight={`400`}
+                    margin={`2px`}
+                  >
+                    10
+                  </SubPageTitle>
+                </DiviceText>
+
+                <DiviceText>
+                  <DiviceText width={`35px`}></DiviceText>
+                  <SubPageTitle
+                    color={`#fff`}
+                    fontSize={`10px`}
+                    fontWeight={`400`}
+                    margin={`2px`}
+                  >
+                    10
+                  </SubPageTitle>
+                </DiviceText>
+                <DiviceText>
+                  <DiviceText width={`35px`}></DiviceText>
+                  <SubPageTitle
+                    color={`#fff`}
+                    fontSize={`10px`}
+                    fontWeight={`400`}
+                    margin={`2px`}
+                  >
+                    10
+                  </SubPageTitle>
+                </DiviceText>
+              </SubPageTitleWrapper>
+            </DiviceText>
+            <Wrapper margin={`50px`}></Wrapper>
+          </Wrapper>
+
           <DeviceJoinTitle> 연동 완료 ! </DeviceJoinTitle>
           <DeviceJoinTitle fontSize={"20px"} margin={"0 0 5px 0"}>
             디바이스 번호는
@@ -60,11 +147,12 @@ export function DeviceJoin() {
         <Header />
         {/* 페이지 이동시 이미지 주소가 기존 주소에 + (더해져서 찾는) 현상을 보완하기위해 ../ 로 자동으로 찾기 수정 매우중요! */}
         <SubPageTitleWrapper bgImg={`url("../images/subBanner02.png")`}>
-          <SubPageTitle>회원가입</SubPageTitle>
+          <SubPageTitle>기기연결</SubPageTitle>
           <SubPageTitleDesc>
-            지금 바로 회원가입하고 즐거운 포켓러쉬의 세계에 빠져보세요.
+            지금 바로 연동하고 즐거운 포켓러쉬의 세계에 빠져보세요.
           </SubPageTitleDesc>
         </SubPageTitleWrapper>
+
         <Wrapper dr={`column`} al={`center`} padding={`140px 0`}>
           {deviceFound || (
             <>
