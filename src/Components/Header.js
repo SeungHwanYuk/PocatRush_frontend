@@ -16,6 +16,7 @@ import {
   IoIosWatch,
 } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 
 function Header() {
   const navigate = useNavigate();
@@ -70,6 +71,7 @@ function Header() {
         // bgColor={` rgb(255,255,255,0.6);`}
         bgColor={`#fff`}
       >
+        <ScrollToTop/>
         <StyledLink to={"/"}>
           <Image
             src="/images/pocatLogo.png"

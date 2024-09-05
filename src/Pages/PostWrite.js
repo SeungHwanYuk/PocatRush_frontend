@@ -14,6 +14,7 @@ import Footer from "../Components/Footer";
 import { useEffect, useState } from "react";
 import { tokenCheck, urlPostWrite } from "../API/api";
 import { useNavigate } from "react-router-dom";
+import ScrollToTop from "../Components/ScrollToTop";
 
 function PostWrite() {
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ function PostWrite() {
   }, []);
   return (
     <>
+
       <Wrapper>
         <Header />
         <SubPageTitleWrapper bgImg={`url("images/subBanner01.png")`}>

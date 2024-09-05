@@ -7,6 +7,7 @@ import {
   Wrapper,
 } from "../Style/StyledComponents";
 import guidePosts from "./GuidePostData";
+import ScrollToTop from "./ScrollToTop";
 
 function GameInformation() {
   const guidePost = guidePosts;

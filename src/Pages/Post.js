@@ -21,6 +21,7 @@ import Footer from "../Components/Footer";
 import { useParams } from "react-router-dom";
 import { urlGetPost } from "../API/api";
 import { useEffect, useState } from "react";
+import ScrollToTop from "../Components/ScrollToTop";
 
 function Post() {
   const { postId } = useParams();
@@ -44,6 +45,7 @@ function Post() {
     <>
       <Wrapper>
         <Header />
+        <ScrollToTop/>
         <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
           <StyledLink
             to={data && data.board.boardId == 1 ? "/community" : "/whatsnew"}
@@ -61,7 +63,7 @@ function Post() {
       </Wrapper>
       <Wrapper alContent={`center`} dr={`column`}>
         <Wrapper ju={`flex-end`} maxWidth={`1440px`}></Wrapper>
-        <MainTableWrapper>
+        <MainTableWrapper  margin={`100px 0`}>
           {data && (
             <>
               <MainPostTableTitleTr>

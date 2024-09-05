@@ -16,6 +16,7 @@ import {
 } from "../Style/StyledComponents";
 import { HiSearch } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
+import ScrollToTop from "../Components/ScrollToTop";
 
 function WhatsNew() {
   const [data, setData] = useState(null);
@@ -55,6 +56,7 @@ function WhatsNew() {
     <>
       <Wrapper>
         <Header />
+        <ScrollToTop/>
         <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
           <StyledLink to={"/WhatsNew"}>
             <SubPageTitle color={`#242424`}>What's New</SubPageTitle>

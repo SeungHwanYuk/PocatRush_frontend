@@ -11,6 +11,7 @@ import {
 } from "../Style/StyledComponents";
 import { useEffect, useState } from "react";
 import { urlCheckDevice, urlJoinDevice } from "../API/api";
+import ScrollToTop from "../Components/ScrollToTop";
 
 export function DeviceJoin() {
   const { userId } = useParams();
