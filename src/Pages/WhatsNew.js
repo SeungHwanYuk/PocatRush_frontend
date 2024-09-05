@@ -58,7 +58,7 @@ function WhatsNew() {
         <Header />
         <ScrollToTop/>
         <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
-          <StyledLink to={"/WhatsNew"}>
+          <StyledLink to={"/whatsnew"}>
             <SubPageTitle color={`#242424`}>What's New</SubPageTitle>
             <SubPageTitleDesc>
               포켓러쉬의 새로운 소식을 확인할 수 있습니다.
