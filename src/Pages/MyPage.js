@@ -17,6 +17,7 @@ import {
   NicknameSuffix,
   PostTableTd,
   PostWriteInputText,
+  StyledLink,
   SubPageTitle,
   SubPageTitleDesc,
   SubPageTitleWrapper,
@@ -149,11 +150,13 @@ function MyPage() {
     <>
       <Wrapper>
         <Header />
-        <SubPageTitleWrapper bgImg={`url("images/subBanner02.png")`}>
-          <SubPageTitle>마이페이지</SubPageTitle>
-          <SubPageTitleDesc>
-            나의 정보를 조회하고 변경할 수 있습니다.
-          </SubPageTitleDesc>
+        <SubPageTitleWrapper bgImg={`url("../images/subBanner02.png")`}>
+          <StyledLink to={"/mypage"}>
+            <SubPageTitle>마이페이지</SubPageTitle>
+            <SubPageTitleDesc>
+              나의 정보를 조회하고 변경할 수 있습니다.
+            </SubPageTitleDesc>
+          </StyledLink>
         </SubPageTitleWrapper>
 
         <Wrapper>

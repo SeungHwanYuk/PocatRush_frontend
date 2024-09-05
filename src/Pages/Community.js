@@ -7,6 +7,7 @@ import {
   PostWriteButton,
   SearchInput,
   SearchInputWrapper,
+  StyledLink,
   SubPageTitle,
   SubPageTitleDesc,
   SubPageTitleWrapper,
@@ -58,10 +59,12 @@ function Community() {
       <Wrapper>
         <Header />
         <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
-          <SubPageTitle>커뮤니티</SubPageTitle>
-          <SubPageTitleDesc>
-            포켓러쉬 유저들과 자유롭게 소통할 수 있습니다.
-          </SubPageTitleDesc>
+          <StyledLink to={"/community"}>
+            <SubPageTitle>커뮤니티</SubPageTitle>
+            <SubPageTitleDesc>
+              포켓러쉬 유저들과 자유롭게 소통할 수 있습니다.
+            </SubPageTitleDesc>
+          </StyledLink>
         </SubPageTitleWrapper>
       </Wrapper>
       <Wrapper alContent={`center`} dr={`column`}>

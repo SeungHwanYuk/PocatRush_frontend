@@ -92,17 +92,21 @@ function Header() {
           ) : (
             <>
               <HeaderText padding={`0px 32px`} isSmall>
-                <StyledLink to={"/devicejoin" + `/${userId}`}>
+                <StyledLink
+                  to={"/devicejoin" + `/${userId}`}
+                  flexDirection={`row`}
+                >
                   기기연결
                   <IoIosWatch />
                 </StyledLink>
               </HeaderText>
-              <HeaderTextBin padding={`0px 32px`} isSmall></HeaderTextBin>
+              <HeaderTextBin padding={`0px 20px`} isSmall></HeaderTextBin>
               <HeaderText padding={`0px 32px`} isSmall>
                 <StyledLink
                   onClick={() => {
                     userLogout();
                   }}
+                  flexDirection={`row`}
                 >
                   로그아웃
                   <IoIosLogOut />
