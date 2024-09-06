@@ -28,11 +28,9 @@ export function DeviceJoin() {
   const navigate = useNavigate();
   const [deviceFound, setDeviceFound] = useState("");
   const [deviceId, setDeviceId] = useState("");
-  const [inputKm,setInputKm] =useState("");
-  const [inputKg,setInputKg] =useState("");
-  const [inputMin,setInputMin] =useState("");
-
-  
+  const [inputKm, setInputKm] = useState("");
+  const [inputKg, setInputKg] = useState("");
+  const [inputMin, setInputMin] = useState("");
 
   async function checkDevice() {
     if (!userId) {
@@ -41,7 +39,6 @@ export function DeviceJoin() {
     try {
       const response = await urlCheckDevice(userId);
 
-      cosnt 
       console.log("디바이스 체크 : ", response.data);
       setDeviceFound(
         <>
@@ -60,9 +57,12 @@ export function DeviceJoin() {
                     <TableRow>
                       <TableData>달리기</TableData>
                       <TableData>
-                        :<InputField placeholder="입력해주세요" 
-                        value={inputKm}
-                        onChange={(e)=> setInputKm(e.target.value)}/>
+                        :
+                        <InputField
+                          placeholder="입력해주세요"
+                          value={inputKm}
+                          onChange={(e) => setInputKm(e.target.value)}
+                        />
                         km
                       </TableData>
                     </TableRow>
@@ -85,7 +85,9 @@ export function DeviceJoin() {
                 </TableWrapper>
 
                 <Wrapper ju={`flex-end`} margin={`20px 0`}>
-                  <PocatRushButton wid={`80px`} onClick={()=>}>적용하기</PocatRushButton>
+                  <PocatRushButton wid={`80px`} onClick={() => ""}>
+                    적용하기
+                  </PocatRushButton>
                 </Wrapper>
               </TableRow>
             </DiviceText>
