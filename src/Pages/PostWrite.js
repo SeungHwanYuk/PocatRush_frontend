@@ -13,11 +13,12 @@ import {
 import Footer from "../Components/Footer";
 import { useEffect, useState } from "react";
 import { tokenCheck, urlPostWrite } from "../API/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ScrollToTop from "../Components/ScrollToTop";
 
 function PostWrite() {
   const navigate = useNavigate();
+  const { boardNumber } = useParams();
   const [inputTitle, setInputTitle] = useState("");
   const [inputText, setInputText] = useState("");
   const [userId, setUserId] = useState("");
@@ -27,7 +28,7 @@ function PostWrite() {
     postTitle: `${inputTitle}`,
     postText: `${inputText}`,
     postImage: "",
-    boardNumber: "1",
+    boardNumber: boardNumber ? `${boardNumber}` : "1",
   };
   async function postCheckUserId() {
     try {
@@ -57,6 +58,7 @@ function PostWrite() {
       }
     } else {
       alert("제목 혹은 내용을 입력해주세요.");
+      return;
     }
   }
 
@@ -65,10 +67,9 @@ function PostWrite() {
   }, []);
   return (
     <>
-
       <Wrapper>
         <Header />
-        <SubPageTitleWrapper bgImg={`url("images/subBanner01.png")`}>
+        <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
           <SubPageTitle>커뮤니티</SubPageTitle>
           <SubPageTitleDesc>
             포켓러쉬 유저들과 자유롭게 소통할 수 있습니다.
@@ -76,6 +77,12 @@ function PostWrite() {
         </SubPageTitleWrapper>
 
         <Wrapper dr={`column`} al={`center`} padding={`140px 0`}>
+          <PostWriteWrapper justifyContent={`left`}>
+            <PostWriteText>게시판</PostWriteText>
+            <PostWriteText margin={`0 0 0 30px`}>
+              {boardNumber && boardNumber == 2 ? "공지사항" : "자유게시판"}
+            </PostWriteText>
+          </PostWriteWrapper>
           <PostWriteWrapper>
             <PostWriteText>제목</PostWriteText>
             <PostWriteInputTitle

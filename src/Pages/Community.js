@@ -75,7 +75,11 @@ function Community() {
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
             />
-            <HiSearch onClick={getPostByText} />
+            <HiSearch
+              size={`25px`}
+              cursor={`pointer`}
+              onClick={getPostByText}
+            />
           </SearchInputWrapper>
         </Wrapper>
         <MainTableWrapper>

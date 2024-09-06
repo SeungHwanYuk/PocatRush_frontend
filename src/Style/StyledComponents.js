@@ -208,6 +208,7 @@ export const StyledLink = styled(Link)`
   flex-direction: ${(props) => props.flexDirection || `column`};
   align-items: ${(props) => props.alignItems || `center`};
   justify-content: ${(props) => props.justifyContent || `center`};
+  margin: ${(props) => props.margin || ``};
 
   transition: 0.2s;
 
@@ -369,11 +370,12 @@ export const PostWriteWrapper = styled.div`
   display: flex;
   flex-direction: row;
   width: 500px;
-  justify-content: space-between;
+  justify-content: ${(props) => props.justifyContent || `space-between`};
   align-items: center;
 `;
 
 export const PostWriteText = styled.p`
+  margin: ${(props) => props.margin || ``};
   text-align: left;
   font-weight: 800;
   padding-right: 8px;
@@ -663,7 +665,7 @@ export const TableWrapper = styled.table`
 `;
 
 export const TableRow = styled.tr`
-justify-content: ${(props) => props.ju};
+  justify-content: ${(props) => props.ju};
 `;
 
 export const TableData = styled.td`

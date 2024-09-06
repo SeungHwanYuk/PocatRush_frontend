@@ -50,6 +50,7 @@ function Header() {
               </StyledLink>
             </HeaderText>
           );
+          localStorage.setItem("isAdmin", "관리자입니다");
         } else {
           console.log("현재 로그인 계정 : ", response.data.data);
         }
@@ -71,7 +72,7 @@ function Header() {
         // bgColor={` rgb(255,255,255,0.6);`}
         bgColor={`#fff`}
       >
-        <ScrollToTop/>
+        <ScrollToTop />
         <StyledLink to={"/"}>
           <Image
             src="/images/pocatLogo.png"
@@ -98,8 +99,8 @@ function Header() {
                   to={"/devicejoin" + `/${userId}`}
                   flexDirection={`row`}
                 >
-                  기기연결
-                  <IoIosWatch />
+                  기기연결<HeaderTextBin padding={`0 2px`}></HeaderTextBin>
+                  <IoIosWatch size={"20px"} />
                 </StyledLink>
               </HeaderText>
               <HeaderTextBin padding={`0px 20px`} isSmall></HeaderTextBin>
@@ -110,8 +111,8 @@ function Header() {
                   }}
                   flexDirection={`row`}
                 >
-                  로그아웃
-                  <IoIosLogOut />
+                  로그아웃<HeaderTextBin padding={`0 2px`}></HeaderTextBin>
+                  <IoIosLogOut size={"20px"} />
                 </StyledLink>
               </HeaderText>
             </>

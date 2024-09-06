@@ -28,6 +28,10 @@ export function urlGetPost(postId) {
   return axios.get(`http://localhost:8080/api/post/${postId}`);
 }
 
+export function urlDeletePost(postId) {
+  return axios.delete(`http://localhost:8080/api/post/delete/${postId}`);
+}
+
 export function urlGetGuidePost(id) {
   return axios.get(`http://localhost:8080/api/Guide/${id}`);
 }
@@ -45,6 +49,10 @@ export function urlJoinDevice(userId) {
 }
 export function urlCheckDevice(userId) {
   return axios.get(`http://localhost:8080/api/device/check/${userId}`);
+}
+
+export function urlPlusData(plusUpdate) {
+  return axios.post("http://localhost:8080/api/device/plusdata", plusUpdate);
 }
 
 //마이페이지-진경
@@ -98,10 +106,6 @@ export function urlHpUpdateByNickname(nickName) {
   return axios.put(`http://localhost:8080/api/character/hpupdate/${nickName}`);
 }
 
-export function urlPlusData(plusUpdate) {
-  return axios.post("http://localhost:8080/api/device/plusdata", plusUpdate);
-}
-
 // 0808 승환 현재로그인상태 테스트
 export async function tokenCheck() {
   let tokenData = {};
@@ -132,9 +136,23 @@ export async function userLogout() {
   if (window.confirm("로그아웃 하시겠습니까?")) {
     // localStorage에서 토큰 삭제
     localStorage.removeItem("JWT-token");
+    localStorage.removeItem("isAdmin");
 
     window.location.href = "/";
     console.log("로그아웃 완료");
   }
   return <></>;
+}
+
+// 0906 관리자인지 체크 불리언 리턴
+// 사용시 useState로 이용바람
+export function adminCheck() {
+  const checkAdmin = localStorage.getItem("isAdmin");
+  if (checkAdmin) {
+    console.log("관리자 확인");
+    return true;
+  } else {
+    console.log("관리자가 아님");
+    return false;
+  }
 }

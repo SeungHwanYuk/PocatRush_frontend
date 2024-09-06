@@ -46,7 +46,9 @@ function App() {
             <Route index element={<Community />} />
             <Route path=":postId" element={<Post />} />
           </Route>
-          <Route path="/postwrite" element={<PostWrite />} />
+          <Route path="/postwrite" element={<PostWrite />}>
+            <Route path=":boardNumber" element={<PostWrite />} />
+          </Route>
 
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/join" element={<Join />} />

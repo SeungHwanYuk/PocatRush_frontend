@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { urlGetPostByText, urlPostWhatsNew } from "../API/api";
+import { adminCheck, urlGetPostByText, urlPostWhatsNew } from "../API/api";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import {
   MainTableTd,
   MainTableTr,
   MainTableWrapper,
+  PostWriteButton,
   SearchInput,
   SearchInputWrapper,
   StyledLink,
@@ -21,13 +22,18 @@ import ScrollToTop from "../Components/ScrollToTop";
 function WhatsNew() {
   const [data, setData] = useState(null);
   const [searchText, setSearchText] = useState("");
+  const [admin, setAdmin] = useState("");
   const navigate = useNavigate();
+
+  // 공지사항 등록 게시판번호
+  const boardNumber = "2";
 
   async function whatsNews() {
     try {
       let response = await urlPostWhatsNew();
       console.log("데이터 : ", response.data);
       setData(response.data);
+      setAdmin(adminCheck);
     } catch (error) {
       console.log("에러 : ", error);
     }
@@ -56,7 +62,7 @@ function WhatsNew() {
     <>
       <Wrapper>
         <Header />
-        <ScrollToTop/>
+        <ScrollToTop />
         <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
           <StyledLink to={"/whatsnew"}>
             <SubPageTitle color={`#242424`}>What's New</SubPageTitle>
@@ -96,6 +102,14 @@ function WhatsNew() {
                 <MainTableTd width={`20%`}>{data.postDate}</MainTableTd>
               </MainTableTr>
             ))}
+          {admin ? (
+            <PostWriteButton
+              key={boardNumber}
+              onClick={() => navigate(`/postwrite/${boardNumber}`)}
+            >
+              글쓰기
+            </PostWriteButton>
+          ) : null}
         </MainTableWrapper>
       </Wrapper>
       <Footer />

@@ -7,6 +7,7 @@ import {
   MainTableTd,
   MainTableTr,
   MainTableWrapper,
+  PocatRushButton,
   PostTableTd,
   PostTableTitleTd,
   SearchInput,
@@ -18,14 +19,16 @@ import {
   Wrapper,
 } from "../Style/StyledComponents";
 import Footer from "../Components/Footer";
-import { useParams } from "react-router-dom";
-import { urlGetPost } from "../API/api";
+import { useNavigate, useParams } from "react-router-dom";
+import { adminCheck, urlDeletePost, urlGetPost } from "../API/api";
 import { useEffect, useState } from "react";
 import ScrollToTop from "../Components/ScrollToTop";
 
 function Post() {
+  const navigate = useNavigate();
   const { postId } = useParams();
   const [data, setData] = useState("");
+  const [admin, setAdmin] = useState("");
 
   async function getPostByPostId() {
     try {
@@ -33,10 +36,24 @@ function Post() {
       console.log("urlGetPost : ", response.data);
 
       setData(response.data);
+      setAdmin(adminCheck);
     } catch (error) {
       console.log("에러발생 : ", error);
     }
   }
+
+  function deletePost() {
+    if (window.confirm("삭제하시겠습니까?")) {
+      try {
+        const response = urlDeletePost(postId);
+        console.log(`${postId} 삭제완료 :`, response);
+        window.location.href = "/community";
+      } catch (error) {
+        console.log("삭제 에러 : ", error);
+      }
+    }
+  }
+
   useEffect(() => {
     getPostByPostId();
   }, []);
@@ -45,7 +62,7 @@ function Post() {
     <>
       <Wrapper>
         <Header />
-        <ScrollToTop/>
+        <ScrollToTop />
         <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
           <StyledLink
             to={data && data.board.boardId == 1 ? "/community" : "/whatsnew"}
@@ -63,7 +80,7 @@ function Post() {
       </Wrapper>
       <Wrapper alContent={`center`} dr={`column`}>
         <Wrapper ju={`flex-end`} maxWidth={`1440px`}></Wrapper>
-        <MainTableWrapper  margin={`100px 0`}>
+        <MainTableWrapper margin={`100px 0`}>
           {data && (
             <>
               <MainPostTableTitleTr>
@@ -85,6 +102,14 @@ function Post() {
               <MainPostTextTableTr>
                 <PostTableTd width={`80%`}>{data.postText}</PostTableTd>
               </MainPostTextTableTr>
+              {admin ? (
+                <PocatRushButton
+                  margin={`20px 0 0 auto`}
+                  onClick={() => deletePost()}
+                >
+                  삭제
+                </PocatRushButton>
+              ) : null}
             </>
           )}
         </MainTableWrapper>

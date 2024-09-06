@@ -36,7 +36,7 @@ function SmallTable() {
 
   return (
     <Wrapper>
-      <ScrollToTop/>
+      <ScrollToTop />
       <Wrapper ju={`center`}>
         <Wrapper dr={`column`} width={`650px`} margin={`20px 70px`}>
           <Wrapper dr={`column`} padding={`20px 0`}>
@@ -50,7 +50,7 @@ function SmallTable() {
             </Wrapper>
             <Text fontSize={`14px`}>포켓러쉬의 새 소식을 확인해보세요</Text>
           </Wrapper>
-          <ScrollToTop/>
+          <ScrollToTop />
           <SmallTableWrapper>
             {whatsNewData &&
               // 결과 갯수 제한 slice(시작 , 끝 index)

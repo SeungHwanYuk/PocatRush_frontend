@@ -29,13 +29,13 @@ function GameInformation() {
               푸짐한 포인트 선물을 드립니다!
             </Text>
           </Wrapper>
-          <PocatRushButton>
+          <PocatRushButton margin={`20px 0`}>
             <StyledLink to={"/GameIntro"} isWhite>
               게임정보 바로가기
             </StyledLink>
           </PocatRushButton>
         </Wrapper>
-        <Wrapper width={`auto`} >
+        <Wrapper width={`auto`}>
           {guidePost.map((g) => (
             <Wrapper
               dr={`column`}
@@ -43,9 +43,7 @@ function GameInformation() {
               margin={`0 20px`}
               al={`center`}
               ju={`center`}
-              
             >
-
               <StyledLink to={`/Guide/${g.id}`}>
                 <Image
                   width={`200px`}
@@ -54,7 +52,6 @@ function GameInformation() {
                   radius={`4px`}
                   src={g.imageUrlPage}
                   alt="Guide Image"
-                  
                 />
                 <Text margin={`10px 0 0`} textAlign={`center`}>
                   {g.title}
