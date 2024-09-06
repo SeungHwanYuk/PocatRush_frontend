@@ -22,6 +22,7 @@ function Login() {
   // 0809 승환 로그인기능 추가
   const [inputId, setInputId] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+  const [loginErrorSign, setLoginErrorSign] = useState("");
   const navigate = useNavigate();
   const loginData = {
     userId: `${inputId}`,
@@ -38,11 +39,16 @@ function Login() {
         // 성공시 이전 페이지로 이동
         navigate(-1);
       } catch (error) {
-        console.log("에러 : ", error.response.data.data);
+        console.log("로그인에러 : ", error);
+        setLoginErrorSign(
+          <Text color="#E1442D">아이디 혹은 비밀번호를 확인해주세요.</Text>
+        );
       }
     }
   }
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setLoginErrorSign("");
+  }, [inputId]);
 
   return (
     <>
@@ -63,6 +69,7 @@ function Login() {
               onChange={(e) => setInputId(e.target.value)}
             />
           </JoinInputWrapper>
+          {loginErrorSign ? loginErrorSign : null}
           <JoinInputWrapper>
             <JoinText>비밀번호</JoinText>
             <JoinInput

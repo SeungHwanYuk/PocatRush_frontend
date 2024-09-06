@@ -21,6 +21,7 @@ import {
 import { useEffect, useState } from "react";
 import { urlCheckDevice, urlJoinDevice } from "../API/api";
 import ScrollToTop from "../Components/ScrollToTop";
+import { IoIosCheckmark } from "react-icons/io";
 
 export function DeviceJoin() {
   const { userId } = useParams();
@@ -37,40 +38,48 @@ export function DeviceJoin() {
       console.log("디바이스 체크 : ", response.data);
       setDeviceFound(
         <>
-          <Wrapper ju={`center`}>
+          <DeviceJoinTitle>
+            연동 완료{" "}
+            <IoIosCheckmark size={"50px"} ju={"center"}></IoIosCheckmark>{" "}
+          </DeviceJoinTitle>
+          <DeviceJoinTitle fontSize={"20px"} margin={"0 0 5px 0"}>
+            먼저 운동량을 체크 해볼까요?
+          </DeviceJoinTitle>
+          <Wrapper ju={`center`} margin="30px">
             <DiviceText>
-            <TableRow display={`flex`}     flexDirection= {`column`}>
-              <TableWrapper>
-                <tbody>
-                  <TableRow>
-                    <TableData>달리기</TableData>
-                    <TableData>
-                      :<InputField placeholder="입력해주세요" />
-                      km
-                    </TableData>
-                  </TableRow>
-                  <TableRow>
-                    <TableData>무게</TableData>
-                    <TableData>
-                      :<InputField placeholder="입력해주세요" />
-                      kg
-                    </TableData>
-                  </TableRow>
-                  <TableRow>
-                    <TableData>시간</TableData>
-                    <TableData>
-                      :
-                      <InputField placeholder="입력해주세요" />
-                      min
-                    </TableData>
-                  </TableRow>
-                  
-                </tbody>
-              </TableWrapper>
-              <TableRow ><button>dd</button></TableRow>
+              <TableRow display={`flex`} flexDirection={`column`}>
+                <TableWrapper>
+                  <tbody>
+                    <TableRow>
+                      <TableData>달리기</TableData>
+                      <TableData>
+                        :<InputField placeholder="입력해주세요" />
+                        km
+                      </TableData>
+                    </TableRow>
+                    <TableRow>
+                      <TableData>무게</TableData>
+                      <TableData>
+                        :<InputField placeholder="입력해주세요" />
+                        kg
+                      </TableData>
+                    </TableRow>
+                    <TableRow>
+                      <TableData>시간</TableData>
+                      <TableData>
+                        :
+                        <InputField placeholder="입력해주세요" />
+                        min
+                      </TableData>
+                    </TableRow>
+                  </tbody>
+                </TableWrapper>
+                <TableRow>
+                  <button>dd</button>
+                </TableRow>
               </TableRow>
             </DiviceText>
-            
+
             <DiviceText>
               <SubPageTitleWrapper
                 bgImg={`url("../images/watch.png")`}
@@ -115,7 +124,6 @@ export function DeviceJoin() {
             <Wrapper margin={`50px`}></Wrapper>
           </Wrapper>
 
-          <DeviceJoinTitle> 연동 완료 ! </DeviceJoinTitle>
           <DeviceJoinTitle fontSize={"20px"} margin={"0 0 5px 0"}>
             디바이스 번호는
           </DeviceJoinTitle>

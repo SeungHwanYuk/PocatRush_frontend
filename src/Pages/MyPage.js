@@ -122,7 +122,11 @@ function MyPage() {
         ? `${medal.levelId}` == "인간"
           ? ` ${medal.levelId} <br/> 인간이 아니신가?`
           : ` ${medal.levelId} <br/> 경험치 ${medal.levelUpExpLowLimit} 이상이면 메달 획득이 가능합니다.` +
-            `<br/>${userExp >= levelUpExpLowLimit ? "축하합니다!" : ""}`
+            `<br/>${
+              userExp >= levelUpExpLowLimit
+                ? "벌써 얻으셨군요?! 축하합니다!"
+                : ""
+            }`
         : "No Medal Info"
     );
     setPopupOpen(true);

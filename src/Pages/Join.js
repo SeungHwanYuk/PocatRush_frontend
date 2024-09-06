@@ -77,6 +77,7 @@ function Join() {
               placeholder="비밀번호를 입력해주세요"
               value={inputSignUpPassword}
               onChange={(e) => setInputSignUpPassword(e.target.value)}
+              type="password"
             />
           </JoinInputWrapper>
           <JoinInputWrapper>

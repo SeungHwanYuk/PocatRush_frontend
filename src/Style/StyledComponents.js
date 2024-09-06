@@ -240,17 +240,16 @@ export const SubPageTitleWrapper = styled.div`
 `;
 
 export const SubPageTitle = styled.h1`
-  font-size: ${(props) => props.fontSize||`32px`};
-  font-weight:  ${(props) => props.fontWeight||`800`};
-  margin: ${(props) => props.margin||`0`};
-  color:${(props) => props.color||``};
+  font-size: ${(props) => props.fontSize || `32px`};
+  font-weight: ${(props) => props.fontWeight || `800`};
+  margin: ${(props) => props.margin || `0`};
+  color: ${(props) => props.color || ``};
 `;
 
 export const SubPageTitleDesc = styled.h3`
   font-size: 18px;
   font-weight: 400;
   margin: 0;
-  
 `;
 
 export const SearchInputWrapper = styled.div`
@@ -589,6 +588,8 @@ export const BackGroundImage = styled.div`
 
 // 디바이스 타이틀
 export const DeviceJoinTitle = styled.h1`
+  display: flex;
+  align-items: center;
   color: ${(props) => props.fontColor || "#333"};
   font-size: ${(props) => props.fontSize || "32px"};
   font-weight: ${(props) => props.fontWeight || "800"};
@@ -632,9 +633,9 @@ export const GuidePostContent = styled.img`
 //디바이스 운동기록 등록
 
 export const DiviceText = styled.div`
-display: ${(props) => props.display || `flex`};
-justify-content: ${(props) => props.ju|| `center`};
-align-items: ${(props) => props.al|| `center`};
+  display: ${(props) => props.display || `flex`};
+  justify-content: ${(props) => props.ju || `center`};
+  align-items: ${(props) => props.al || `center`};
   width: ${(props) => props.width || `300px`};
 `;
 export const DiviceTextWrapper = styled.div`
@@ -664,7 +665,7 @@ export const TableWrapper = styled.table`
 `;
 
 export const TableRow = styled.tr`
-//display: flex;
+  //display: flex;
 `;
 
 export const TableData = styled.td`
@@ -678,6 +679,6 @@ export const InputField = styled.input`
   border: none;
   border-bottom: 1px solid #dddddd;
   padding: 0 8px;
-  margin:0 10px ;
+  margin: 0 10px;
   text-align: center;
 `;
