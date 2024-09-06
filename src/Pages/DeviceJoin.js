@@ -19,7 +19,7 @@ import {
   Wrapper,
 } from "../Style/StyledComponents";
 import { useEffect, useState } from "react";
-import { urlCheckDevice, urlJoinDevice } from "../API/api";
+import { urlCheckDevice, urlJoinDevice, urlPlusData } from "../API/api";
 import ScrollToTop from "../Components/ScrollToTop";
 import { IoIosCheckmark } from "react-icons/io";
 
@@ -28,10 +28,27 @@ export function DeviceJoin() {
   const navigate = useNavigate();
   const [deviceFound, setDeviceFound] = useState("");
   const [deviceId, setDeviceId] = useState("");
-  const [inputKm, setInputKm] = useState("");
-  const [inputKg, setInputKg] = useState("");
-  const [inputMin, setInputMin] = useState("");
+  const [inputKm, setInputKm] = useState(0);
+  const [inputKg, setInputKg] = useState(0);
+  const [inputMin, setInputMin] = useState(0);
 
+  const plusUpdate = {
+    deviceId: `${deviceId}`,
+    km: `${inputKm}`,
+    kg: `${inputKg}`,
+    min: `${inputMin}`,
+  };
+
+  async function plusDeviceData() {
+    console.log(plusUpdate);
+
+    try {
+      const response = await urlPlusData(plusUpdate);
+      window.location.reload();
+    } catch (error) {
+      console.log("에러 : ", error);
+    }
+  }
   async function checkDevice() {
     if (!userId) {
       alert("잘못된 접근입니다.");
@@ -39,7 +56,8 @@ export function DeviceJoin() {
     try {
       const response = await urlCheckDevice(userId);
 
-      console.log("디바이스 체크 : ", response.data);
+      console.log("디바이스 체크 : ", response.data.deviceId);
+      setDeviceId(response.data.deviceId);
       setDeviceFound(
         <>
           <DeviceJoinTitle>
@@ -60,7 +78,6 @@ export function DeviceJoin() {
                         :
                         <InputField
                           placeholder="입력해주세요"
-                          value={inputKm}
                           onChange={(e) => setInputKm(e.target.value)}
                         />
                         km
@@ -69,7 +86,11 @@ export function DeviceJoin() {
                     <TableRow>
                       <TableData>무게</TableData>
                       <TableData>
-                        :<InputField placeholder="입력해주세요" />
+                        :
+                        <InputField
+                          placeholder="입력해주세요"
+                          onChange={(e) => setInputKg(e.target.value)}
+                        />
                         kg
                       </TableData>
                     </TableRow>
@@ -77,7 +98,10 @@ export function DeviceJoin() {
                       <TableData>시간</TableData>
                       <TableData>
                         :
-                        <InputField placeholder="입력해주세요" />
+                        <InputField
+                          placeholder="입력해주세요"
+                          onChange={(e) => setInputMin(e.target.value)}
+                        />
                         min
                       </TableData>
                     </TableRow>
@@ -85,7 +109,10 @@ export function DeviceJoin() {
                 </TableWrapper>
 
                 <Wrapper ju={`flex-end`} margin={`20px 0`}>
-                  <PocatRushButton wid={`80px`} onClick={() => ""}>
+                  <PocatRushButton
+                    wid={`80px`}
+                    onClick={() => plusDeviceData()}
+                  >
                     적용하기
                   </PocatRushButton>
                 </Wrapper>
@@ -161,9 +188,11 @@ export function DeviceJoin() {
       console.log("연동 실패 : ", error);
     }
   }
+
   useEffect(() => {
     checkDevice();
   }, []);
+
   return (
     <>
       <Wrapper>
