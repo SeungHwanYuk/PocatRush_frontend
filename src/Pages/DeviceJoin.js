@@ -28,6 +28,11 @@ export function DeviceJoin() {
   const navigate = useNavigate();
   const [deviceFound, setDeviceFound] = useState("");
   const [deviceId, setDeviceId] = useState("");
+  const [inputKm,setInputKm] =useState("");
+  const [inputKg,setInputKg] =useState("");
+  const [inputMin,setInputMin] =useState("");
+
+  
 
   async function checkDevice() {
     if (!userId) {
@@ -35,6 +40,8 @@ export function DeviceJoin() {
     }
     try {
       const response = await urlCheckDevice(userId);
+
+      cosnt 
       console.log("디바이스 체크 : ", response.data);
       setDeviceFound(
         <>
@@ -53,7 +60,9 @@ export function DeviceJoin() {
                     <TableRow>
                       <TableData>달리기</TableData>
                       <TableData>
-                        :<InputField placeholder="입력해주세요" />
+                        :<InputField placeholder="입력해주세요" 
+                        value={inputKm}
+                        onChange={(e)=> setInputKm(e.target.value)}/>
                         km
                       </TableData>
                     </TableRow>
@@ -74,9 +83,10 @@ export function DeviceJoin() {
                     </TableRow>
                   </tbody>
                 </TableWrapper>
-                <TableRow>
-                  <button>dd</button>
-                </TableRow>
+
+                <Wrapper ju={`flex-end`} margin={`20px 0`}>
+                  <PocatRushButton wid={`80px`} onClick={()=>}>적용하기</PocatRushButton>
+                </Wrapper>
               </TableRow>
             </DiviceText>
 
@@ -85,38 +95,41 @@ export function DeviceJoin() {
                 bgImg={`url("../images/watch.png")`}
                 width={`2500px`}
               >
-                <DiviceText>
+                <DiviceText width={`50px`}>
                   <DiviceText width={`35px`} margin={`10px`}></DiviceText>
                   <SubPageTitle
                     color={`#fff`}
                     fontSize={`10px`}
                     fontWeight={`400`}
                     margin={`2px`}
+                    ju={`flex-end`}
                   >
-                    10
+                    {response.data.km}
                   </SubPageTitle>
                 </DiviceText>
 
-                <DiviceText>
+                <DiviceText width={`50px`}>
                   <DiviceText width={`35px`}></DiviceText>
                   <SubPageTitle
                     color={`#fff`}
                     fontSize={`10px`}
                     fontWeight={`400`}
                     margin={`2px`}
+                    ju={`flex-end`}
                   >
-                    10
+                    {response.data.kg}
                   </SubPageTitle>
                 </DiviceText>
-                <DiviceText>
+                <DiviceText width={`50px`}>
                   <DiviceText width={`35px`}></DiviceText>
                   <SubPageTitle
                     color={`#fff`}
                     fontSize={`10px`}
                     fontWeight={`400`}
                     margin={`2px`}
+                    ju={`flex-end`}
                   >
-                    10
+                    {response.data.min}
                   </SubPageTitle>
                 </DiviceText>
               </SubPageTitleWrapper>

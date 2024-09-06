@@ -220,18 +220,16 @@ export const StyledLink = styled(Link)`
 // sub pages
 
 export const SubPageTitleWrapper = styled.div`
-  width: 100%;
-  display: flex;
+  width: ${(props) => props.width || `100%`};
+  display: ${(props) => props.display || `flex`};
   height: 300px;
   flex-wrap: wrap;
   margin: 0;
-  /* margin-top: 160px; */
   transition: 0.3s;
-  /* background-color: #242424; */
   color: #242424;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  align-items: ${(props) => props.al || `center`};
+  justify-content: ${(props) => props.ju || `center`};
+  flex-direction: ${(props) => props.dir || `column`};
 
   background-image: ${(props) => props.bgImg};
   background-size: cover;
@@ -665,12 +663,13 @@ export const TableWrapper = styled.table`
 `;
 
 export const TableRow = styled.tr`
-  //display: flex;
+justify-content: ${(props) => props.ju};
 `;
 
 export const TableData = styled.td`
   padding: 5px;
   vertical-align: middle; /* 세로 정렬 */
+  justify-content: ${(props) => props.ju};
 `;
 
 export const InputField = styled.input`
