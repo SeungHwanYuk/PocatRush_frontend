@@ -363,6 +363,7 @@ export const AdminButton = styled.button`
   color: #fff;
   border-radius: 8px;
   border: none;
+  cursor: pointer;
 `;
 
 //글쓰기 - 진경
@@ -376,6 +377,7 @@ export const PostWriteWrapper = styled.div`
 
 export const PostWriteText = styled.p`
   margin: ${(props) => props.margin || ``};
+  color: ${(props) => props.color || ``};
   text-align: left;
   font-weight: 800;
   padding-right: 8px;

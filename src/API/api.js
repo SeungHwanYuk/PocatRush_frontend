@@ -1,5 +1,6 @@
 import axios from "axios";
 import Main from "../Pages/Main";
+import { useNavigate } from "react-router-dom";
 
 export function urlGetAllAuthority() {
   return axios.get("http://localhost:8080/api/authority/all");
@@ -105,6 +106,8 @@ export function urlMinUpdate(userId, min) {
 export function urlHpUpdateByNickname(nickName) {
   return axios.put(`http://localhost:8080/api/character/hpupdate/${nickName}`);
 }
+
+
 
 // 0808 승환 현재로그인상태 테스트
 export async function tokenCheck() {

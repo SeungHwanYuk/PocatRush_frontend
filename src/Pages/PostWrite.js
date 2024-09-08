@@ -1,6 +1,7 @@
 import Header from "../Components/Header";
 import {
   MainTableWrapper,
+  PocatRushButton,
   PostWriteInputText,
   PostWriteInputTitle,
   PostWriteText,
@@ -79,7 +80,7 @@ function PostWrite() {
         <Wrapper dr={`column`} al={`center`} padding={`140px 0`}>
           <PostWriteWrapper justifyContent={`left`}>
             <PostWriteText>게시판</PostWriteText>
-            <PostWriteText margin={`0 0 0 30px`}>
+            <PostWriteText margin={`0 0 0 30px`} color={`#666`}>
               {boardNumber && boardNumber == 2 ? "공지사항" : "자유게시판"}
             </PostWriteText>
           </PostWriteWrapper>
@@ -99,7 +100,7 @@ function PostWrite() {
               onChange={(e) => setInputText(e.target.value)}
             />
           </PostWriteWrapper>
-          <button onClick={() => postWrite()}>작성</button>
+          <PocatRushButton margin="30px" onClick={() => postWrite()}>작성</PocatRushButton>
         </Wrapper>
       </Wrapper>
       <Wrapper alContent={`center`} dr={`column`}>
