@@ -109,6 +109,9 @@ export function urlHpUpdateByNickname(nickName) {
 
 
 
+export function urlItemUpdate(itemData) {
+  return axios.post(`http://localhost:8080/api/itemhistory/update`, itemData);
+}
 // 0808 승환 현재로그인상태 테스트
 export async function tokenCheck() {
   let tokenData = {};
