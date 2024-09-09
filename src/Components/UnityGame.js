@@ -11,6 +11,7 @@ import {
   urlExpUpdate,
   urlGetCharacter,
   urlHpUpdateByNickname,
+  urlItemUpdate,
   urlKgUpdate,
   urlKmUpdate,
   urlMinUpdate,
@@ -58,6 +59,20 @@ export function UnityGame() {
   const [characterLevel, setCharacterLevel] = useState("");
   const [exp, setExp] = useState(0);
   const [newHp, setNewHp] = useState("");
+
+  // 캐릭터 아이템 관리
+  const [churuValue, setChuruValue] = useState(0);
+  const [coinValue, setCoinValue] = useState(0);
+  const churuData = {
+    charNickName: `${charNickname}`,
+    itemId: `id_churu`,
+    itemValue: `${churuValue}`,
+  };
+  const coinData = {
+    charNickName: `${charNickname}`,
+    itemId: `id_gameShopCoin`,
+    itemValue: `${coinValue}`,
+  };
 
   async function getUserId() {
     try {
@@ -130,6 +145,25 @@ export function UnityGame() {
       console.log("HP 업데이트 완료 : ", responseHpUpdate.data);
     } catch (error) {
       console.log("HP 업데이트 에러 : ", error);
+    }
+  }
+
+  async function itemValueUpdate() {
+    if (churuValue == null && coinValue == null) {
+      console.log("츄르랑 코인이 왜 없누? ", churuValue + " : " + coinValue);
+      return;
+    }
+    try {
+      const responseChuruUpdate = await urlItemUpdate(churuData);
+      const responseCoinUpdate = await urlItemUpdate(coinData);
+      console.log(
+        "츄르,코인 업데이트 성공 : ",
+        responseChuruUpdate.data,
+        " , ",
+        responseCoinUpdate.data
+      );
+    } catch (error) {
+      console.log("츄르 혹은 코인 에러 : ", error);
     }
   }
 
@@ -206,6 +240,11 @@ export function UnityGame() {
     setNewHp(newHp);
   }
 
+  function handleItemValueUpdateData(nowChuruValue, nowCoinValue) {
+    setChuruValue(nowChuruValue);
+    setCoinValue(nowCoinValue);
+  }
+
   useEffect(() => {
     addEventListener("ExpUpdate", handleExpUpdateData);
     return () => {
@@ -266,6 +305,14 @@ export function UnityGame() {
       removeEventListener("HpUpdate", handleHpUpdateData);
     };
   }, [handleHpUpdateData]);
+
+  useEffect(() => {
+    addEventListener("ItemValueUpdate", handleItemValueUpdateData);
+    return () => {
+      console.log("ItemValueUpdate removed");
+      removeEventListener("ItemValueUpdate", handleItemValueUpdateData);
+    };
+  }, [handleItemValueUpdateData]);
 
   useEffect(() => {
     getUserId();
@@ -332,6 +379,7 @@ export function UnityGame() {
       return;
     }
     hpUpdate();
+    itemValueUpdate();
   }, [newHp]);
 
   return (
