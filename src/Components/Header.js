@@ -60,6 +60,10 @@ function Header() {
     }
   }
 
+  function to() {
+    window.location.href = `http://localhost:3000/DeviceJoin/${userId}`;
+  }
+
   useEffect(() => {
     currentCheck();
   }, []);
@@ -94,7 +98,7 @@ function Header() {
           ) : (
             <>
               <HeaderText padding={`0px 32px`} isSmall>
-                <StyledLink to={`/DeviceJoin/${userId}`} flexDirection={`row`}>
+                <StyledLink onClick={to} flexDirection={`row`}>
                   기기관리<HeaderTextBin padding={`0 2px`}></HeaderTextBin>
                   <IoIosWatch size={"20px"} />
                 </StyledLink>
