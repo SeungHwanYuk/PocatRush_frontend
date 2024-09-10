@@ -416,7 +416,7 @@ export function UnityGame() {
     <>
       <Header></Header>
 
-      <BackGroundImage bgImg={`url("images/background_game.png")`}>
+      <BackGroundImage bgImg={`url("../images/background_game.png")`}>
         <GameContainer>
           {
             <Unity

@@ -60,7 +60,7 @@ function Header() {
     }
   }
 
-  function to() {
+  function toDevicePage() {
     window.location.href = `http://localhost:3000/DeviceJoin/${userId}`;
   }
 
@@ -98,7 +98,7 @@ function Header() {
           ) : (
             <>
               <HeaderText padding={`0px 32px`} isSmall>
-                <StyledLink onClick={to} flexDirection={`row`}>
+                <StyledLink onClick={toDevicePage} flexDirection={`row`}>
                   기기관리<HeaderTextBin padding={`0 2px`}></HeaderTextBin>
                   <IoIosWatch size={"20px"} />
                 </StyledLink>
