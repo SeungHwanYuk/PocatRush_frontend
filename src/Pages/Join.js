@@ -42,9 +42,10 @@ function Join() {
         let response = await urlUserSignUp(signUpData);
         console.log("데이터 : ", response.data);
         // 이동 코드
-        navigate(`/devicejoin/${inputSignUpId}`);
+        // navigate(`/devicejoin/${inputSignUpId}`);
         // window.location.href =
         //   "http://localhost:3000/devicejoin" + `/${inputSignUpId}`;
+        navigate("/login");
       } catch (error) {
         console.log("에러 : ", error.response.data.data);
       }

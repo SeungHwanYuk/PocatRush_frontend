@@ -122,6 +122,7 @@ export function DeviceJoin() {
                             :
                             <InputField
                               placeholder="입력해주세요"
+                              defaultValue={null}
                               onChange={(e) => setInputKm(e.target.value)}
                               type="number"
                             />
@@ -134,6 +135,7 @@ export function DeviceJoin() {
                             :
                             <InputField
                               placeholder="입력해주세요"
+                              defaultValue={null}
                               onChange={(e) => setInputKg(e.target.value)}
                               type="number"
                             />
@@ -146,6 +148,7 @@ export function DeviceJoin() {
                             :
                             <InputField
                               placeholder="입력해주세요"
+                              defaultValue={null}
                               onChange={(e) => setInputMin(e.target.value)}
                               type="number"
                             />

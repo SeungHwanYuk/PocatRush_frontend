@@ -10,6 +10,7 @@ import {
   urlCreateCharacter,
   urlExpUpdate,
   urlGetCharacter,
+  urlGetItemData,
   urlHpUpdateByNickname,
   urlItemUpdate,
   urlKgUpdate,
@@ -80,11 +81,32 @@ export function UnityGame() {
       setUserId(response.userId);
       try {
         const responseCharData = await urlGetCharacter(response.userId);
+        try {
+          const responseItemData = await urlGetItemData(
+            responseCharData.data.data.charNickName
+          );
+          console.log("아이템 정보는 ?  : ", responseItemData.data);
+          setChuruValue(
+            responseItemData.data
+              .filter((i) => i.itemId == "id_churu")
+              .map((i) => i.itemValue)[0]
+          );
+          setCoinValue(
+            responseItemData.data
+              .filter((i) => i.itemId == "id_gameShopCoin")
+              .map((i) => i.itemValue)[0]
+          );
+        } catch (error) {
+          console.log("아이템 불러오기 에러 : ", error);
+        }
+
         console.log("캐릭터가 있습니다", responseCharData.data);
         console.log("캐릭터 정보는? : ", responseCharData.data.data);
+
         setCharacterHp(responseCharData.data.data.charHp);
         setCharacterLevel(responseCharData.data.data.level.levelId);
         setCharNickname(responseCharData.data.data.charNickName);
+
         sendMessage(
           "SceneManager",
           "isUser",
@@ -141,7 +163,7 @@ export function UnityGame() {
 
   async function hpUpdate() {
     try {
-      const responseHpUpdate = await urlHpUpdateByNickname(charNickname);
+      const responseHpUpdate = await urlHpUpdateByNickname(charNickname, newHp);
       console.log("HP 업데이트 완료 : ", responseHpUpdate.data);
     } catch (error) {
       console.log("HP 업데이트 에러 : ", error);
@@ -323,6 +345,8 @@ export function UnityGame() {
     sendMessage("userPanel", "GetNickName", charNickname);
     sendMessage("userPanel", "GetHp", characterHp);
     sendMessage("userPanel", "GetLevel", characterLevel);
+    sendMessage("ItemPanel", "GetChuruValueByCharacter", churuValue);
+    sendMessage("ItemPanel", "GetCoinValueByCharacter", coinValue);
   }, [worldReady]);
 
   useEffect(() => {
@@ -380,7 +404,13 @@ export function UnityGame() {
     }
     hpUpdate();
     itemValueUpdate();
-  }, [newHp]);
+  }, [newHp, churuValue, coinValue]);
+
+  // 테스트
+  useEffect(() => {
+    console.log("가진 츄르 갯수 : ", churuValue);
+    console.log("가진 코인 갯수 : ", coinValue);
+  }, [churuValue]);
 
   return (
     <>
@@ -400,11 +430,11 @@ export function UnityGame() {
             />
           }
         </GameContainer>
-        <button>
+        {/* <button>
           <Link to="/linerider" target="_blank">
             라인라이더
           </Link>
-        </button>
+        </button> */}
       </BackGroundImage>
       <Footer></Footer>
     </>

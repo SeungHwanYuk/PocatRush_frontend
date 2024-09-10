@@ -66,9 +66,6 @@ export function urlGetMedalList() {
 }
 
 // 유니티
-export function urlNPCLikeUpdate(likeData) {
-  return axios.put(`http://localhost:8080/api/like/update`, likeData);
-}
 
 export function urlCreateCharacter(characterData) {
   return axios.post(
@@ -82,7 +79,7 @@ export function urlCheckNickNameOverLap(nickName) {
 }
 
 export function urlExpUpdate(nickName, exp) {
-  return axios.put(
+  return axios.post(
     `http://localhost:8080/api/character/expupdate/${nickName}/${exp}`
   );
 }
@@ -103,11 +100,17 @@ export function urlMinUpdate(userId, min) {
   );
 }
 
-export function urlHpUpdateByNickname(nickName) {
-  return axios.put(`http://localhost:8080/api/character/hpupdate/${nickName}`);
+export function urlHpUpdateByNickname(nickName, newHp) {
+  return axios.post(
+    `http://localhost:8080/api/character/hpupdate/${nickName}/${newHp}`
+  );
 }
 
-
+export function urlGetItemData(charNickName) {
+  return axios.get(
+    `http://localhost:8080/api/itemhistory/getlist/${charNickName}`
+  );
+}
 
 export function urlItemUpdate(itemData) {
   return axios.post(`http://localhost:8080/api/itemhistory/update`, itemData);

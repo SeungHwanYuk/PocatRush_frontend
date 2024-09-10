@@ -37,7 +37,7 @@ function Login() {
         console.log("데이터 : ", response.data);
         localStorage.setItem("JWT-token", response.data.data.token);
         // 성공시 이전 페이지로 이동
-        navigate(-1);
+        navigate("/");
       } catch (error) {
         console.log("로그인에러 : ", error);
         setLoginErrorSign(
