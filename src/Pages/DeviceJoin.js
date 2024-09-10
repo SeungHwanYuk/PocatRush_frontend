@@ -40,22 +40,21 @@ export function DeviceJoin() {
   };
 
   async function plusDeviceData() {
-    if(window.confirm("운동량이 더해집니다. 계속 하시겠습니까?")) {
+    if (window.confirm("운동량이 더해집니다. 계속 하시겠습니까?")) {
       console.log(plusUpdate);
       try {
         const response = await urlPlusData(plusUpdate);
-        console.log("plusUpdateData : " ,response.data);
-        setDeviceFound(
-          {km : response.data.km,
-          kg:response.data.kg,
-          min:response.data.min,
-        })  
+        console.log("plusUpdateData : ", response.data);
+        setDeviceFound({
+          km: response.data.km,
+          kg: response.data.kg,
+          min: response.data.min,
+        });
       } catch (error) {
         console.log("에러 : ", error);
       }
     }
   }
-
 
   async function checkDevice() {
     if (!userId) {
@@ -66,12 +65,11 @@ export function DeviceJoin() {
 
       console.log("디바이스 체크 : ", response.data);
       setDeviceId(response.data.deviceId);
-      setDeviceFound(
-        {km : response.data.km,
-          kg : response.data.kg,
-          min : response.data.min,
-        }
-      );
+      setDeviceFound({
+        km: response.data.km,
+        kg: response.data.kg,
+        min: response.data.min,
+      });
     } catch (error) {}
   }
 
@@ -103,123 +101,127 @@ export function DeviceJoin() {
         </SubPageTitleWrapper>
 
         <Wrapper dr={`column`} al={`center`} padding={`140px 0`}>
-          {deviceFound ? 
-          <>
-          <DeviceJoinTitle margin="0 0  70px 0">
-            연동 완료{" "}
-            <IoIosCheckmark size={"50px"} ju={"center"}></IoIosCheckmark>{" "}
-          </DeviceJoinTitle>
-          <hr width="40%" height="50px" color="#999"></hr>
-          <DeviceJoinTitle fontSize={"20px"} margin={"40px 0 40px 0"}>
-            먼저 운동량을 체크 해볼까요?
-          </DeviceJoinTitle>
-          <Wrapper ju={`center`} margin="30px">
-            <DiviceText>
-              <TableRow display={`flex`} flexDirection={`column`}>
-                <TableWrapper>
-                  <tbody>
-                    <TableRow>
-                      <TableData>달리기</TableData>
-                      <TableData>
-                        :
-                        <InputField
-                          placeholder="입력해주세요"
-                          onChange={(e) => setInputKm(e.target.value)}
-                        />
-                        km
-                      </TableData>
-                    </TableRow>
-                    <TableRow>
-                      <TableData>무게</TableData>
-                      <TableData>
-                        :
-                        <InputField
-                          placeholder="입력해주세요"
-                          onChange={(e) => setInputKg(e.target.value)}
-                        />
-                        kg
-                      </TableData>
-                    </TableRow>
-                    <TableRow>
-                      <TableData>시간</TableData>
-                      <TableData>
-                        :
-                        <InputField
-                          placeholder="입력해주세요"
-                          onChange={(e) => setInputMin(e.target.value)}
-                        />
-                        min
-                      </TableData>
-                    </TableRow>
-                  </tbody>
-                </TableWrapper>
+          {deviceFound ? (
+            <>
+              <DeviceJoinTitle margin="0 0  70px 0">
+                연동 완료{" "}
+                <IoIosCheckmark size={"50px"} ju={"center"}></IoIosCheckmark>{" "}
+              </DeviceJoinTitle>
+              <hr width="40%" height="50px" color="#999"></hr>
+              <DeviceJoinTitle fontSize={"20px"} margin={"40px 0 40px 0"}>
+                먼저 운동량을 체크 해볼까요?
+              </DeviceJoinTitle>
+              <Wrapper ju={`center`} margin="30px">
+                <DiviceText>
+                  <TableRow display={`flex`} flexDirection={`column`}>
+                    <TableWrapper>
+                      <tbody>
+                        <TableRow>
+                          <TableData>달리기</TableData>
+                          <TableData>
+                            :
+                            <InputField
+                              placeholder="입력해주세요"
+                              onChange={(e) => setInputKm(e.target.value)}
+                              type="number"
+                            />
+                            km
+                          </TableData>
+                        </TableRow>
+                        <TableRow>
+                          <TableData>무게</TableData>
+                          <TableData>
+                            :
+                            <InputField
+                              placeholder="입력해주세요"
+                              onChange={(e) => setInputKg(e.target.value)}
+                              type="number"
+                            />
+                            kg
+                          </TableData>
+                        </TableRow>
+                        <TableRow>
+                          <TableData>시간</TableData>
+                          <TableData>
+                            :
+                            <InputField
+                              placeholder="입력해주세요"
+                              onChange={(e) => setInputMin(e.target.value)}
+                              type="number"
+                            />
+                            min
+                          </TableData>
+                        </TableRow>
+                      </tbody>
+                    </TableWrapper>
 
-                <Wrapper ju={`flex-end`} margin={`20px 0`}>
-                  <PocatRushButton
-                    wid={`80px`}
-                    onClick={() => plusDeviceData()}
-                  >
-                    적용하기
-                  </PocatRushButton>
-                </Wrapper>
-              </TableRow>
-            </DiviceText>
-
-            <DiviceText>
-              <SubPageTitleWrapper
-                bgImg={`url("../images/watch.png")`}
-                width={`2500px`}
-              >
-                <DiviceText width={`50px`}>
-                  <DiviceText width={`35px`} margin={`10px`}></DiviceText>
-                  <SubPageTitle
-                    color={`#fff`}
-                    fontSize={`10px`}
-                    fontWeight={`400`}
-                    margin={`2px`}
-                    ju={`flex-end`}
-                  >
-                    {deviceFound.km}
-                  </SubPageTitle>
+                    <Wrapper ju={`flex-end`} margin={`20px 0`}>
+                      <PocatRushButton
+                        wid={`80px`}
+                        onClick={() => plusDeviceData()}
+                      >
+                        적용하기
+                      </PocatRushButton>
+                    </Wrapper>
+                  </TableRow>
                 </DiviceText>
 
-                <DiviceText width={`50px`}>
-                  <DiviceText width={`35px`}></DiviceText>
-                  <SubPageTitle
-                    color={`#fff`}
-                    fontSize={`10px`}
-                    fontWeight={`400`}
-                    margin={`2px`}
-                    ju={`flex-end`}
+                <DiviceText>
+                  <SubPageTitleWrapper
+                    bgImg={`url("../images/watch.png")`}
+                    width={`2500px`}
                   >
-                    {deviceFound.kg}
-                  </SubPageTitle>
+                    <DiviceText width={`50px`}>
+                      <DiviceText width={`35px`} margin={`10px`}></DiviceText>
+                      <SubPageTitle
+                        color={`#fff`}
+                        fontSize={`10px`}
+                        fontWeight={`400`}
+                        margin={`2px`}
+                        ju={`flex-end`}
+                      >
+                        {deviceFound.km}
+                      </SubPageTitle>
+                    </DiviceText>
+
+                    <DiviceText width={`50px`}>
+                      <DiviceText width={`35px`}></DiviceText>
+                      <SubPageTitle
+                        color={`#fff`}
+                        fontSize={`10px`}
+                        fontWeight={`400`}
+                        margin={`2px`}
+                        ju={`flex-end`}
+                      >
+                        {deviceFound.kg}
+                      </SubPageTitle>
+                    </DiviceText>
+                    <DiviceText width={`50px`}>
+                      <DiviceText width={`35px`}></DiviceText>
+                      <SubPageTitle
+                        color={`#fff`}
+                        fontSize={`10px`}
+                        fontWeight={`400`}
+                        margin={`2px`}
+                        ju={`flex-end`}
+                      >
+                        {deviceFound.min}
+                      </SubPageTitle>
+                    </DiviceText>
+                  </SubPageTitleWrapper>
                 </DiviceText>
-                <DiviceText width={`50px`}>
-                  <DiviceText width={`35px`}></DiviceText>
-                  <SubPageTitle
-                    color={`#fff`}
-                    fontSize={`10px`}
-                    fontWeight={`400`}
-                    margin={`2px`}
-                    ju={`flex-end`}
-                  >
-                    {deviceFound.min}
-                  </SubPageTitle>
-                </DiviceText>
-              </SubPageTitleWrapper>
-            </DiviceText>
-            <Wrapper margin={`50px`}></Wrapper>
-          </Wrapper>
-          <hr width="40%" height="50px" color="#999"></hr>
-          <DeviceJoinTitle fontSize={"20px"} margin={"40px 0 5px 0"}>
-            디바이스 번호는
-          </DeviceJoinTitle>
-          <DeviceJoinTitle>{deviceId} 입니다.</DeviceJoinTitle>
-          <DeviceJoinTitle fontSize={"18px"} margin={"0 0 0 0"}>
-            까먹어도 상관없음!
-          </DeviceJoinTitle>
-        </> : (
+                <Wrapper margin={`50px`}></Wrapper>
+              </Wrapper>
+              <hr width="40%" height="50px" color="#999"></hr>
+              <DeviceJoinTitle fontSize={"20px"} margin={"40px 0 5px 0"}>
+                디바이스 번호는
+              </DeviceJoinTitle>
+              <DeviceJoinTitle>{deviceId} 입니다.</DeviceJoinTitle>
+              <DeviceJoinTitle fontSize={"18px"} margin={"0 0 0 0"}>
+                까먹어도 상관없음!
+              </DeviceJoinTitle>
+            </>
+          ) : (
             <>
               <DeviceJoinTitle>스마트 워치와 연결하세요!</DeviceJoinTitle>
               <Wrapper dr={`row`} al={`center`} padding={`0`} ju={`center`}>
