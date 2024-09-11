@@ -272,21 +272,21 @@ export function UnityGame() {
     return () => {
       removeEventListener("ExpUpdate", handleExpUpdateData);
     };
-  }, [handleExpUpdateData]);
+  }, [addEventListener, removeEventListener ,handleExpUpdateData]);
 
   useEffect(() => {
     addEventListener("Create", handleCharacterData);
     return () => {
       removeEventListener("Create", handleCharacterData);
     };
-  }, [handleCharacterData]);
+  }, [addEventListener, removeEventListener ,handleCharacterData]);
 
   useEffect(() => {
     addEventListener("GameReady", handleGameReady);
     return () => {
       removeEventListener("GameReady", handleGameReady);
     };
-  }, [handleGameReady]);
+  }, [addEventListener, removeEventListener ,handleGameReady]);
 
   useEffect(() => {
     addEventListener("WorldReady", handleWorldReady);
@@ -294,7 +294,7 @@ export function UnityGame() {
     return () => {
       removeEventListener("WorldReady", handleWorldReady);
     };
-  }, [handleWorldReady]);
+  }, [addEventListener, removeEventListener ,handleWorldReady]);
 
   useEffect(() => {
     addEventListener("kmReset", handleKmResetData);
@@ -302,7 +302,7 @@ export function UnityGame() {
       console.log("kmReset removed");
       removeEventListener("kmReset", handleKmResetData);
     };
-  }, [handleKmResetData]);
+  }, [addEventListener, removeEventListener ,handleKmResetData]);
 
   useEffect(() => {
     addEventListener("kgReset", handleKgResetData);
@@ -310,7 +310,7 @@ export function UnityGame() {
       console.log("kgReset removed");
       removeEventListener("kgReset", handleKgResetData);
     };
-  }, [handleKgResetData]);
+  }, [addEventListener, removeEventListener ,handleKgResetData]);
 
   useEffect(() => {
     addEventListener("minReset", handleMinResetData);
@@ -318,7 +318,7 @@ export function UnityGame() {
       console.log("minReset removed");
       removeEventListener("minReset", handleMinResetData);
     };
-  }, [handleMinResetData]);
+  }, [addEventListener, removeEventListener ,handleMinResetData]);
 
   useEffect(() => {
     addEventListener("HpUpdate", handleHpUpdateData);
@@ -326,7 +326,7 @@ export function UnityGame() {
       console.log("HpUpdate removed");
       removeEventListener("HpUpdate", handleHpUpdateData);
     };
-  }, [handleHpUpdateData]);
+  }, [addEventListener, removeEventListener ,handleHpUpdateData]);
 
   useEffect(() => {
     addEventListener("ItemValueUpdate", handleItemValueUpdateData);
@@ -334,7 +334,7 @@ export function UnityGame() {
       console.log("ItemValueUpdate removed");
       removeEventListener("ItemValueUpdate", handleItemValueUpdateData);
     };
-  }, [handleItemValueUpdateData]);
+  }, [addEventListener, removeEventListener ,handleItemValueUpdateData]);
 
   useEffect(() => {
     getUserId();
@@ -402,10 +402,17 @@ export function UnityGame() {
       console.log("charNickname 없음");
       return;
     }
-    hpUpdate();
     itemValueUpdate();
-  }, [newHp, churuValue, coinValue]);
-
+  }, [churuValue, coinValue]);
+  
+  useEffect(() => {
+    if (!newHp) {
+      console.log("newHp 없음");
+      return;
+    }
+    hpUpdate();
+    
+  }, [newHp]);
   // 테스트
   useEffect(() => {
     console.log("가진 츄르 갯수 : ", churuValue);

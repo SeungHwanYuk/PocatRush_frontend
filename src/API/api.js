@@ -65,8 +65,12 @@ export function urlGetMedalList() {
   return axios.get("http://localhost:8080/api/level/medallist");
 }
 
-// 유니티
+export function urlGetRanking(){
+  return axios.get("http://localhost:8080/api/character/ranklist")
+}
 
+
+// 유니티
 export function urlCreateCharacter(characterData) {
   return axios.post(
     "http://localhost:8080/api/character/create",

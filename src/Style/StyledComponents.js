@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
   align-items: ${(props) => props.al};
   align-content: ${(props) => props.alContent};
   flex-wrap: ${(props) => props.wrap || `wrap`};
+  grid-template-columns: ${(props) => props.gridTemplateColumns};
   background-color: ${(props) => props.bgColor};
   position: ${(props) => (props.isAbsolute ? `absolute` : ``)};
   position: ${(props) => (props.isAbsolute ? `absolute` : ``)};
@@ -684,4 +685,54 @@ export const InputField = styled.input`
   padding: 0 8px;
   margin: 0 10px;
   text-align: center;
+`;
+
+// 카드 ChatGPT임시 스타일
+export const RankingWrapper = styled.div`
+  padding: 1rem;
+  background-color: #f0f0f0;
+  min-height: 100vh;
+`;
+
+export const Title = styled.h2`
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+`;
+
+export const CardContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+`;
+
+export const Card = styled.div`
+  width: ${props => props.$top3 ? '16rem' : '12rem'};
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+`;
+
+export const CardImage = styled.img`
+  width: 100%;
+  height: ${props => props.$top3 ? '16rem' : '10rem'};
+  object-fit: cover;
+`;
+
+export const CardContent = styled.div`
+  padding: 1rem;
+`;
+
+export const CardTitle = styled.h3`
+  font-size: ${props => props.$top3 ? '1.5rem' : '1.25rem'};
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+`;
+
+export const CardText = styled.p`
+  color: #4a5568;
+  font-size: ${props => props.$top3 ? '1rem' : '0.875rem'};
 `;
