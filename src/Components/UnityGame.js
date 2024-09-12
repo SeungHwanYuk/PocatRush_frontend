@@ -255,7 +255,7 @@ export function UnityGame() {
       sendMessage("GameManager", "setKmFromWatch", inputKm);
       sendMessage("GameManager", "setKgFromWatch", inputKg);
       sendMessage("GameManager", "setMinFromWatch", inputMin);
-      console.log("시계 적용 완료" + inputKm + inputKg + inputMin);
+      console.log("시계 적용 완료");
     }
   }
 
