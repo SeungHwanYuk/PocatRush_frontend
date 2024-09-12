@@ -1,10 +1,68 @@
-# README.md 2024-08-06 start
+- README.md 2024-08-06 start
 
-## 추후 계속 업데이트 될 예정입니다.
+- 추후 계속 업데이트 될 예정입니다.
 
-## 쓰시는 분들은 작성 날짜와 이름을 남겨주세용 ~
+- 쓰시는 분들은 작성 날짜와 이름을 남겨주세용 ~
 
-### 1.폴더 구조
+
+Pocat Rush
+
+나의 운동기록으로 게임속 캐릭터를 성장시키는 메타버스 에듀테크 웹게임 페이지
+
+# 프로젝트 소개
+
+Pocat Rush는 메타버스(가상현실)과 에듀테크(교육기술)를 포함한 웹 게임으로써
+가상현실과 현실세계의 연결고리를 운동으로 하여금 자연스럽게 연결시키고
+캐릭터의 성장재미와 더불어 유저의 운동욕구를 촉진시킬 수 있습니다.
+
+1-1 개발기간
+ 2024-08-06 ~ 2024-09-23
+
+1-2 팀원 구성
+
+육승환 
+ysh54244902@gmail.com 
+github.com/SeungHwanYuk
+
+송진경
+rudwlsthd123@naver.com
+github.com/bobo459
+
+## 기술 스택
+
+언어 
+- java, c#
+
+back-end
+- 프레임워크 : SpringBoot
+- 라이브러리 : LomBok, TomCat, JWT
+- ORM : JPA Hibernate
+
+front-end
+- 라이브러리 : react, react-icons, react-router-dom, react-unity-webgl, styled-components
+- HTML,CSS,JSX,javaScript
+- 게임엔진 : Unity, WebGL
+- API : axios
+
+DB
+- MariaDB, MySQL
+
+Server
+- node.js
+
+버전 관리
+-Git, GitHub
+
+디자인
+- Figma, Ps, Adobe Illustrator, Maya
+
+
+
+
+
+
+
+A.폴더 구조
 
 1.Components
 
