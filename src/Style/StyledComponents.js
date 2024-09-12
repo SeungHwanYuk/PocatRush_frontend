@@ -719,6 +719,7 @@ export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
+ 
 `;
 
 export const Card = styled.div`
@@ -727,12 +728,14 @@ export const Card = styled.div`
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: white;
+
 `;
 
 export const CardImage = styled.img`
-  width: 100%;
+  //width:  ${(props) => props.width || `100%`};
   height: ${(props) => (props.$top3 ? "16rem" : "10rem")};
   object-fit: cover;
+
 `;
 
 export const CardContent = styled.div`
@@ -743,9 +746,14 @@ export const CardTitle = styled.h3`
   font-size: ${(props) => (props.$top3 ? "1.5rem" : "1.25rem")};
   font-weight: 600;
   margin-bottom: 0.5rem;
+  display: flex;
 `;
 
 export const CardText = styled.p`
   color: #4a5568;
   font-size: ${(props) => (props.$top3 ? "1rem" : "0.875rem")};
+`;
+export const CardImageIcon = styled.img`
+  height: 40px;
+  margin: 0 10px;
 `;

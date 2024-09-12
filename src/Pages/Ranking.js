@@ -7,6 +7,7 @@ import {
   CardContainer,
   CardContent,
   CardImage,
+  CardImageIcon,
   CardText,
   CardTitle,
   RankingWrapper,
@@ -68,9 +69,10 @@ function Ranking() {
               {ranking &&
                 ranking.map((character) => (
                   <Card key={character.rank} $top3={character.rank <= 3}>
-                    <div style={{ position: "relative" }}>
+                    <div style={{ position: "relative", display:"flex", justifyContent: "center"}}
+                  >
                       <CardImage
-                        src={character.levelImage}
+                        src={character.profileImage}
                         alt={character.charNickName}
                         $top3={character.rank <= 3}
                       />
@@ -89,7 +91,12 @@ function Ranking() {
                     <CardContent>
                       <CardTitle $top3={character.rank <= 3}>
                         {character.charNickName}
+                        <CardImageIcon
+                        src={character.levelImage}
+                        
+                      />
                       </CardTitle>
+                      
                       <CardText
                         $top3={character.rank <= 3}
                         style={{
