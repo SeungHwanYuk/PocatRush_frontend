@@ -64,6 +64,13 @@ export function UnityGame() {
   const [resetMin, setResetMin] = useState(0);
   const [watchActive, setWatchActive] = useState(false);
 
+  // 외부 (시계) 입력값
+  //적용하기-진경
+
+  const [inputKm, setInputKm] = useState(0);
+  const [inputKg, setInputKg] = useState(0);
+  const [inputMin, setInputMin] = useState(0);
+
   // 캐릭터 정보 관리
   const [character, setCharacter] = useState("");
   const [characterHp, setCharacterHp] = useState("");
@@ -243,6 +250,15 @@ export function UnityGame() {
     }
   }
 
+  function setDeviceDataFromWatch() {
+    if (worldReady) {
+      sendMessage("GameManager", "setKmFromWatch", inputKm);
+      sendMessage("GameManager", "setKgFromWatch", inputKg);
+      sendMessage("GameManager", "setMinFromWatch", inputMin);
+      console.log("시계 적용 완료" + inputKm + inputKg + inputMin);
+    }
+  }
+
   function handleCharacterData(nickName) {
     setInputCharNickname(nickName);
   }
@@ -380,6 +396,15 @@ export function UnityGame() {
   }, [deviceKm, deviceKg, deviceMin]);
 
   useEffect(() => {
+    if (deviceKm == -1 && deviceKg == -1 && deviceMin == -1) {
+      return;
+    }
+    sendMessage("GameManager", "kmUpdate", deviceKm);
+    sendMessage("GameManager", "kgUpdate", deviceKg);
+    sendMessage("GameManager", "minUpdate", deviceMin);
+  }, [deviceKm, deviceKg, deviceMin]);
+
+  useEffect(() => {
     createCharater();
   }, [charNickname]);
 
@@ -441,36 +466,6 @@ export function UnityGame() {
     console.log("가진 츄르 갯수 : ", churuValue);
     console.log("가진 코인 갯수 : ", coinValue);
   }, [churuValue]);
-
-  //적용하기-진경
-  const [deviceFound, setDeviceFound] = useState(false);
-  const [deviceId, setDeviceId] = useState("");
-  const [inputKm, setInputKm] = useState(0);
-  const [inputKg, setInputKg] = useState(0);
-  const [inputMin, setInputMin] = useState(0);
-  const plusUpdate = {
-    deviceId: `${deviceId}`,
-    km: `${inputKm}`,
-    kg: `${inputKg}`,
-    min: `${inputMin}`,
-  };
-
-  async function plusDeviceData() {
-    if (window.confirm("운동량이 더해집니다. 계속 하시겠습니까?")) {
-      console.log(plusUpdate);
-      try {
-        const response = await urlPlusData(plusUpdate);
-        console.log("plusUpdateData : ", response.data);
-        setDeviceFound({
-          km: response.data.km,
-          kg: response.data.kg,
-          min: response.data.min,
-        });
-      } catch (error) {
-        console.log("에러 : ", error);
-      }
-    }
-  }
 
   return (
     <>
@@ -559,7 +554,7 @@ export function UnityGame() {
                       hei={`20px`}
                       fontweight={`0`}
                       margin={`8px`}
-                      onClick={() => plusDeviceData()}
+                      onClick={() => setDeviceDataFromWatch()}
                     >
                       적용
                     </PocatRushButton>
