@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
-import { BackGroundImage, GameContainer } from "../Style/StyledComponents";
+import {
+  BackGroundImage,
+  BackGroundImageWatch,
+  GameContainer,
+  InputField,
+  PocatRushButton,
+  Wrapper,
+} from "../Style/StyledComponents";
 
 import {
   tokenCheck,
@@ -13,10 +20,12 @@ import {
   urlGetItemData,
   urlHpUpdateByNickname,
   urlItemUpdate,
+  urlJoinDevice,
   urlKgUpdate,
   urlKmUpdate,
   urlMinUpdate,
   urlNPCLikeUpdate,
+  urlPlusData,
 } from "../API/api";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -419,29 +428,136 @@ export function UnityGame() {
     console.log("가진 코인 갯수 : ", coinValue);
   }, [churuValue]);
 
+
+  //적용하기-진경
+  const [deviceFound, setDeviceFound] = useState(false);
+  const [deviceId, setDeviceId] = useState("");
+  const [inputKm, setInputKm] = useState(0);
+  const [inputKg, setInputKg] = useState(0);
+  const [inputMin, setInputMin] = useState(0);
+  const plusUpdate = {
+    deviceId: `${deviceId}`,
+    km: `${inputKm}`,
+    kg: `${inputKg}`,
+    min: `${inputMin}`,
+  };
+  
+  async function plusDeviceData() {
+    if (window.confirm("운동량이 더해집니다. 계속 하시겠습니까?")) {
+      console.log(plusUpdate);
+      try {
+        const response = await urlPlusData(plusUpdate);
+        console.log("plusUpdateData : ", response.data);
+        setDeviceFound({
+          km: response.data.km,
+          kg: response.data.kg,
+          min: response.data.min,
+        });
+      } catch (error) {
+        console.log("에러 : ", error);
+      }
+    }
+  }
+
   return (
     <>
       <Header></Header>
 
       <BackGroundImage bgImg={`url("../images/background_game.png")`}>
-        <GameContainer>
-          {
-            <Unity
-              unityProvider={unityProvider}
-              style={{
-                width: "100%",
-                height: "100%",
-                marginTop: "70px",
-                boxShadow: "0px 0px 20px #888",
-              }}
-            />
-          }
-        </GameContainer>
-        {/* <button>
+        <Wrapper overflow={"none"}>
+          <Wrapper
+            display={"flex"}
+            dr={"row"}
+            ju={"center"}
+            wrap={"nowrap"}
+            alContent={"center"}
+            al={" center"}
+            overflow={"none"}
+          >
+            <div>
+              <GameContainer>
+                {
+                  <Unity
+                    unityProvider={unityProvider}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      //marginTop: "70px",
+                      boxShadow: "0px 0px 20px #888",
+                    }}
+                  />
+                }
+              </GameContainer>
+              {/* <button>
           <Link to="/linerider" target="_blank">
             라인라이더
           </Link>
         </button> */}
+            </div>
+
+            <BackGroundImageWatch bgImg={`url("../images/watch02.png")`}>
+              <Wrapper
+                dr={`column`}
+                alContent={`center`}
+                ju={`center`}
+                al={`center`}
+                margin={` 165px 0`}
+
+              >
+
+                
+                <InputField
+                type="number"
+                  width={`40px`}
+                  height={`20px`}
+                  background={`none`}
+                  borderbottom={`1px solid #f37d7f`}
+                  margin={`5px`}
+                
+                  placeholder="km"
+                  value={inputKm}
+                  onChange={(e) => setInputKm(e.target.value)}
+                />
+                <InputField
+                type="number"
+                  width={`40px`}
+                  height={`20px`}
+                  background={`none`}
+                  borderbottom={`1px solid #f37d7f`}
+                  margin={`3px`}
+                  placeholder="입력"
+                  value={inputKg}
+                  onChange={(e) => setInputKg(e.target.value)}
+                />
+                <InputField
+                type="number"
+                  width={`40px`}
+                  height={`20px`}
+                  background={`none`}
+                  borderbottom={`1px solid #f37d7f`}
+                  margin={`5px`}
+                  placeholder="입력"
+                  value={inputMin}
+                  onChange={(e) => setInputMin(e.target.value)}
+                />
+                <Wrapper
+                  ju={`center`}
+                  //margin={`250px 0 0`}
+                >
+                  <PocatRushButton
+                    wid={`50px`}
+                    hei={`20px`}
+                    fontweight={`0`}
+                    margin={`8px`}
+                    onClick={() => plusDeviceData()}
+                  >
+                    적용
+                  </PocatRushButton>
+                </Wrapper>
+              </Wrapper>
+            </BackGroundImageWatch>
+          </Wrapper>
+        </Wrapper>
       </BackGroundImage>
       <Footer></Footer>
     </>

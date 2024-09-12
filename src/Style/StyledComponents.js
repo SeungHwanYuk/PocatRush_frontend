@@ -86,7 +86,7 @@ export const PocatRushButton = styled.button`
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: 800;
+  font-weight: ${(props) => props.fontweight || `800`};
   margin: ${(props) => props.margin || ``};
   transition: 0.2s;
 
@@ -585,8 +585,15 @@ export const MypageDataSuffix = styled.span`
 export const BackGroundImage = styled.div`
   background-size: cover;
   background-image: ${(props) => props.bgImg};
-  width: auto;
-  height: 1000px;
+  width: ${(props) => props.width || "auto"};
+  height: ${(props) => props.height || "1000px"};
+`;
+export const BackGroundImageWatch = styled.div`
+  background-size: cover;
+  background-image: ${(props) => props.bgImg};
+  width: ${(props) => props.width || "250px"};
+  height: ${(props) => props.height || "400px"};
+  margin: 600px 0 0 0;
 `;
 
 // 디바이스 타이틀
@@ -678,13 +685,17 @@ export const TableData = styled.td`
 `;
 
 export const InputField = styled.input`
-  width: 100px;
-  height: 30px;
+  width: ${(props) => props.width || `100px`};
+  height: ${(props) => props.height || `30px`};
   border: none;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: ${(props) => props.borderbottom || `1px solid #dddddd`};
   padding: 0 8px;
-  margin: 0 10px;
+  margin: ${(props) => props.margin || `0 10px`};
   text-align: center;
+  background: ${(props) => props.background};
+  /* &:focus {
+    outline: none;
+  } */
 `;
 
 // 카드 ChatGPT임시 스타일
