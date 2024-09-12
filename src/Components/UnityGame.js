@@ -281,21 +281,21 @@ export function UnityGame() {
     return () => {
       removeEventListener("ExpUpdate", handleExpUpdateData);
     };
-  }, [addEventListener, removeEventListener ,handleExpUpdateData]);
+  }, [addEventListener, removeEventListener, handleExpUpdateData]);
 
   useEffect(() => {
     addEventListener("Create", handleCharacterData);
     return () => {
       removeEventListener("Create", handleCharacterData);
     };
-  }, [addEventListener, removeEventListener ,handleCharacterData]);
+  }, [addEventListener, removeEventListener, handleCharacterData]);
 
   useEffect(() => {
     addEventListener("GameReady", handleGameReady);
     return () => {
       removeEventListener("GameReady", handleGameReady);
     };
-  }, [addEventListener, removeEventListener ,handleGameReady]);
+  }, [addEventListener, removeEventListener, handleGameReady]);
 
   useEffect(() => {
     addEventListener("WorldReady", handleWorldReady);
@@ -303,7 +303,7 @@ export function UnityGame() {
     return () => {
       removeEventListener("WorldReady", handleWorldReady);
     };
-  }, [addEventListener, removeEventListener ,handleWorldReady]);
+  }, [addEventListener, removeEventListener, handleWorldReady]);
 
   useEffect(() => {
     addEventListener("kmReset", handleKmResetData);
@@ -311,7 +311,7 @@ export function UnityGame() {
       console.log("kmReset removed");
       removeEventListener("kmReset", handleKmResetData);
     };
-  }, [addEventListener, removeEventListener ,handleKmResetData]);
+  }, [addEventListener, removeEventListener, handleKmResetData]);
 
   useEffect(() => {
     addEventListener("kgReset", handleKgResetData);
@@ -319,7 +319,7 @@ export function UnityGame() {
       console.log("kgReset removed");
       removeEventListener("kgReset", handleKgResetData);
     };
-  }, [addEventListener, removeEventListener ,handleKgResetData]);
+  }, [addEventListener, removeEventListener, handleKgResetData]);
 
   useEffect(() => {
     addEventListener("minReset", handleMinResetData);
@@ -327,7 +327,7 @@ export function UnityGame() {
       console.log("minReset removed");
       removeEventListener("minReset", handleMinResetData);
     };
-  }, [addEventListener, removeEventListener ,handleMinResetData]);
+  }, [addEventListener, removeEventListener, handleMinResetData]);
 
   useEffect(() => {
     addEventListener("HpUpdate", handleHpUpdateData);
@@ -335,7 +335,7 @@ export function UnityGame() {
       console.log("HpUpdate removed");
       removeEventListener("HpUpdate", handleHpUpdateData);
     };
-  }, [addEventListener, removeEventListener ,handleHpUpdateData]);
+  }, [addEventListener, removeEventListener, handleHpUpdateData]);
 
   useEffect(() => {
     addEventListener("ItemValueUpdate", handleItemValueUpdateData);
@@ -343,7 +343,7 @@ export function UnityGame() {
       console.log("ItemValueUpdate removed");
       removeEventListener("ItemValueUpdate", handleItemValueUpdateData);
     };
-  }, [addEventListener, removeEventListener ,handleItemValueUpdateData]);
+  }, [addEventListener, removeEventListener, handleItemValueUpdateData]);
 
   useEffect(() => {
     getUserId();
@@ -413,21 +413,19 @@ export function UnityGame() {
     }
     itemValueUpdate();
   }, [churuValue, coinValue]);
-  
+
   useEffect(() => {
     if (!newHp) {
       console.log("newHp 없음");
       return;
     }
     hpUpdate();
-    
   }, [newHp]);
   // 테스트
   useEffect(() => {
     console.log("가진 츄르 갯수 : ", churuValue);
     console.log("가진 코인 갯수 : ", coinValue);
   }, [churuValue]);
-
 
   //적용하기-진경
   const [deviceFound, setDeviceFound] = useState(false);
@@ -441,7 +439,7 @@ export function UnityGame() {
     kg: `${inputKg}`,
     min: `${inputMin}`,
   };
-  
+
   async function plusDeviceData() {
     if (window.confirm("운동량이 더해집니다. 계속 하시겠습니까?")) {
       console.log(plusUpdate);
@@ -468,11 +466,12 @@ export function UnityGame() {
           <Wrapper
             display={"flex"}
             dr={"row"}
-            ju={"center"}
+            ju={"flex-end"}
             wrap={"nowrap"}
             alContent={"center"}
             al={" center"}
             overflow={"none"}
+            margin={`0 20px`}
           >
             <div>
               <GameContainer>
@@ -502,24 +501,20 @@ export function UnityGame() {
                 ju={`center`}
                 al={`center`}
                 margin={` 165px 0`}
-
               >
-
-                
                 <InputField
-                type="number"
+                  type="number"
                   width={`40px`}
                   height={`20px`}
                   background={`none`}
                   borderbottom={`1px solid #f37d7f`}
                   margin={`5px`}
-                
                   placeholder="km"
                   value={inputKm}
                   onChange={(e) => setInputKm(e.target.value)}
                 />
                 <InputField
-                type="number"
+                  type="number"
                   width={`40px`}
                   height={`20px`}
                   background={`none`}
@@ -530,7 +525,7 @@ export function UnityGame() {
                   onChange={(e) => setInputKg(e.target.value)}
                 />
                 <InputField
-                type="number"
+                  type="number"
                   width={`40px`}
                   height={`20px`}
                   background={`none`}
