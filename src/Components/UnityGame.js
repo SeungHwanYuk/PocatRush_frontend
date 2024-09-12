@@ -62,6 +62,7 @@ export function UnityGame() {
   const [resetKm, setResetKm] = useState(0);
   const [resetKg, setResetKg] = useState(0);
   const [resetMin, setResetMin] = useState(0);
+  const [watchActive, setWatchActive] = useState(false);
 
   // 캐릭터 정보 관리
   const [character, setCharacter] = useState("");
@@ -275,6 +276,9 @@ export function UnityGame() {
     setChuruValue(nowChuruValue);
     setCoinValue(nowCoinValue);
   }
+  function handleWatchActive(isActive) {
+    setWatchActive(isActive);
+  }
 
   useEffect(() => {
     addEventListener("ExpUpdate", handleExpUpdateData);
@@ -344,6 +348,14 @@ export function UnityGame() {
       removeEventListener("ItemValueUpdate", handleItemValueUpdateData);
     };
   }, [addEventListener, removeEventListener, handleItemValueUpdateData]);
+
+  useEffect(() => {
+    addEventListener("WatchActive", handleWatchActive);
+    return () => {
+      console.log("WatchActive removed");
+      removeEventListener("WatchActive", handleWatchActive);
+    };
+  }, [addEventListener, removeEventListener, handleWatchActive]);
 
   useEffect(() => {
     getUserId();
@@ -421,6 +433,9 @@ export function UnityGame() {
     }
     hpUpdate();
   }, [newHp]);
+
+  useEffect(() => {}, [watchActive]);
+
   // 테스트
   useEffect(() => {
     console.log("가진 츄르 갯수 : ", churuValue);
@@ -493,64 +508,65 @@ export function UnityGame() {
           </Link>
         </button> */}
             </div>
-
-            <BackGroundImageWatch bgImg={`url("../images/watch02.png")`}>
-              <Wrapper
-                dr={`column`}
-                alContent={`center`}
-                ju={`center`}
-                al={`center`}
-                margin={` 165px 0`}
-              >
-                <InputField
-                  type="number"
-                  width={`40px`}
-                  height={`20px`}
-                  background={`none`}
-                  borderbottom={`1px solid #f37d7f`}
-                  margin={`5px`}
-                  placeholder="km"
-                  value={inputKm}
-                  onChange={(e) => setInputKm(e.target.value)}
-                />
-                <InputField
-                  type="number"
-                  width={`40px`}
-                  height={`20px`}
-                  background={`none`}
-                  borderbottom={`1px solid #f37d7f`}
-                  margin={`3px`}
-                  placeholder="입력"
-                  value={inputKg}
-                  onChange={(e) => setInputKg(e.target.value)}
-                />
-                <InputField
-                  type="number"
-                  width={`40px`}
-                  height={`20px`}
-                  background={`none`}
-                  borderbottom={`1px solid #f37d7f`}
-                  margin={`5px`}
-                  placeholder="입력"
-                  value={inputMin}
-                  onChange={(e) => setInputMin(e.target.value)}
-                />
+            {watchActive && watchActive == true ? (
+              <BackGroundImageWatch bgImg={`url("../images/watch02.png")`}>
                 <Wrapper
+                  dr={`column`}
+                  alContent={`center`}
                   ju={`center`}
-                  //margin={`250px 0 0`}
+                  al={`center`}
+                  margin={` 165px 0`}
                 >
-                  <PocatRushButton
-                    wid={`50px`}
-                    hei={`20px`}
-                    fontweight={`0`}
-                    margin={`8px`}
-                    onClick={() => plusDeviceData()}
+                  <InputField
+                    type="number"
+                    width={`40px`}
+                    height={`20px`}
+                    background={`none`}
+                    borderbottom={`1px solid #f37d7f`}
+                    margin={`5px`}
+                    placeholder="km"
+                    value={inputKm}
+                    onChange={(e) => setInputKm(e.target.value)}
+                  />
+                  <InputField
+                    type="number"
+                    width={`40px`}
+                    height={`20px`}
+                    background={`none`}
+                    borderbottom={`1px solid #f37d7f`}
+                    margin={`3px`}
+                    placeholder="입력"
+                    value={inputKg}
+                    onChange={(e) => setInputKg(e.target.value)}
+                  />
+                  <InputField
+                    type="number"
+                    width={`40px`}
+                    height={`20px`}
+                    background={`none`}
+                    borderbottom={`1px solid #f37d7f`}
+                    margin={`5px`}
+                    placeholder="입력"
+                    value={inputMin}
+                    onChange={(e) => setInputMin(e.target.value)}
+                  />
+                  <Wrapper
+                    ju={`center`}
+                    //margin={`250px 0 0`}
                   >
-                    적용
-                  </PocatRushButton>
+                    <PocatRushButton
+                      wid={`50px`}
+                      hei={`20px`}
+                      fontweight={`0`}
+                      margin={`8px`}
+                      onClick={() => plusDeviceData()}
+                    >
+                      적용
+                    </PocatRushButton>
+                  </Wrapper>
                 </Wrapper>
-              </Wrapper>
-            </BackGroundImageWatch>
+              </BackGroundImageWatch>
+            ) : null}
           </Wrapper>
         </Wrapper>
       </BackGroundImage>
