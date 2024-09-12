@@ -596,7 +596,7 @@ export const BackGroundImageWatch = styled.div`
   background-image: ${(props) => props.bgImg};
   width: ${(props) => props.width || "250px"};
   height: ${(props) => props.height || "400px"};
-  margin: 600px 0 0 0;
+  margin: 550px 0 0 0;
 `;
 
 // 디바이스 타이틀
@@ -719,7 +719,6 @@ export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
- 
 `;
 
 export const Card = styled.div`
@@ -728,14 +727,12 @@ export const Card = styled.div`
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: white;
-
 `;
 
 export const CardImage = styled.img`
   //width:  ${(props) => props.width || `100%`};
   height: ${(props) => (props.$top3 ? "16rem" : "10rem")};
   object-fit: cover;
-
 `;
 
 export const CardContent = styled.div`
