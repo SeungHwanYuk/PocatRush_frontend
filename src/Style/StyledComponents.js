@@ -480,6 +480,9 @@ export const GameContainer = styled.div`
   height: 756px;
   margin: auto;
   border: none;
+  position: absolute;
+  top: 25%;
+  left: 15%;
 `;
 
 //마이페이지 -진경
@@ -701,7 +704,7 @@ export const InputField = styled.input`
 // 카드 ChatGPT임시 스타일
 export const RankingWrapper = styled.div`
   padding: 1rem;
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
   min-height: 100vh;
 `;
 
@@ -713,14 +716,13 @@ export const Title = styled.h2`
 `;
 
 export const CardContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
 `;
 
 export const Card = styled.div`
-  width: ${props => props.$top3 ? '16rem' : '12rem'};
+  width: ${(props) => (props.$top3 ? "16rem" : "12rem")};
   overflow: hidden;
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -729,7 +731,7 @@ export const Card = styled.div`
 
 export const CardImage = styled.img`
   width: 100%;
-  height: ${props => props.$top3 ? '16rem' : '10rem'};
+  height: ${(props) => (props.$top3 ? "16rem" : "10rem")};
   object-fit: cover;
 `;
 
@@ -738,12 +740,12 @@ export const CardContent = styled.div`
 `;
 
 export const CardTitle = styled.h3`
-  font-size: ${props => props.$top3 ? '1.5rem' : '1.25rem'};
+  font-size: ${(props) => (props.$top3 ? "1.5rem" : "1.25rem")};
   font-weight: 600;
   margin-bottom: 0.5rem;
 `;
 
 export const CardText = styled.p`
   color: #4a5568;
-  font-size: ${props => props.$top3 ? '1rem' : '0.875rem'};
+  font-size: ${(props) => (props.$top3 ? "1rem" : "0.875rem")};
 `;
