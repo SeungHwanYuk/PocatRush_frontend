@@ -39,22 +39,25 @@ back-end
 - ORM : JPA Hibernate
 
 front-end
-- 라이브러리 : react, react-icons, react-router-dom, react-unity-webgl, styled-components
-- HTML,CSS,JSX,javaScript
+- 라이브러리 : react, react-icons, react-router-dom, react-unity-webgl, axios
+- HTML, CSS, JSX, javaScript
 - 게임엔진 : Unity, WebGL
-- API : axios
 
 DB
 - MariaDB, MySQL
+- 관리툴 : DBeaver
 
 Server
 - node.js
 
 버전 관리
--Git, GitHub
+-Git, GitHub, Unity Hub
 
 디자인
 - Figma, Ps, Adobe Illustrator, Maya
+
+개발 환경
+- Windows, IntelliJ, VsCode, PostMan, Maven
 
 
 
