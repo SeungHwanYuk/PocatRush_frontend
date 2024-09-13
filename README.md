@@ -54,8 +54,8 @@ github.com/bobo459
 
 **front-end**
 - HTML, CSS, JSX, javaScript
-- 라이브러리 : react-icons, react-router-dom, react-unity-webgl, axios
-- 게임엔진 : Unity, WebGL
+- 라이브러리 : react-icons, react-router-dom, react-unity-webgl, axios, WebGL
+- 게임엔진 : Unity
 
 
 
@@ -167,19 +167,19 @@ src
 
 <br>
 
-**3.Pages**
+**3. Pages**
 
 >컨텐츠를 감싸고 있으며 실제 사용자에게 보이는 화면
 
 <br>
 
-**4.Style**
+**4. Style**
 
 >버튼, 타이틀과 같이 재사용 되는 요소의 모음, 전역 스타일링과 컴포넌트 스타일링으로 나뉨
 
 <br>
 
-**5. build**
+**5. Build**
 
 >유니티 빌드파일 구역. 정적인 public에서 직접 로드하며 UnityContext로 컴포넌트 및 스타일링 가능
 ><br>
@@ -188,10 +188,62 @@ src
 
 
 
-#### ERD
+## ERD
 <br>
 
-![DW2차프로젝트 (1)](https://github.com/user-attachments/assets/16dfb95a-1744-4174-a20d-e41d679c09bd)
+![DW2차프로젝트 (2)](https://github.com/user-attachments/assets/27bdcc98-31c0-4df2-a534-bf6f73c7478f)
+
+<br>
+
+# 역할 분담
+<br>
+
+### 육승환
+
+데이터 정제 및 정규화
+
+ERD 제작
+
+전체 게임 설계 및 c# 코드구현
+
+전체 퍼블리싱
+
+백엔드
+- ERD기반 엔티티 구조 설계
+- RestAPI 설계 및 관리
+- DB 서버구축, 데이터 저장 및 관리
+  - 유저 회원가입 및 JWT로그인
+  - 커뮤니티 게시글 관리 및 삭제 (관리자 권한 부여)
+  - 랭킹 시스템 구현
+  - 디바이스(스마트기기) 정보 저장, 관리
+  - 캐릭터 정보 저장
+  - 레벨 기능 구현
+  - 아이템 기능 구현
+
+<br>
+
+프론트엔드
+- 기능 구현
+  - 헤더
+  - 아이디, 캐릭터 유효성 검사
+  - 캐릭터 랭킹
+  - 회원가입, 로그인, 로그아웃
+  - 게시글 삭제
+  - 디바이스 운동량 추가
+    
+<br>
+
+- 페이지 제작
+  - 게임
+  - 랭킹
+  - 기기 관리
+  - 메인페이지 유저정보창
+  
+<br>
+
+### 송진경
+
+
 
 
 
