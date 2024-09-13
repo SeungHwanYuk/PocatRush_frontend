@@ -60,15 +60,12 @@ Server
 - Windows, IntelliJ, VsCode, PostMan, Maven
 - react, styled-component, prettier
 
+### 프로젝트 구조
 
-
-[public.txt](https://github.com/user-attachments/files/16987108/public.txt)public
+```
+public
  ┣ build
  ┃ ┣ backup
- ┃ ┃ ┣ PocatRush.data
- ┃ ┃ ┣ PocatRush.framework.js
- ┃ ┃ ┣ PocatRush.loader.js
- ┃ ┃ ┗ PocatRush.wasm
  ┃ ┣ Build.data
  ┃ ┣ Build.framework.js
  ┃ ┣ Build.loader.js
@@ -78,26 +75,57 @@ Server
  ┃ ┣ PocatRush.loader.js
  ┃ ┗ PocatRush.wasm
  ┣ images
- ┃ ┣ adminCat.png
- ┃ ┣ background_game.png
- ┃ ┣ eventPage.png
- ┃ ┣ eventPage02.png
- ┃ ┣ eventPage03.png
- ┃ ┣ eventPage_page.png
- ┃ ┣ eventPage_page02.png
- ┃ ┣ eventPage_page03.png
- ┃ ┣ GameIntro.png
- ┃ ┣ no_medal.png
- ┃ ┣ pocatLogo.png
- ┃ ┣ subBanner01.png
- ┃ ┣ subBanner02.png
- ┃ ┣ testBanner.png
- ┃ ┣ watch.png
- ┃ ┗ watch02.png
+ ┃ ┗ .
+ ┃   .
+ ┃   . 
  ┣ favicon.ico
  ┣ index.html
  ┣ manifest.json
  ┗ robots.txt
+
+src
+ ┣ API
+ ┃ ┗ api.js
+ ┣ Components
+ ┃ ┣ Footer.js
+ ┃ ┣ GameInformation.js
+ ┃ ┣ GuidePostData.js
+ ┃ ┣ Header.js
+ ┃ ┣ LineRider.js
+ ┃ ┣ Popup.js
+ ┃ ┣ Profile.js
+ ┃ ┣ ScrollToTop.js
+ ┃ ┣ SmallTable.js
+ ┃ ┗ UnityGame.js
+ ┣ Pages
+ ┃ ┣ Admin.js
+ ┃ ┣ BoardWrapper.js
+ ┃ ┣ Community.js
+ ┃ ┣ DeviceJoin.js
+ ┃ ┣ DeviceWrapper.js
+ ┃ ┣ FindAccess.js
+ ┃ ┣ FirstTest.js
+ ┃ ┣ GameIntro.js
+ ┃ ┣ Guide.js
+ ┃ ┣ GuidePost.js
+ ┃ ┣ GuideWrapper.js
+ ┃ ┣ Join.js
+ ┃ ┣ Login.js
+ ┃ ┣ Main.js
+ ┃ ┣ MyPage.js
+ ┃ ┣ Post.js
+ ┃ ┣ PostWrite.js
+ ┃ ┣ Ranking.js
+ ┃ ┗ WhatsNew.js
+ ┣ Style
+ ┃ ┗ StyledComponents.js
+ ┣ App.css
+ ┣ App.js
+ ┣ index.css
+ ┗ index.js
+```
+
+
 
 
 
