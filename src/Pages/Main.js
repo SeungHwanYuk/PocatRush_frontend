@@ -26,7 +26,7 @@ function Main() {
   function loginCheck() {
     let token = localStorage.getItem("JWT-token");
     if (token) {
-      navigate(`/playgame`);
+      window.location.href = `/playgame`;
     } else {
       alert("로그인이 필요합니다.");
     }
