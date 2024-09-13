@@ -39,8 +39,8 @@ back-end
 - ORM : JPA Hibernate
 
 front-end
-- 라이브러리 : react, react-icons, react-router-dom, react-unity-webgl, axios
 - HTML, CSS, JSX, javaScript
+- 라이브러리 : react-icons, react-router-dom, react-unity-webgl, axios
 - 게임엔진 : Unity, WebGL
 
 DB
@@ -58,6 +58,74 @@ Server
 
 개발 환경
 - Windows, IntelliJ, VsCode, PostMan, Maven
+- react, styled-component, prettier
+
+├── README.md
+├── .eslintrc.js
+├── .gitignore
+├── .prettierrc.json
+├── package-lock.json
+├── package.json
+│
+├── public
+│    └── index.html
+└── src
+     ├── App.jsx
+     ├── index.jsx
+     ├── api
+     │     └── mandarinAPI.js
+     ├── asset
+     │     ├── fonts
+     │     ├── css_sprites.png
+     │     ├── logo-404.svg
+     │     └── logo-home.svg
+     │          .
+     │          .
+     │          .
+     ├── atoms
+     │     ├── LoginData.js
+     │     └── LoginState.js
+     ├── common
+     │     ├── alert
+     │     │     ├── Alert.jsx
+     │     │     └── Alert.Style.jsx
+     │     ├── button
+     │     ├── comment
+     │     ├── inputBox
+     │     ├── post
+     │     ├── postModal
+     │     ├── product
+     │     ├── tabMenu
+     │     ├── topBanner
+     │     └── userBanner
+     ├── pages
+     │     ├── addProduct
+     │     │     ├── AddProduct.jsx
+     │     │     └── AddProduct.Style.jsx
+     │     ├── chatList
+     │     ├── chatRoom
+     │     ├── emailLogin
+     │     ├── followerList
+     │     ├── followingList
+     │     ├── home
+     │     ├── join
+     │     ├── page404
+     │     ├── postDetail
+     │     ├── postEdit
+     │     ├── postUpload
+     │     ├── productEdit
+     │     ├── profile
+     │     ├── profileEdit
+     │     ├── profileSetting
+     │     ├── search
+     │     ├── snsLogin
+     │     └── splash
+     ├── routes
+     │     ├── privateRoutes.jsx
+     │     └── privateRoutesRev.jsx  
+     └── styles
+           └── Globalstyled.jsx
+
 
 
 
