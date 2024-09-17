@@ -284,15 +284,15 @@ DB툴 (DBeaver 추천)
 2-2. DB를 생성 해주세요.
 <br>
 
->DB툴을 실행하고 New DataBase Connetion - MariaDB 선택 - Authentication 박스 안의 Username과 Password를 새로 적어주세요.
+>DB툴을 실행하고 New DataBase Connetion - MariaDB 선택 - Authentication 박스 안의 Username과 Password 설정
 ><br>
 >
->만들어진 localhost 게이트에 Create New DataBase를 해주세요. <br>
+>만들어진 localhost 게이트에 Create New DataBase 클릭 <br>
 >- DataBase Name : pocat_rushdb <br>
 >- Charset : utf8mb4 <br>
 >- Colliation : utf8mb4_general_ci <br>
 >
->utf8mb4로 설정해야 sql 등록시 한글이 깨지지 않습니다.
+>utf8mb4로 설정해야 sql 등록시 한글이 깨지지 않음
 
 <br>
 
@@ -300,7 +300,7 @@ DB툴 (DBeaver 추천)
 
 >https://github.com/SeungHwanYuk/PocatRush_backend
 >
->백엔드와 프론트엔드의 독립성을 위하여 따로 관리합니다.
+>백엔드와 프론트엔드의 독립성을 위하여 따로 관리함
 
 <br>
 
@@ -308,9 +308,9 @@ DB툴 (DBeaver 추천)
 <br>
 >IDE에서 PocatRush_backend 폴더를 열고, <br>
 >PocatRush_backend/src/main/resources 안에 있는 application.properties를
->- jdbc:mariadb://*localhost:[3306]* <- 2-2번 단계의 localhost번호로 수정.
+>- jdbc:mariadb://*localhost:[3306]* <- 2-2번 단계의 localhost번호로 수정
 >- spring.datasource.*username=root* <- 2-2번 단계의 Username,
->- spring.datasource.*password=root*  <- 2-2번 단계의 Password를 각각 수정해서 저장하세요.
+>- spring.datasource.*password=root*  <- 2-2번 단계의 Password를 각각 수정 후 저장
 <br>
 
 2-5 엔티티를 생성 해주세요.
@@ -321,9 +321,10 @@ DB툴 (DBeaver 추천)
 
 2-6 생성된 엔티티에 dump파일을 restore 해주세요.
 
->PocatRush_backend/dumpDB 폴더내부에 최신날짜 dump-PocatRush.sql 을 받아주세요.<br>
+>PocatRush_backend/dumpDB 폴더내부에 최신날짜 dump-PocatRush.sql 파일을 <br>
 >
-> DB툴에서 2-2번에서 생성한 pocat_rushdb를 찾아 우클릭 - Tools - Restore database를 선택 후 input 박스의 sql파일을 최신날짜 sql로 등록 해주세요.
+> DB툴에서 2-2번에서 생성한 pocat_rushdb를 찾아 우클릭 - Tools - Restore database를 선택 후 input 박스의 sql파일에 등록 후 Start
+
 
 
 
