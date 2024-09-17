@@ -254,13 +254,19 @@ ERD 제작
 ===============================================================================
 
 # Pocat Rush 실행 가이드북
+><br>
 
 ### 1. 실행에 필요한 프로그램
+><br>
 
 IDE (IntelliJ, Eclipse, VSCode 등)
+<br>
 node.js (npm)
+<br>
 MariaDB
+<br>
 DB툴 (DBeaver 추천)
+<br>
 
 <br>
 
@@ -272,12 +278,12 @@ DB툴 (DBeaver 추천)
 
 <br>
 2. DB를 생성 해주세요
-> DB툴을 실행하고 New DataBase Connetion > MariaDB 선택 > Authentication 탭의 Username과 Password를 새로 적어주세요.
+>DB툴을 실행하고 New DataBase Connetion > MariaDB 선택 > Authentication 탭의 Username과 Password를 새로 적어주세요.
 <br>
 
 3. IDE에서 PocatRush_backend 폴더를 열고 application.properties를 수정 해주세요.
-> - spring.datasource.url=jdbc:mariadb://localhost:3306/pocat_rushdb 에서 localhost:[????] <- 2번항목의 localhost번호로 수정
-> - spring.datasource.username=root <- 2번 항목의 Username과 Password를 각각 입력
+- spring.datasource.url=jdbc:mariadb://localhost:3306/pocat_rushdb 에서 localhost:[????] <- 2번항목의 localhost번호로 수정
+- spring.datasource.username=root <- 2번 항목의 Username과 Password를 각각 입력
 spring.datasource.password=root
 
 1. 백엔드 java파일을 받아주세요.
