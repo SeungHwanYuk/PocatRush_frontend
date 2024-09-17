@@ -258,7 +258,7 @@ ERD 제작
 # Pocat Rush 실행 가이드북
 <br>
 
-### 1. 실행에 필요한 프로그램
+## 1. 실행에 필요한 프로그램
 <br>
 
 IDE (IntelliJ, Eclipse, VSCode 등)
@@ -274,7 +274,7 @@ DB툴 (DBeaver 추천)
 <br>
 <br>
 
-### 2. DB세팅
+## 2. DB 생성
 
 
 <br>
@@ -315,17 +315,46 @@ DB툴 (DBeaver 추천)
 >- spring.datasource.*password=root*  <- 2-2번 단계의 Password를 각각 수정 후 저장
 <br>
 
-2-5 엔티티를 생성 해주세요.
+2-5. 호스트 서버를 열고 엔티티를 생성 해주세요.
 <br>
 
 > IDE에서 PocatRush_backend 폴더의 PocatRushApplication 실행
 <br>
 
-2-6 생성된 엔티티에 dump파일을 restore 해주세요.
+2-6. 생성된 엔티티에 dump파일을 restore 해주세요.
 
 >PocatRush_backend/dumpDB 폴더내부에 최신날짜 dump-PocatRush.sql 파일을 <br>
+> DB툴에서 2-2번에서 생성한 pocat_rushdb를 찾아 [우클릭 - Tools - Restore database를 선택 후 input 박스의 sql파일에 등록] 후 Start 클릭.<br>
 >
-> DB툴에서 2-2번에서 생성한 pocat_rushdb를 찾아 우클릭 - Tools - Restore database를 선택 후 input 박스의 sql파일에 등록 후 Start
+> 새로고침(F5)으로 엔티티와 데이터가 정상적으로 등록 되었는지 확인.
+
+<br>
+
+## 3. 로컬 서버 생성
+<br>
+
+3-1. node.js를 설치 해주세요.
+<br>
+
+3-2 npm을 설치 해주세요.
+<br>
+
+>VS code에서 PocatRush_frontend 폴더를 열고 터미널 열기 *( ctrl + ` )*
+>
+>터미널에 입력 후 설치
+>- npm install <br>
+>- npm install react-icons --save <br>
+<br>
+
+## 4. 실행
+<br>
+
+>터미널에 입력
+>- npm start
+
+브라우저가 열리며 페이지 이용가능 !
+<br>
+
 
 
 
