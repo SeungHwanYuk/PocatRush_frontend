@@ -275,25 +275,28 @@ DB툴 (DBeaver 추천)
 
 <br>
 
-1. MariaDB를 설치해주세요.
+2-1. MariaDB를 설치해주세요.
 
 <br>
 
-2. DB를 생성 해주세요.
+2-2. DB를 생성 해주세요.
 <br>
 
 >DB툴을 실행하고 New DataBase Connetion > MariaDB 선택 > Authentication 탭의 Username과 Password를 새로 적어주세요.
 
 <br>
 
-3. IDE에서 PocatRush_backend 폴더를 열고 application.properties를 수정 해주세요.
+2-3. IDE에서 PocatRush_backend 폴더를 열고 application.properties를 수정 해주세요.
 <br>
 
-- jdbc:mariadb://localhost:[????] <- 2번항목의 localhost번호로 수정
-- spring.datasource.username=root <- 2번 항목의 Username <br>
-- spring.datasource.password=root  <- 2번 항목의 Password를 각각 수정
+>jdbc:mariadb://*localhost:[????]* <- 2번항목의 localhost번호로 수정
+><br>
+>spring.datasource.*username=root* <- 2번 항목의 Username
+><br>
+>spring.datasource.*password=root*  <- 2번 항목의 Password를 각각 수정
+<br>
 
-1. 백엔드 java파일을 받아주세요.
+2-4. 백엔드 java파일을 받아주세요.
 
 >https://github.com/SeungHwanYuk/PocatRush_backend
 >백엔드와 프론트엔드의 독립성을 위하여 따로 관리합니다.
