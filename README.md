@@ -299,9 +299,21 @@ src
 
 <br>
 
+### 1. 실행에 필요한 프로그램
+
+<br>
+
+NginX
+
+<br>
+
+1-1. nginx.conf 파일을 수정해주세요. <br>
+서버블록의 root를 \GitHub\PocatRush_frontend\build 가 있는 위치로 수정해주세요.
 
 
-## 수정사항 빌드법 (개발자용)
+
+
+### 수정사항 빌드법 (개발자용)
 
 <br>
 
