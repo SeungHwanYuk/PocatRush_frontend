@@ -56,6 +56,7 @@ github.com/bobo459
 - HTML, CSS, JSX, javaScript
 - 라이브러리 : react-icons, react-router-dom, react-unity-webgl, axios, WebGL
 - 게임엔진 : Unity
+- 런타임환경 : node.js
 
 
 
@@ -66,7 +67,7 @@ github.com/bobo459
 
 
 **Server**
-- node.js
+- NginX
 
 
 **버전 관리**
