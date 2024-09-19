@@ -303,9 +303,9 @@ src
 
 <br>
 
-# Pocat Rush 로컬 실행법 (개발자용)
+## 로컬 실행법 (개발자용)
 
-## 1. 실행에 필요한 프로그램
+### 1. 실행에 필요한 프로그램
 <br>
 
 IDE (IntelliJ, Eclipse, VSCode 등)
@@ -321,7 +321,7 @@ DB툴 (DBeaver 추천)
 <br>
 <br>
 
-## 2. DB 생성, 로컬 서버 생성
+### 2. DB 생성, 로컬 서버 생성
 
 
 <br>
@@ -377,7 +377,7 @@ DB툴 (DBeaver 추천)
 
 <br>
 
-## 3. 웹 서버 생성
+### 3. 웹 서버 생성
 <br>
 
 3-1. node.js를 설치 해주세요.
@@ -393,7 +393,7 @@ DB툴 (DBeaver 추천)
 >- npm install react-icons --save <br>
 <br>
 
-## 4. 실행
+### 4. 실행
 <br>
 
 >터미널에 입력
