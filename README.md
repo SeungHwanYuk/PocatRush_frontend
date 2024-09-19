@@ -23,11 +23,11 @@
 
 <br>
 
-개발기간
+**개발기간**
  - 2024-08-06 ~ 2024-09-23
 <br>
 
-팀원 구성
+**팀원 구성**
 
 육승환 
 ysh54244902@gmail.com 
@@ -39,6 +39,7 @@ rudwlsthd123@naver.com
 github.com/bobo459
 <br>
 <br>
+
 
 ## 기술 스택
 <br>
@@ -85,6 +86,25 @@ github.com/bobo459
 <br>
 
 ## 프로젝트 구조
+
+```
+
+📂public
+ ┣ 📂build
+ ┣ 📂images
+📂src
+ ┣ 📂API
+ ┣ 📂Components
+ ┣ 📂Pages
+ ┗ 📂Style
+
+```
+---
+
+<details>
+ <br>
+    <summary>자세히 보기</summary>
+    <br>
 
 ```
 📂public
@@ -148,6 +168,9 @@ github.com/bobo459
  ┣ index.css
  ┗ index.js
 ```
+</details>
+
+---
 
 ## 폴더 구조
 <br>
@@ -157,6 +180,7 @@ github.com/bobo459
 >백엔드의 API모음
 ><br>
 >수많은 axios를 손쉽게 수정하고 import 할 수 있도록 설계함
+
 
 <br>
 
