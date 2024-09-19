@@ -306,7 +306,7 @@ src
 
 
 
-# Pocat Rush 실행 가이드북
+# Pocat Rush 실행 방법
 
 <br>
 
