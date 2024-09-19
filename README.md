@@ -48,7 +48,7 @@ github.com/bobo459
   
 **back-end**
 - 프레임워크 : SpringBoot
-- 라이브러리 : LomBok, TomCat, JWT
+- 라이브러리 : LomBok, TomCat(WAS), JWT
 - ORM : JPA Hibernate
 
 
@@ -67,7 +67,7 @@ github.com/bobo459
 
 
 **Server**
-- NginX
+- NginX (WS)
 
 
 **버전 관리**
