@@ -87,8 +87,8 @@ github.com/bobo459
 ## 프로젝트 구조
 
 ```
-public
- ┣ build
+📂public
+ ┣ 📂build
  ┃ ┣ backup
  ┃ ┣ Build.data
  ┃ ┣ Build.framework.js
@@ -98,7 +98,7 @@ public
  ┃ ┣ PocatRush.framework.js
  ┃ ┣ PocatRush.loader.js
  ┃ ┗ PocatRush.wasm
- ┣ images
+ ┣ 📂images
  ┃ ┗ .
  ┃   .
  ┃   . 
@@ -107,10 +107,10 @@ public
  ┣ manifest.json
  ┗ robots.txt
 
-src
- ┣ API
+📂src
+ ┣ 📂API
  ┃ ┗ api.js
- ┣ Components
+ ┣ 📂Components
  ┃ ┣ Footer.js
  ┃ ┣ GameInformation.js
  ┃ ┣ GuidePostData.js
@@ -121,7 +121,7 @@ src
  ┃ ┣ ScrollToTop.js
  ┃ ┣ SmallTable.js
  ┃ ┗ UnityGame.js
- ┣ Pages
+ ┣ 📂Pages
  ┃ ┣ Admin.js
  ┃ ┣ BoardWrapper.js
  ┃ ┣ Community.js
@@ -141,7 +141,7 @@ src
  ┃ ┣ PostWrite.js
  ┃ ┣ Ranking.js
  ┃ ┗ WhatsNew.js
- ┣ Style
+ ┣ 📂Style
  ┃ ┗ StyledComponents.js
  ┣ App.css
  ┣ App.js
