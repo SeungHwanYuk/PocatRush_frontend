@@ -28,7 +28,6 @@ function Community() {
     try {
       let response = await urlPostFreeBoard();
       console.log("데이터 : ", response.data);
-
       setData(response.data);
     } catch (error) {
       console.log("에러 : ", error);
