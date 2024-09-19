@@ -307,11 +307,43 @@ NginX
 
 <br>
 
-1-1. nginx.conf 파일을 수정해주세요. <br>
-서버블록의 root를 \GitHub\PocatRush_frontend\build 가 있는 위치로 수정해주세요.
 
+### 2. 프록시 연결
 
+<br>
 
+2-1. nginx.conf 파일을 수정해주세요.
+
+>서버블록의 root를 \GitHub\PocatRush_frontend\build 가 있는 위치로 수정
+
+<br>
+
+2-2. 터미널을 켜고 nginx를 실행시켜주세요.
+
+>\GitHub\PocatRush_frontend\nginx-1.26.2 폴더에서 우클릭 - 터미널에서 열기 후 아래의 코드 입력
+>- start nginx
+
+<br>
+
+2-3. 백엔드 jar 파일을 실행시켜주세요.
+
+>https://github.com/SeungHwanYuk/PocatRush_backend
+>
+>target 폴더에서 우클릭 - 터미널에서 열기 후 아래의 코드 입력
+>
+>- java -jar PocatRush-0.0.1-SNAPSHOT.jar
+
+<br>
+
+### 3. 실행
+
+<br>
+
+>브라우저 실행 후 주소창에 본인IP + :81 입력후 엔터
+>
+>실행완료 !
+
+<br>
 
 ### 수정사항 빌드법 (개발자용)
 
