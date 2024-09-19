@@ -61,7 +61,7 @@ function Header() {
   }
 
   function toDevicePage() {
-    window.location.href = `http://localhost:3000/DeviceJoin/${userId}`;
+    window.location.href = `/DeviceJoin/${userId}`;
   }
 
   useEffect(() => {

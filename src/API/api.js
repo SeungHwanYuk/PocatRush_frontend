@@ -3,121 +3,105 @@ import Main from "../Pages/Main";
 import { useNavigate } from "react-router-dom";
 
 export function urlGetAllAuthority() {
-  return axios.get("http://localhost:8080/api/authority/all");
+  return axios.get("/api/authority/all");
 }
 export function urlGetAllUser() {
-  return axios.get("http://localhost:8080/api/user/all");
+  return axios.get("/api/user/all");
 }
 export function urlUserSignUp(signUpData) {
-  return axios.post("http://localhost:8080/api/user/signup", signUpData);
+  return axios.post("/api/user/signup", signUpData);
 }
 export function urlSessionCurrent(header) {
-  return axios.get("http://localhost:8080/api/user/current", header);
+  return axios.get("/api/user/current", header);
 }
 export function urlJwtLogin(loginData) {
-  return axios.post("http://localhost:8080/api/authenticate", loginData);
+  return axios.post("/api/authenticate", loginData);
 }
 
 export function urlPostFreeBoard() {
-  return axios.get("http://localhost:8080/api/post/freeboard");
+  return axios.get("/api/post/freeboard");
 }
 export function urlPostWhatsNew() {
-  return axios.get("http://localhost:8080/api/post/whatsnew");
+  return axios.get("/api/post/whatsnew");
 }
 
 export function urlGetPost(postId) {
-  return axios.get(`http://localhost:8080/api/post/${postId}`);
+  return axios.get(`/api/post/${postId}`);
 }
 
 export function urlDeletePost(postId) {
-  return axios.delete(`http://localhost:8080/api/post/delete/${postId}`);
+  return axios.delete(`/api/post/delete/${postId}`);
 }
 
 export function urlGetGuidePost(id) {
-  return axios.get(`http://localhost:8080/api/Guide/${id}`);
+  return axios.get(`/api/Guide/${id}`);
 }
 
 export function urlGetPostByText(text) {
-  return axios.get(`http://localhost:8080/api/post/search/${text}`);
+  return axios.get(`/api/post/search/${text}`);
 }
 
 export function urlPostWrite(postWrite) {
-  return axios.post("http://localhost:8080/api/post/write", postWrite);
+  return axios.post("/api/post/write", postWrite);
 }
 
 export function urlJoinDevice(userId) {
-  return axios.post(`http://localhost:8080/api/device/join/${userId}`);
+  return axios.post(`/api/device/join/${userId}`);
 }
 export function urlCheckDevice(userId) {
-  return axios.get(`http://localhost:8080/api/device/check/${userId}`);
+  return axios.get(`/api/device/check/${userId}`);
 }
 
 export function urlPlusData(plusUpdate) {
-  return axios.post("http://localhost:8080/api/device/plusdata", plusUpdate);
+  return axios.post("/api/device/plusdata", plusUpdate);
 }
 
 //마이페이지-진경
 export function urlGetCharacter(userId) {
-  return axios.get(`http://localhost:8080/api/character/get/${userId}`);
+  return axios.get(`/api/character/get/${userId}`);
 }
 //메달 -진경
 export function urlGetMedalList() {
-  return axios.get("http://localhost:8080/api/level/medallist");
+  return axios.get("/api/level/medallist");
 }
 
-export function urlGetRanking(){
-  return axios.get("http://localhost:8080/api/character/ranklist")
+export function urlGetRanking() {
+  return axios.get("/api/character/ranklist");
 }
-
 
 // 유니티
 export function urlCreateCharacter(characterData) {
-  return axios.post(
-    "http://localhost:8080/api/character/create",
-    characterData
-  );
+  return axios.post("/api/character/create", characterData);
 }
 
 export function urlCheckNickNameOverLap(nickName) {
-  return axios.get(`http://localhost:8080/api/character/overlap/${nickName}`);
+  return axios.get(`/api/character/overlap/${nickName}`);
 }
 
 export function urlExpUpdate(nickName, exp) {
-  return axios.post(
-    `http://localhost:8080/api/character/expupdate/${nickName}/${exp}`
-  );
+  return axios.post(`/api/character/expupdate/${nickName}/${exp}`);
 }
 
 export function urlKmUpdate(userId, km) {
-  return axios.post(
-    `http://localhost:8080/api/device/updatekm/${userId}/${km}`
-  );
+  return axios.post(`/api/device/updatekm/${userId}/${km}`);
 }
 export function urlKgUpdate(userId, kg) {
-  return axios.post(
-    `http://localhost:8080/api/device/updatekg/${userId}/${kg}`
-  );
+  return axios.post(`/api/device/updatekg/${userId}/${kg}`);
 }
 export function urlMinUpdate(userId, min) {
-  return axios.post(
-    `http://localhost:8080/api/device/updatemin/${userId}/${min}`
-  );
+  return axios.post(`/api/device/updatemin/${userId}/${min}`);
 }
 
 export function urlHpUpdateByNickname(nickName, newHp) {
-  return axios.post(
-    `http://localhost:8080/api/character/hpupdate/${nickName}/${newHp}`
-  );
+  return axios.post(`/api/character/hpupdate/${nickName}/${newHp}`);
 }
 
 export function urlGetItemData(charNickName) {
-  return axios.get(
-    `http://localhost:8080/api/itemhistory/getlist/${charNickName}`
-  );
+  return axios.get(`/api/itemhistory/getlist/${charNickName}`);
 }
 
 export function urlItemUpdate(itemData) {
-  return axios.post(`http://localhost:8080/api/itemhistory/update`, itemData);
+  return axios.post(`/api/itemhistory/update`, itemData);
 }
 // 0808 승환 현재로그인상태 테스트
 export async function tokenCheck() {
