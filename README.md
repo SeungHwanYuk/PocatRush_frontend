@@ -331,7 +331,7 @@
 > */join*
 
 
-![sinup](https://github.com/user-attachments/assets/6d19151f-9320-4ff6-aad8-6ab69be3aad2)
+![sinup](https://github.com/user-attachments/assets/64e8d303-6f73-4f37-a3f3-7dbc10948a7a)
 
 - 기본정보 입력 후 회원가입을 합니다.
 
@@ -342,7 +342,7 @@
 **[가이드]**
 >*/guide*
 
-![guide](https://github.com/user-attachments/assets/bbe6e7f0-daed-4b08-a1eb-4018cb484157)
+![guide](https://github.com/user-attachments/assets/25e1407e-2594-473b-a8ac-98c5f8bd9387)
 
 
 - 게임 내용 소개 및 공략 페이지입니다.
@@ -355,7 +355,7 @@
 >*/community* <br>
 >*/whatsnew*
 
-![what](https://github.com/user-attachments/assets/ce065d3c-8f42-4974-a28d-028380b70713)
+![what](https://github.com/user-attachments/assets/dc785d0e-7206-486d-8a5a-00f7dacbe743)
 
 - 게시판은 유저 모두가 이용할 수 있습니다.
 - What`s New는 공지사항을 작성할 수 있으며, 관리자 권한으로만 작성 및 삭제가 가능합니다.
@@ -369,7 +369,7 @@
 > */login* <br>
 > */devicejoin/{userId}*
 
-![Device](https://github.com/user-attachments/assets/cefe8bae-0a78-4276-a546-c55776c6830f)
+![Device](https://github.com/user-attachments/assets/e46054c2-474f-4f40-a2db-1a47f24b9717)
 
 - 로그인 후 스마트워치와 연동 여부를 체크합니다.
 - 기기가 없다면 자동으로 생성함으로 연동을 완료합니다.
