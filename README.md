@@ -1,6 +1,6 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=BDBDC8&height=150&section=header" />
 
-<div align="center">
+
  
 **Pocat Rush**
 
@@ -8,15 +8,14 @@
 
 <br>
 
-README.md 2024-08-06 start
+- README.md 2024-08-06 start
 
-추후 계속 업데이트 될 예정입니다.
+- 추후 계속 업데이트 될 예정입니다.
 
-쓰시는 분들은 작성 날짜와 이름을 남겨주세용 ~
+- 쓰시는 분들은 작성 날짜와 이름을 남겨주세용 ~
 
 
-</div>
-
+<br>
 <br>
 
 
