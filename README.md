@@ -469,15 +469,15 @@ https://github.com/user-attachments/assets/6e09d3a7-6e4d-48f9-8ff3-b7dc4c0da5ec
 
 1-1. nginx.conf 파일을 수정해주세요.
 
->해당문서의 PocatRush_frontend\nginx-1.26.2\conf 폴더의 nginx.conf를 메모장으로 열기 <br>
->서버블록의 root를 \GitHub\PocatRush_frontend\build 가 있는 위치로 수정
+>해당문서의 `PocatRush_frontend\nginx-1.26.2\conf` 폴더의 `nginx.conf`를 메모장으로 열기 <br>
+>서버블록의 root를 `\GitHub\PocatRush_frontend\build` 가 있는 위치로 수정
 
 <br>
 <br>
 
 1-2. 터미널을 켜고 nginx를 실행시켜주세요.
 
->\GitHub\PocatRush_frontend\nginx-1.26.2 폴더에서 우클릭 - 터미널에서 열기 후 아래의 코드 입력
+>`\GitHub\PocatRush_frontend\nginx-1.26.2` 폴더에서 우클릭 - 터미널에서 열기 후 아래의 코드 입력
 >- start nginx
 
 <br>
@@ -487,9 +487,9 @@ https://github.com/user-attachments/assets/6e09d3a7-6e4d-48f9-8ff3-b7dc4c0da5ec
 
 2-1. 백엔드 jar 파일을 실행시켜주세요.
 
->\GitHub\PocatRush_frontend\target
+>`\GitHub\PocatRush_frontend\target`
 >
->target 폴더에서 우클릭 - 터미널에서 열기 후 아래의 코드 입력
+>`target` 폴더에서 우클릭 - 터미널에서 열기 후 아래의 코드 입력
 >
 >- java -jar PocatRush-0.0.1-SNAPSHOT.jar
 
@@ -499,7 +499,7 @@ https://github.com/user-attachments/assets/6e09d3a7-6e4d-48f9-8ff3-b7dc4c0da5ec
 ### 3. 실행
 ---
 
->- 브라우저 실행 후 주소창에 본인IP + :81 입력후 엔터
+>- 브라우저 실행 후 주소창에 `본인IP + :81` 입력후 엔터
 >
 >- 실행완료 !
 
@@ -508,9 +508,6 @@ https://github.com/user-attachments/assets/6e09d3a7-6e4d-48f9-8ff3-b7dc4c0da5ec
 ### etc. *수정사항 빌드법 (개발자용)*
 
 <br>
-
-> [!NOTE]
->젠킨스를 이용한 포워딩 필요!
 
 - 리액트 빌드
 - NginX 재시작
@@ -558,13 +555,13 @@ DB툴 (DBeaver 추천)
 >[!TIP]
 >utf8mb4로 설정해야 sql 등록시 한글이 깨지지 않습니다.
 
->DB툴을 실행하고 New DataBase Connetion - MariaDB 선택 - Authentication 박스 안의 Username과 Password 설정
+>DB툴을 실행하고 `New DataBase Connetion` - `MariaDB` 선택 - `Authentication` 박스 안의 `Username`과 `Password` 설정
 ><br>
 >
->만들어진 localhost 게이트에 Create New DataBase 클릭 <br>
->- DataBase Name : pocat_rushdb <br>
->- Charset : utf8mb4 <br>
->- Colliation : utf8mb4_general_ci <br>
+>만들어진 localhost 게이트에 `Create New DataBase` 클릭 <br>
+>- `DataBase Name` : pocat_rushdb <br>
+>- `Charset` : utf8mb4 <br>
+>- `Colliation` : utf8mb4_general_ci <br>
 
 
 <br>
@@ -581,14 +578,14 @@ DB툴 (DBeaver 추천)
 <br>
 <br>
 
-2-4. application.properties를 수정 해주세요.
+2-4. `application.properties`를 수정 해주세요.
 <br>
 
->IDE에서 PocatRush_backend 폴더를 열고, <br>
->PocatRush_backend/src/main/resources 안에 있는 application.properties를
->- jdbc:mariadb://*localhost:[3306]* <- 2-2번 단계의 localhost번호로 수정
->- spring.datasource.*username=root* <- 2-2번 단계의 Username,
->- spring.datasource.*password=root*  <- 2-2번 단계의 Password를 각각 수정 후 저장
+>IDE에서 `PocatRush_backend` 폴더를 열고, <br>
+>`PocatRush_backend/src/main/resources` 안에 있는 `application.properties`를
+>- `jdbc:mariadb://`*localhost:[3306]* <- 2-2번 단계의 localhost번호로 수정
+>- `spring.datasource.`*username=root* <- 2-2번 단계의 `Username`,
+>- `spring.datasource.`*password=root*  <- 2-2번 단계의 `Password`를 각각 수정 후 저장
 
 <br>
 <br>
@@ -596,7 +593,7 @@ DB툴 (DBeaver 추천)
 2-5. 호스트 서버를 열고 엔티티를 생성 해주세요.
 <br>
 
-> IDE에서 PocatRush_backend 폴더의 PocatRushApplication 실행
+> IDE에서 `PocatRush_backend` 폴더의 `PocatRushApplication` 실행
 
 <br>
 <br>
@@ -606,8 +603,8 @@ DB툴 (DBeaver 추천)
 > [!TIP]
 > 새로고침(F5)으로 엔티티와 데이터가 정상적으로 등록 되었는지 확인해주세요.
 
->PocatRush_backend/dumpDB 폴더내부에 최신날짜 dump-PocatRush.sql 파일을 <br>
-> DB툴에서 2-2번에서 생성한 pocat_rushdb를 찾아 [우클릭 - Tools - Restore database를 선택 후 input 박스의 sql파일에 등록] 후 Start 클릭.<br>
+>`PocatRush_backend/dumpDB` 폴더내부에 최신날짜 `dump-PocatRush.sql` 파일을 <br>
+> DB툴에서 2-2번에서 생성한 `pocat_rushdb`를 찾아 [우클릭 - `Tools` - `Restore database`를 선택 후 `input` 박스의 sql파일에 등록] 후 `Start` 클릭.<br>
 >
 
 
@@ -624,7 +621,7 @@ DB툴 (DBeaver 추천)
 3-2. npm을 설치 해주세요.
 <br>
 
->VS code에서 PocatRush_frontend 폴더를 열고 터미널 열기 *( ctrl + ` )*
+>VS code에서 `PocatRush_frontend` 폴더를 열고 터미널 열기 *( ctrl + ` )*
 >
 >터미널에 입력 후 설치
 >- npm install <br>
