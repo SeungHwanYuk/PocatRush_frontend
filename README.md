@@ -398,18 +398,18 @@ https://github.com/user-attachments/assets/325e2561-2962-4019-ac77-0c6b84dd75da
 
 **[플레이 - NPC 상호작용]**
 
-`Main NPC`
+
 https://github.com/user-attachments/assets/798bb8f7-2bc4-4a2f-be31-86029a4fc645
 
-- 메인 NPC와 대화할 수 있습니다.
+- `Main NPC`와 대화할 수 있습니다.
 - 여러번 대화시 짜증을 내며, 아이템을 지급하는 이벤트를 구현했습니다.
 
 <br>
 
-`Fitness NPC`
+
 https://github.com/user-attachments/assets/0257d0ac-7670-42a6-9cf5-d2c72bd46533
 
-- 헬스장 NPC는 UI를 직접 클릭하는 방식이고, 대화 선택지를 구현했습니다.
+- `Fitness NPC`는 UI를 직접 클릭하는 방식이고, 대화 선택지를 구현했습니다.
 - 컨텐츠 이용방법과 간단한 튜토리얼을 제공합니다.
 
 <br>
