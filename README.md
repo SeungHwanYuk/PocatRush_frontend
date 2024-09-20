@@ -17,6 +17,7 @@
 # 프로젝트 소개
 <br>
 
+> [!NOTE]
 > Pocat Rush는 메타버스(가상현실)과 에듀테크(교육기술)를 포함한 웹 게임입니다. <br>
 가상현실과 현실세계의 연결고리를 운동으로 하여금 자연스럽게 연결시키고, <br>
 캐릭터의 성장재미와 더불어 유저의 운동욕구를 촉진시킬 수 있습니다.
@@ -38,7 +39,6 @@
 
 <br>
 <br>
-
 
 ## 기술 스택
 <br>
@@ -169,7 +169,10 @@
 ```
 </details>
 
+
 ---
+
+<br>
 
 ## 폴더 구조
 <br>
@@ -426,9 +429,9 @@ NginX
 
 <br>
 
->브라우저 실행 후 주소창에 본인IP + :81 입력후 엔터
->
->실행완료 !
+- 브라우저 실행 후 주소창에 본인IP + :81 입력후 엔터
+
+- 실행완료 !
 
 <br>
 
@@ -436,6 +439,7 @@ NginX
 
 <br>
 
+> [!NOTE]
 >젠킨스를 이용한 포워딩 필요!
 
 - 리액트 빌드
@@ -479,6 +483,9 @@ DB툴 (DBeaver 추천)
 2-2. DB를 생성 해주세요.
 <br>
 
+>[!TIP]
+>utf8mb4로 설정해야 sql 등록시 한글이 깨지지 않음
+
 >DB툴을 실행하고 New DataBase Connetion - MariaDB 선택 - Authentication 박스 안의 Username과 Password 설정
 ><br>
 >
@@ -486,21 +493,23 @@ DB툴 (DBeaver 추천)
 >- DataBase Name : pocat_rushdb <br>
 >- Charset : utf8mb4 <br>
 >- Colliation : utf8mb4_general_ci <br>
->
->utf8mb4로 설정해야 sql 등록시 한글이 깨지지 않음
+
 
 <br>
 
 2-3. 백엔드 java파일을 받아주세요.
 
->https://github.com/SeungHwanYuk/PocatRush_backend
->
+> [!TIP]
 >백엔드와 프론트엔드의 독립성을 위하여 따로 관리함
+
+- https://github.com/SeungHwanYuk/PocatRush_backend
+
 
 <br>
 
 2-4. application.properties를 수정 해주세요.
 <br>
+
 >IDE에서 PocatRush_backend 폴더를 열고, <br>
 >PocatRush_backend/src/main/resources 안에 있는 application.properties를
 >- jdbc:mariadb://*localhost:[3306]* <- 2-2번 단계의 localhost번호로 수정
@@ -516,10 +525,13 @@ DB툴 (DBeaver 추천)
 
 2-6. 생성된 엔티티에 dump파일을 restore 해주세요.
 
+> [!TIP]
+> 새로고침(F5)으로 엔티티와 데이터가 정상적으로 등록 되었는지 확인.
+
 >PocatRush_backend/dumpDB 폴더내부에 최신날짜 dump-PocatRush.sql 파일을 <br>
 > DB툴에서 2-2번에서 생성한 pocat_rushdb를 찾아 [우클릭 - Tools - Restore database를 선택 후 input 박스의 sql파일에 등록] 후 Start 클릭.<br>
 >
-> 새로고침(F5)으로 엔티티와 데이터가 정상적으로 등록 되었는지 확인.
+
 
 <br>
 
