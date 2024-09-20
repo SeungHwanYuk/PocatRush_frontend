@@ -49,27 +49,27 @@
 - java, c#
   
 **back-end**
-- 프레임워크 : SpringBoot
-- 라이브러리 : LomBok, TomCat(WAS), JWT
+- 프레임워크 : SpringBoot (v3.3.2)
+- 라이브러리 : Lombok, Spring Security(v6.3.1), JWT(v0.12.6)
 - ORM : JPA Hibernate
 
 
 **front-end**
-- HTML, CSS, JSX, javaScript
-- 라이브러리 : react-icons, react-router-dom, react-unity-webgl, axios, WebGL
-- 게임엔진 : Unity
+- React, HTML, CSS, javaScript
+- 라이브러리 : react-icons, react-router-dom, react-unity-webgl, axios
 - 런타임환경 : node.js
 
-
+**3D 엔진**
+- 게임엔진 : Unity
+- 빌드환경 : WebGL
 
 **DB**
 - MariaDB
 - 관리툴 : DBeaver
 
 
-
 **Server**
-- NginX (WS)
+- NginX
 
 
 **버전 관리**
@@ -82,7 +82,7 @@
 
 **개발 환경**
 - Windows, IntelliJ, VsCode, PostMan, Maven
-- react, styled-component, prettier
+- styled-component, prettier
 
 <br>
 
@@ -462,32 +462,20 @@ https://github.com/user-attachments/assets/6e09d3a7-6e4d-48f9-8ff3-b7dc4c0da5ec
 
 <br>
 
-### 1. 실행에 필요한 프로그램
----
-<br>
-
-NginX
-
-<br>
-
-인터넷 브라우저 (크롬 추천)
-
-<br>
-
-
-### 2. 프록시 연결
+### 1. 프론트 서버 생성
 ---
 
 <br>
 
-2-1. nginx.conf 파일을 수정해주세요.
+1-1. nginx.conf 파일을 수정해주세요.
 
+>해당문서의 PocatRush_frontend\nginx-1.26.2\conf 폴더의 nginx.conf를 메모장으로 열기
 >서버블록의 root를 \GitHub\PocatRush_frontend\build 가 있는 위치로 수정
 
 <br>
 <br>
 
-2-2. 터미널을 켜고 nginx를 실행시켜주세요.
+1-2. 터미널을 켜고 nginx를 실행시켜주세요.
 
 >\GitHub\PocatRush_frontend\nginx-1.26.2 폴더에서 우클릭 - 터미널에서 열기 후 아래의 코드 입력
 >- start nginx
@@ -495,7 +483,9 @@ NginX
 <br>
 <br>
 
-2-3. 백엔드 jar 파일을 실행시켜주세요.
+### 2. 백엔드 서버 생성
+
+2-1. 백엔드 jar 파일을 실행시켜주세요.
 
 >https://github.com/SeungHwanYuk/PocatRush_backend
 >
