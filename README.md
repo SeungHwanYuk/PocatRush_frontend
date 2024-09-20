@@ -406,12 +406,14 @@ NginX
 >서버블록의 root를 \GitHub\PocatRush_frontend\build 가 있는 위치로 수정
 
 <br>
+<br>
 
 2-2. 터미널을 켜고 nginx를 실행시켜주세요.
 
 >\GitHub\PocatRush_frontend\nginx-1.26.2 폴더에서 우클릭 - 터미널에서 열기 후 아래의 코드 입력
 >- start nginx
 
+<br>
 <br>
 
 2-3. 백엔드 jar 파일을 실행시켜주세요.
@@ -423,15 +425,14 @@ NginX
 >- java -jar PocatRush-0.0.1-SNAPSHOT.jar
 
 <br>
+<br>
 
 ### 3. 실행
 ---
 
-<br>
-
-- 브라우저 실행 후 주소창에 본인IP + :81 입력후 엔터
-
-- 실행완료 !
+>- 브라우저 실행 후 주소창에 본인IP + :81 입력후 엔터
+>
+>- 실행완료 !
 
 <br>
 
@@ -465,11 +466,9 @@ MariaDB
 <br>
 
 DB툴 (DBeaver 추천)
-
 <br>
 
 인터넷 브라우저 (크롬 추천)
-
 <br>
 
 ### 2. DB 생성, 로컬 서버 생성
@@ -479,8 +478,10 @@ DB툴 (DBeaver 추천)
 2-1. MariaDB를 설치해주세요.
 
 <br>
+<br>
 
 2-2. DB를 생성 해주세요.
+<br>
 <br>
 
 >[!TIP]
@@ -496,15 +497,17 @@ DB툴 (DBeaver 추천)
 
 
 <br>
+<br>
 
 2-3. 백엔드 java파일을 받아주세요.
 
 > [!TIP]
 >백엔드와 프론트엔드의 독립성을 위하여 따로 관리함
 
-- https://github.com/SeungHwanYuk/PocatRush_backend
+>- https://github.com/SeungHwanYuk/PocatRush_backend
 
 
+<br>
 <br>
 
 2-4. application.properties를 수정 해주세요.
@@ -515,12 +518,16 @@ DB툴 (DBeaver 추천)
 >- jdbc:mariadb://*localhost:[3306]* <- 2-2번 단계의 localhost번호로 수정
 >- spring.datasource.*username=root* <- 2-2번 단계의 Username,
 >- spring.datasource.*password=root*  <- 2-2번 단계의 Password를 각각 수정 후 저장
+
+<br>
 <br>
 
 2-5. 호스트 서버를 열고 엔티티를 생성 해주세요.
 <br>
 
 > IDE에서 PocatRush_backend 폴더의 PocatRushApplication 실행
+
+<br>
 <br>
 
 2-6. 생성된 엔티티에 dump파일을 restore 해주세요.
@@ -541,6 +548,7 @@ DB툴 (DBeaver 추천)
 
 3-1. node.js를 설치 해주세요.
 <br>
+<br>
 
 3-2. npm을 설치 해주세요.
 <br>
@@ -558,9 +566,8 @@ DB툴 (DBeaver 추천)
 
 >터미널에 입력
 >- npm start
-
-브라우저가 열리며 페이지 이용가능 !
-<br>
+>
+>브라우저가 열리며 페이지 이용가능 !
 <br>
 
 ---
