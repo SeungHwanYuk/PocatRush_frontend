@@ -405,11 +405,12 @@ https://github.com/user-attachments/assets/798bb8f7-2bc4-4a2f-be31-86029a4fc645
 - 여러번 대화시 짜증을 내며, 아이템을 지급하는 이벤트를 구현했습니다.
 
 <br>
+<br>
 
 
 https://github.com/user-attachments/assets/0257d0ac-7670-42a6-9cf5-d2c72bd46533
 
-- `Fitness NPC`는 UI를 직접 클릭하는 방식이고, 대화 선택지를 구현했습니다.
+- `Fitness NPC`는 UI를 직접 클릭하는 방식으로, 대화의 선택지를 구현했습니다.
 - 컨텐츠 이용방법과 간단한 튜토리얼을 제공합니다.
 
 <br>
@@ -427,13 +428,28 @@ https://github.com/user-attachments/assets/597af20b-44e0-4382-9b6f-45a36b406a54
 <br>
 <br>
 
+**[플레이 - 레벨업]**
+
+https://github.com/user-attachments/assets/87df7b3f-f3b4-48d7-9d66-f6174eb0f8c0
+
+
+- 충분히 운동을 했다면 레벨업 기준에 따른 등급이 갱신됩니다.
+- 마이페이지로 돌아가면, 각 등급에 따른 도전과제가 해금되고 메달이 추가됩니다.
+- 랭킹페이지에서 본인의 순위 또한 확인할 수 있습니다!
+
+<br>
+<br>
+<br>
+
 **[윙키]**
 
 https://github.com/user-attachments/assets/6e09d3a7-6e4d-48f9-8ff3-b7dc4c0da5ec
 
+- 밤에만 나타나는 *「윙키」* 요정입니다.
+- 클릭시 도전과제가 달성됩니다.
 
 
-
+<br>
 <br>
 
 
