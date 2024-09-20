@@ -325,7 +325,47 @@ github.com/bobo459
 
 <br>
 
-작성중 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+**회원가입**
+
+
+![sinup](https://github.com/user-attachments/assets/6d19151f-9320-4ff6-aad8-6ab69be3aad2)
+
+- 기본정보 입력 후 회원가입
+
+<br>
+<br>
+<br>
+
+
+
+**디바이스 등록**
+
+![Device](https://github.com/user-attachments/assets/cefe8bae-0a78-4276-a546-c55776c6830f)
+
+- 로그인 후 디바이스기기 등록 (스마트워치와 연동)
+- 연동을 완료하여 운동량 직접 입력 (실제 운동을 끝냈다는 가정)
+
+<br>
+<br>
+<br>
+
+
+**게임 실행**
+
+어쩌구 저쩌구
+
+<br>
+<br>
+<br>
+
+
+
+
+
+https://github.com/user-attachments/assets/6e09d3a7-6e4d-48f9-8ff3-b7dc4c0da5ec
+
+
+
 
 <br>
 
