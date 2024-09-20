@@ -29,14 +29,13 @@
 
 **팀원 구성**
 
-육승환 
-ysh54244902@gmail.com 
-github.com/SeungHwanYuk
-<br>
+|육승환|송진경|
+| --- | --- |
+|![profile02](https://github.com/user-attachments/assets/87382ce5-5370-4381-b783-f35f75ebf31d)|![profile03](https://github.com/user-attachments/assets/01187408-d9a4-4ce5-a676-544cc8a682d7)|
+|ysh54244902@gmail.com | rudwlsthd123@naver.com | 
+|[github.com/SeungHwanYuk](https://github.com/SeungHwanYuk)|[github.com/bobo459](https://github.com/bobo459)|
 
-송진경
-rudwlsthd123@naver.com
-github.com/bobo459
+
 <br>
 <br>
 
@@ -325,7 +324,8 @@ github.com/bobo459
 
 <br>
 
-**회원가입**
+**[회원가입]** 
+> */join*
 
 
 ![sinup](https://github.com/user-attachments/assets/6d19151f-9320-4ff6-aad8-6ab69be3aad2)
@@ -338,7 +338,9 @@ github.com/bobo459
 
 
 
-**디바이스 등록**
+**[디바이스 등록]** 
+> */login* <br>
+> */devicejoin/{userId}*
 
 ![Device](https://github.com/user-attachments/assets/cefe8bae-0a78-4276-a546-c55776c6830f)
 
@@ -350,7 +352,8 @@ github.com/bobo459
 <br>
 
 
-**게임 실행**
+**[게임 실행]**
+> */playgame*
 
 어쩌구 저쩌구
 
@@ -360,7 +363,7 @@ github.com/bobo459
 
 
 
-
+**[윙키]**
 
 https://github.com/user-attachments/assets/6e09d3a7-6e4d-48f9-8ff3-b7dc4c0da5ec
 
