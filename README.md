@@ -487,7 +487,7 @@ https://github.com/user-attachments/assets/6e09d3a7-6e4d-48f9-8ff3-b7dc4c0da5ec
 
 2-1. 백엔드 jar 파일을 실행시켜주세요.
 
->https://github.com/SeungHwanYuk/PocatRush_backend
+>\GitHub\PocatRush_frontend\target
 >
 >target 폴더에서 우클릭 - 터미널에서 열기 후 아래의 코드 입력
 >
@@ -517,6 +517,7 @@ https://github.com/user-attachments/assets/6e09d3a7-6e4d-48f9-8ff3-b7dc4c0da5ec
 - 백엔드 코드 빌드
 - jar파일을 java로 실행
 
+<br>
 <br>
 
 ## 로컬 실행법 (개발자용)
