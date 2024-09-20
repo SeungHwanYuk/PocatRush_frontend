@@ -487,6 +487,7 @@ https://github.com/user-attachments/assets/6e09d3a7-6e4d-48f9-8ff3-b7dc4c0da5ec
 <br>
 
 ### 2. 백엔드 서버 생성
+---
 
 2-1. 백엔드 jar 파일을 실행시켜주세요.
 
