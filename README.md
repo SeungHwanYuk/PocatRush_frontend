@@ -333,12 +333,36 @@
 
 ![sinup](https://github.com/user-attachments/assets/6d19151f-9320-4ff6-aad8-6ab69be3aad2)
 
-- 기본정보 입력 후 회원가입
+- 기본정보 입력 후 회원가입을 합니다.
 
 <br>
 <br>
 <br>
 
+**[가이드]**
+>*/guide*
+
+![guide](https://github.com/user-attachments/assets/bbe6e7f0-daed-4b08-a1eb-4018cb484157)
+
+
+- 게임 내용 소개 및 공략 페이지입니다.
+
+<br>
+<br>
+<br>
+
+**[커뮤니티]**
+>*/community* <br>
+>*/whatsnew*
+
+![what](https://github.com/user-attachments/assets/ce065d3c-8f42-4974-a28d-028380b70713)
+
+- 게시판은 유저 모두가 이용할 수 있습니다.
+- What`s New는 공지사항을 작성할 수 있으며, 관리자 권한으로만 작성 및 삭제가 가능합니다.
+
+<br>
+<br>
+<br>
 
 
 **[디바이스 등록]** 
@@ -347,24 +371,61 @@
 
 ![Device](https://github.com/user-attachments/assets/cefe8bae-0a78-4276-a546-c55776c6830f)
 
-- 로그인 후 디바이스기기 등록 (스마트워치와 연동)
-- 연동을 완료하여 운동량 직접 입력 (실제 운동을 끝냈다는 가정)
+- 로그인 후 스마트워치와 연동 여부를 체크합니다.
+- 기기가 없다면 자동으로 생성함으로 연동을 완료합니다.
+- 운동량 직접 입력 할 수 있습니다. (실제 운동량을 채웠다는 가정)
 
 <br>
 <br>
 <br>
+
 
 
 **[게임 실행]**
 > */playgame*
 
-어쩌구 저쩌구
+
+
+https://github.com/user-attachments/assets/325e2561-2962-4019-ac77-0c6b84dd75da
+
+
+
+- 마이페이지 메달(도전과제) 현황과 캐릭터 생성시 닉네임을 체크합니다.
 
 <br>
 <br>
 <br>
 
+**[플레이 - NPC 상호작용]**
 
+`Main NPC`
+https://github.com/user-attachments/assets/798bb8f7-2bc4-4a2f-be31-86029a4fc645
+
+- 메인 NPC와 대화할 수 있습니다.
+- 여러번 대화시 짜증을 내며, 아이템을 지급하는 이벤트를 구현했습니다.
+
+<br>
+
+`Fitness NPC`
+https://github.com/user-attachments/assets/0257d0ac-7670-42a6-9cf5-d2c72bd46533
+
+- 헬스장 NPC는 UI를 직접 클릭하는 방식이고, 대화 선택지를 구현했습니다.
+- 컨텐츠 이용방법과 간단한 튜토리얼을 제공합니다.
+
+<br>
+<br>
+<br>
+
+**[플레이 - HP부족]**
+
+https://github.com/user-attachments/assets/597af20b-44e0-4382-9b6f-45a36b406a54
+
+- 과도한 운동시 캐릭터가 지치며 이동속도가 느려집니다.
+- 좌측 상단의 아이템 버튼을 누르면 체력을 회복합니다.
+
+<br>
+<br>
+<br>
 
 **[윙키]**
 
