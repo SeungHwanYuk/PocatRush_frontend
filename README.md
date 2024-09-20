@@ -469,7 +469,7 @@ https://github.com/user-attachments/assets/6e09d3a7-6e4d-48f9-8ff3-b7dc4c0da5ec
 
 1-1. nginx.conf 파일을 수정해주세요.
 
->해당문서의 PocatRush_frontend\nginx-1.26.2\conf 폴더의 nginx.conf를 메모장으로 열기
+>해당문서의 PocatRush_frontend\nginx-1.26.2\conf 폴더의 nginx.conf를 메모장으로 열기 <br>
 >서버블록의 root를 \GitHub\PocatRush_frontend\build 가 있는 위치로 수정
 
 <br>
