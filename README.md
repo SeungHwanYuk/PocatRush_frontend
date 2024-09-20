@@ -1,3 +1,5 @@
+<img src="https://capsule-render.vercel.app/api?type=waving&color=BDBDC8&height=150&section=header" />
+
 **Pocat Rush**
 
 > 나의 운동기록으로 게임속 캐릭터를 성장시키는 메타버스 에듀테크 웹게임 페이지
@@ -547,6 +549,7 @@ DB툴 (DBeaver 추천)
 
 인터넷 브라우저 (크롬 추천)
 <br>
+<br>
 
 ### 2. DB 생성, 로컬 서버 생성
 ---
@@ -562,7 +565,7 @@ DB툴 (DBeaver 추천)
 <br>
 
 >[!TIP]
->utf8mb4로 설정해야 sql 등록시 한글이 깨지지 않음
+>utf8mb4로 설정해야 sql 등록시 한글이 깨지지 않습니다.
 
 >DB툴을 실행하고 New DataBase Connetion - MariaDB 선택 - Authentication 박스 안의 Username과 Password 설정
 ><br>
@@ -579,7 +582,7 @@ DB툴 (DBeaver 추천)
 2-3. 백엔드 java파일을 받아주세요.
 
 > [!TIP]
->백엔드와 프론트엔드의 독립성을 위하여 따로 관리함
+>백엔드와 프론트엔드의 독립성을 위하여 따로 관리합니다.
 
 >- https://github.com/SeungHwanYuk/PocatRush_backend
 
@@ -610,7 +613,7 @@ DB툴 (DBeaver 추천)
 2-6. 생성된 엔티티에 dump파일을 restore 해주세요.
 
 > [!TIP]
-> 새로고침(F5)으로 엔티티와 데이터가 정상적으로 등록 되었는지 확인.
+> 새로고침(F5)으로 엔티티와 데이터가 정상적으로 등록 되었는지 확인해주세요.
 
 >PocatRush_backend/dumpDB 폴더내부에 최신날짜 dump-PocatRush.sql 파일을 <br>
 > DB툴에서 2-2번에서 생성한 pocat_rushdb를 찾아 [우클릭 - Tools - Restore database를 선택 후 input 박스의 sql파일에 등록] 후 Start 클릭.<br>
@@ -646,12 +649,18 @@ DB툴 (DBeaver 추천)
 >
 >브라우저가 열리며 페이지 이용가능 !
 <br>
+<br>
 
 ---
 
 
+## *추가사항*
+<br>
 
-
+<details>
+ <br>
+    <summary>React Icon 설치</summary>
+    <br>
 
 20240807 React Icon 설치
 
@@ -672,3 +681,7 @@ return <FaBeer />
 https://react-icons.github.io/react-icons/
 
 따로 svg, 이미지 작업 필요 없이 바로 사용 가능
+
+</details>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=BDBDC8&height=150&section=footer" />
