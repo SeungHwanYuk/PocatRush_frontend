@@ -49,7 +49,7 @@
 <br>
 
 **언어**
-- java, c#
+- Java, C#
   
 **back-end**
 - 프레임워크 : SpringBoot (v3.3.2)
@@ -58,7 +58,7 @@
 
 
 **front-end**
-- React, HTML, CSS, javaScript
+- React, HTML, CSS, JavaScript
 - 라이브러리 : react-icons, react-router-dom, react-unity-webgl, axios
 - 런타임환경 : node.js
 
@@ -84,7 +84,7 @@
 
 
 **개발 환경**
-- Windows, IntelliJ, VsCode, PostMan, Maven
+- Windows, IntelliJ, VScode, Postman, Maven
 - styled-component, prettier
 
 <br>
