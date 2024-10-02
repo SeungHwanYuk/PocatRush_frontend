@@ -154,7 +154,7 @@ export function UnityGame() {
     }
   }
 
-  async function createCharater() {
+  async function createCharacter() {
     try {
       const responseCreated = await urlCreateCharacter(characterData);
       console.log("urlCreateCharacter : ", responseCreated);
@@ -405,7 +405,7 @@ export function UnityGame() {
   }, [deviceKm, deviceKg, deviceMin]);
 
   useEffect(() => {
-    createCharater();
+    createCharacter();
   }, [charNickname]);
 
   useEffect(() => {
