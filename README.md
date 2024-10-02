@@ -257,7 +257,7 @@
 
 <br>
 
-#### 프론트엔드 [ javaScript, css, html, JSX ]
+#### 프론트엔드 [ javaScript, css, html ]
 - 기능 구현
   - 헤더
   - 아이디, 캐릭터 유효성 검사
@@ -300,7 +300,7 @@
 
 <br>
 
-#### 프론트엔드 [ javaScript, css, html, JSX ]
+#### 프론트엔드 [ javaScript, css, html ]
 - 기능 구현
   - 마이페이지
   - 커뮤니티
@@ -315,7 +315,7 @@
 
   <br>
 
-#### 웹 게임 [ c# ]
+#### 웹 게임 [ Maya ]
   - 전체 3D 총괄
     - 배경 구조 디자인
     - 건물 재배치 및 수정
