@@ -43,7 +43,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://seunghwanyuk.github.io/PocatRush_frontend/",
+  "homepage": "https://seunghwanyuk.github.io/PocatRush_frontend/build",
   "devDependencies": {
     "gh-pages": "^6.1.1"
   }
