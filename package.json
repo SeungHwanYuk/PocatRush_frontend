@@ -43,7 +43,7 @@
     ]
   },
   "proxy": "http://localhost:8080",
-  "homepage": ".",
+  "homepage": "https://seunghwanyuk.github.io/PocatRush_frontend/build/",
   "devDependencies": {
     "gh-pages": "^6.1.1"
   }
