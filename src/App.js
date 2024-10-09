@@ -25,11 +25,12 @@ import Guide from "./Pages/Guide";
 import GuideWrapper from "./Pages/GuideWrapper";
 import GuidePost from "./Pages/GuidePost";
 
+// basename={process.env.PUBLIC_URL}
 function App() {
   return (
     <>
       {/* <Main /> */}
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} index />
           <Route path="/test" element={<FirstTest />} />

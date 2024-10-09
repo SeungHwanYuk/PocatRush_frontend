@@ -60,7 +60,7 @@ function Main() {
     <>
       <Header />
       <Wrapper ju={`center`} al={`flex-end`} dr={`column`}>
-        <Image src="images/testBanner.png" />
+        <Image src="../images/testBanner.png" />
         <Wrapper dr={`column`} al={`flex-end`} isAbsolute top={`32%`}>
           <GameStartButton onClick={() => loginCheck()}>
             GAME START

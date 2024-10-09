@@ -3,3 +3,5 @@
 2024/09/19 11:41:01 [notice] 36828#29632: signal process started
 2024/09/19 12:15:03 [notice] 33776#27420: signal process started
 2024/09/19 15:31:45 [notice] 20752#20856: signal process started
+2024/10/10 04:39:45 [emerg] 41324#20056: CreateDirectory() "C:\Users\ysh54\Documents\GitHub\PocatRush_frontend\nginx-1.26.2/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2024/10/10 04:41:22 [emerg] 43280#16836: CreateDirectory() "C:\Users\ysh54\Documents\GitHub\PocatRush_frontend\nginx-1.26.2/temp/client_body_temp" failed (3: The system cannot find the path specified)
