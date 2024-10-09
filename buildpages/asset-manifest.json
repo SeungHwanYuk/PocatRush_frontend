@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/PocatRush_frontend/buildpage/static/css/main.919fe2be.css",
+    "main.js": "/PocatRush_frontend/buildpage/static/js/main.a7082fd5.js",
+    "index.html": "/PocatRush_frontend/buildpage/index.html",
+    "main.919fe2be.css.map": "/PocatRush_frontend/buildpage/static/css/main.919fe2be.css.map",
+    "main.a7082fd5.js.map": "/PocatRush_frontend/buildpage/static/js/main.a7082fd5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.919fe2be.css",
+    "static/js/main.a7082fd5.js"
+  ]
+}
