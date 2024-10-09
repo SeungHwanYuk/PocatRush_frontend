@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/PocatRush_frontend/static/css/main.919fe2be.css",
-    "main.js": "/PocatRush_frontend/static/js/main.80381e33.js",
+    "main.js": "/PocatRush_frontend/static/js/main.5ac5d7a5.js",
     "index.html": "/PocatRush_frontend/index.html",
     "main.919fe2be.css.map": "/PocatRush_frontend/static/css/main.919fe2be.css.map",
-    "main.80381e33.js.map": "/PocatRush_frontend/static/js/main.80381e33.js.map"
+    "main.5ac5d7a5.js.map": "/PocatRush_frontend/static/js/main.5ac5d7a5.js.map"
   },
   "entrypoints": [
     "static/css/main.919fe2be.css",
-    "static/js/main.80381e33.js"
+    "static/js/main.5ac5d7a5.js"
   ]
 }
