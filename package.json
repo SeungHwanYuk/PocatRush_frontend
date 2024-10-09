@@ -22,6 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
@@ -42,8 +43,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8080",
-  "homepage": "https://seunghwanyuk.github.io/PocatRush_frontend/build/",
+  "homepage": "https://seunghwanyuk.github.io/PocatRush_frontend/",
   "devDependencies": {
     "gh-pages": "^6.1.1"
   }
