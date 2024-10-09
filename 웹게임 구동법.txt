@@ -1,4 +1,4 @@
-<WebGL 빌드하고 React 적용하기>
+<WebGL 빌드하고 React 적용하기 >
 1. 유니티 WebGL 빌드환경 적용
 2. Player Settings - Publishing Settings
 	- Compression Format = disabled
