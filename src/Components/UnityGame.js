@@ -162,6 +162,8 @@ export function UnityGame() {
       getUserId();
     } catch (error) {
       console.log("urlCreateCharacter 에러 ", error);
+      alert("테스트 플레이중!")
+      sendMessage("createButton", "Show");
     }
   }
 
@@ -471,7 +473,7 @@ export function UnityGame() {
     <>
       <Header></Header>
 
-      <BackGroundImage bgImg={`url("../images/background_game.png")`}>
+      <BackGroundImage bgImg={`url("https://seunghwanyuk.github.io/PocatRush_frontend/images/background_game.png")`}>
         <Wrapper overflow={"none"}>
           <Wrapper
             display={"flex"}
@@ -504,7 +506,7 @@ export function UnityGame() {
         </button> */}
             </div>
             {watchActive && watchActive == true ? (
-              <BackGroundImageWatch bgImg={`url("../images/watch02.png")`}>
+              <BackGroundImageWatch bgImg={`url("https://seunghwanyuk.github.io/PocatRush_frontend/images/watch02.png")`}>
                 <Wrapper
                   dr={`column`}
                   alContent={`center`}

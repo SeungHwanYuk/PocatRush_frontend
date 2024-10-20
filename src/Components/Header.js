@@ -61,7 +61,7 @@ function Header() {
   }
 
   function toDevicePage() {
-    window.location.href = `/DeviceJoin/${userId}`;
+    window.location.href = `./DeviceJoin/${userId}`;
   }
 
   useEffect(() => {
@@ -79,7 +79,7 @@ function Header() {
         <ScrollToTop />
         <StyledLink to={"/"}>
           <Image
-            src="/images/pocatLogo.png"
+            src="https://seunghwanyuk.github.io/PocatRush_frontend/images/pocatLogo.png"
             width={`180px`}
             padding={`14px 0 0`}
           />

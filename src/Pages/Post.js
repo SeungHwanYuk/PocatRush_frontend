@@ -63,7 +63,7 @@ function Post() {
       <Wrapper>
         <Header />
         <ScrollToTop />
-        <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
+        <SubPageTitleWrapper bgImg={`url("https://seunghwanyuk.github.io/PocatRush_frontend/images/subBanner01.png")`}>
           <StyledLink
             to={data && data.board.boardId == 1 ? "/community" : "/whatsnew"}
           >

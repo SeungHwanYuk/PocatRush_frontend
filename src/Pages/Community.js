@@ -57,7 +57,7 @@ function Community() {
     <>
       <Wrapper>
         <Header />
-        <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
+        <SubPageTitleWrapper bgImg={`url("https://seunghwanyuk.github.io/PocatRush_frontend/images/subBanner01.png")`}>
           <StyledLink to={"/community"}>
             <SubPageTitle>커뮤니티</SubPageTitle>
             <SubPageTitleDesc>

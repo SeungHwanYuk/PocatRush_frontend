@@ -70,7 +70,7 @@ function PostWrite() {
     <>
       <Wrapper>
         <Header />
-        <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
+        <SubPageTitleWrapper bgImg={`url("https://seunghwanyuk.github.io/PocatRush_frontend/images/subBanner01.png")`}>
           <SubPageTitle>커뮤니티</SubPageTitle>
           <SubPageTitleDesc>
             포켓러쉬 유저들과 자유롭게 소통할 수 있습니다.

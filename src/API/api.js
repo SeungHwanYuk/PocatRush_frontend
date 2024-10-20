@@ -135,7 +135,7 @@ export async function userLogout() {
     localStorage.removeItem("JWT-token");
     localStorage.removeItem("isAdmin");
 
-    window.location.href = "/";
+    window.location.href = "/PocatRush_frontend";
     console.log("로그아웃 완료");
   }
   return <></>;

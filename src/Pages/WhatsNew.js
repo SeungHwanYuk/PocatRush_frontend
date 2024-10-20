@@ -63,7 +63,7 @@ function WhatsNew() {
       <Wrapper>
         <Header />
         <ScrollToTop />
-        <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
+        <SubPageTitleWrapper bgImg={`url("https://seunghwanyuk.github.io/PocatRush_frontend/images/subBanner01.png")`}>
           <StyledLink to={"/whatsnew"}>
             <SubPageTitle color={`#242424`}>What's New</SubPageTitle>
             <SubPageTitleDesc>

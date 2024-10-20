@@ -9,7 +9,7 @@ function Admin() {
     <>
       <Header />
       <Wrapper padding={`100px 0px `}>
-        <Image src="../images/adminCat.png" width={`400px`} />
+        <Image src="https://seunghwanyuk.github.io/PocatRush_frontend/images/adminCat.png" width={`400px`} />
       </Wrapper>
       <Wrapper dr={`column`}>
         <Wrapper ju={`center`}>

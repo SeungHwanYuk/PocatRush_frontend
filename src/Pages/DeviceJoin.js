@@ -93,7 +93,7 @@ export function DeviceJoin() {
       <Wrapper>
         <Header />
         {/* 페이지 이동시 이미지 주소가 기존 주소에 + (더해져서 찾는) 현상을 보완하기위해 ../ 로 자동으로 찾기 수정 매우중요! */}
-        <SubPageTitleWrapper bgImg={`url("../images/subBanner02.png")`}>
+        <SubPageTitleWrapper bgImg={`url("https://seunghwanyuk.github.io/PocatRush_frontend/images/subBanner02.png")`}>
           <SubPageTitle>기기연결</SubPageTitle>
           <SubPageTitleDesc>
             지금 바로 연동하고 즐거운 포켓러쉬의 세계에 빠져보세요.
@@ -168,7 +168,7 @@ export function DeviceJoin() {
 
                 <DiviceText>
                   <SubPageTitleWrapper
-                    bgImg={`url("../images/watch.png")`}
+                    bgImg={`url("https://seunghwanyuk.github.io/PocatRush_frontend/images/watch.png")`}
                     width={`2500px`}
                   >
                     <DiviceText width={`50px`}>

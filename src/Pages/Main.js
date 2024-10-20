@@ -26,9 +26,10 @@ function Main() {
   function loginCheck() {
     let token = localStorage.getItem("JWT-token");
     if (token) {
-      window.location.href = `/playgame`;
+      window.location.href = `PocatRush_frontend/playgame`;
     } else {
-      alert("로그인이 필요합니다.");
+      alert("git.page는 html만 이용 가능합니다ㅠㅠ")
+      window.location.href = `PocatRush_frontend/playgame`;
     }
   }
 
@@ -60,7 +61,7 @@ function Main() {
     <>
       <Header />
       <Wrapper ju={`center`} al={`flex-end`} dr={`column`}>
-        <Image src="../images/testBanner.png" />
+        <Image src="https://seunghwanyuk.github.io/PocatRush_frontend/images/testBanner.png" />
         <Wrapper dr={`column`} al={`flex-end`} isAbsolute top={`32%`}>
           <GameStartButton onClick={() => loginCheck()}>
             GAME START

@@ -12,12 +12,12 @@ function GameIntro() {
   return (
     <>
       <Header />
-      <SubPageTitleWrapper bgImg={`url("../images/subBanner02.png")`}>
+      <SubPageTitleWrapper bgImg={`url("https://seunghwanyuk.github.io/PocatRush_frontend/images/subBanner02.png")`}>
         <SubPageTitle>게임소개</SubPageTitle>
         <SubPageTitleDesc>포캣러쉬를 소개합니다!</SubPageTitleDesc>
       </SubPageTitleWrapper>
       <Wrapper padding={`120px 0`}>
-        <Image src="/images/GameIntro.png" maxWidth={`800px`} />
+        <Image src="https://seunghwanyuk.github.io/PocatRush_frontend/images/GameIntro.png" maxWidth={`800px`} />
       </Wrapper>
       <Footer />
     </>

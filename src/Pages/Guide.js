@@ -44,7 +44,7 @@ function Guide() {
       
       <StyledLink to={"/Guide"}>
       <Header />
-        <SubPageTitleWrapper bgImg={`url("../images/subBanner02.png")`}>
+        <SubPageTitleWrapper bgImg={`url("https://seunghwanyuk.github.io/PocatRush_frontend/images/subBanner02.png")`}>
           <SubPageTitle>가이드</SubPageTitle>
 
           <SubPageTitleDesc>

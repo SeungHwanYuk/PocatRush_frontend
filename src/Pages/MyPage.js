@@ -37,7 +37,7 @@ function MyPage() {
   const [characterPoint, setCharacterPoint] = useState("");
   const [characterExp, setCharacterExp] = useState("");
   const [medalList, setMedalList] = useState([]); // 메달 리스트
-  const [defalutImage, setDefalutImage] = useState("images/no_medal.png");
+  const [defalutImage, setDefalutImage] = useState("https://seunghwanyuk.github.io/PocatRush_frontend/images/no_medal.png");
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [popupContent, setPopupContent] = useState("");
 
@@ -58,8 +58,8 @@ function MyPage() {
       }
     } catch (error) {
       console.log("토큰 없음 :", error);
-      alert("로그인이 필요합니다");
-      navigate(-1);
+      alert("로그인이 필요합니다.");
+      // navigate(-1); 테스트
     }
   }
 
@@ -82,7 +82,7 @@ function MyPage() {
         <MedalListDiv key={index}>
           <MedalListImage
             key={index}
-            src="images/no_medal.png"
+            src="https://seunghwanyuk.github.io/PocatRush_frontend/images/no_medal.png"
             alt={`No Medal ${index}`}
             onClick={() => handleMedalClick("No Medal Info")}
           />
@@ -103,7 +103,7 @@ function MyPage() {
             src={
               userExp >= medal.levelUpExpLowLimit
                 ? medal.medalImage
-                : "images/no_medal.png"
+                : "https://seunghwanyuk.github.io/PocatRush_frontend/images/no_medal.png"
             }
             alt={`Medal ${index}`}
             onClick={() =>
@@ -154,7 +154,7 @@ function MyPage() {
     <>
       <Wrapper>
         <Header />
-        <SubPageTitleWrapper bgImg={`url("../images/subBanner02.png")`}>
+        <SubPageTitleWrapper bgImg={`url("https://seunghwanyuk.github.io/PocatRush_frontend/images/subBanner02.png")`}>
           <StyledLink to={"/mypage"}>
             <SubPageTitle>마이페이지</SubPageTitle>
             <SubPageTitleDesc>

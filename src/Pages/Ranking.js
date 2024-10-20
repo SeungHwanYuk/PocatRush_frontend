@@ -55,7 +55,7 @@ function Ranking() {
     <>
       <Wrapper>
         <Header />
-        <SubPageTitleWrapper bgImg={`url("../images/subBanner01.png")`}>
+        <SubPageTitleWrapper bgImg={`url("https://seunghwanyuk.github.io/PocatRush_frontend/images/subBanner01.png")`}>
           <StyledLink to={"/ranking"}>
             <SubPageTitle>랭킹</SubPageTitle>
             <SubPageTitleDesc>

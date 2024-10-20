@@ -29,7 +29,7 @@ function GuidePost() {
     <>
       <Header />
       <StyledLink to={"/Guide"}>
-        <SubPageTitleWrapper bgImg={`url("../images/subBanner02.png")`}>
+        <SubPageTitleWrapper bgImg={`url("https://seunghwanyuk.github.io/PocatRush_frontend/images/subBanner02.png")`}>
           <SubPageTitle>가이드</SubPageTitle>
           <SubPageTitleDesc>
             포켓러쉬 월드에 대해 알아갈 수 있어요.
