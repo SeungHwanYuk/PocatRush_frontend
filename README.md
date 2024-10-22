@@ -20,6 +20,7 @@
 
 - 쓰시는 분들은 작성 날짜와 이름을 남겨주세용 ~
 
+- 프리뷰 페이지 -> 
 **https://seunghwanyuk.github.io/PocatRush_frontend**
 
 
